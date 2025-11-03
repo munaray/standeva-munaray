@@ -1,7 +1,12 @@
-"use client";
+'use client'
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, Variants } from "framer-motion";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 import {
 	Database,
 	Cloud,
@@ -38,33 +43,33 @@ import {
 } from "./hero.styles";
 
 const techIcons = [
-	{ name: "Database", icon: Database, color: "#10b981" },
-	{ name: "Cloud", icon: Cloud, color: "#06b6d4" },
-	{ name: "Security", icon: Shield, color: "#f59e0b" },
-	{ name: "Performance", icon: Zap, color: "#eab308" },
-	{ name: "Code", icon: Code, color: "#8b5cf6" },
-	{ name: "Analytics", icon: BarChart3, color: "#ef4444" },
+	{ name: "React", icon: Code, color: "#3b82f6" },
+	{ name: "Node.js", icon: Server, color: "#10b981" },
+	{ name: "Python", icon: Terminal, color: "#eab308" },
 	{ name: "AI/ML", icon: Brain, color: "#ec4899" },
-	{ name: "Network", icon: Network, color: "#14b8a6" },
-	{ name: "Server", icon: Server, color: "#6366f1" },
-	{ name: "API", icon: Globe, color: "#3b82f6" },
-	{ name: "Terminal", icon: Terminal, color: "#22c55e" },
+	{ name: "API", icon: Globe, color: "#06b6d4" },
+	{ name: "Cloud", icon: Cloud, color: "#8b5cf6" },
+	{ name: "Database", icon: Database, color: "#ef4444" },
+	{ name: "Security", icon: Shield, color: "#f59e0b" },
+	{ name: "Analytics", icon: BarChart3, color: "#14b8a6" },
+	{ name: "Performance", icon: Zap, color: "#6366f1" },
+	{ name: "Network", icon: Network, color: "#22c55e" },
 	{ name: "Processor", icon: Cpu, color: "#f97316" },
 ];
 
 const hexagonPositions = [
 	{ x: 50, y: 80, delay: 0 },
-	{ x: 180, y: 50, delay: 0.1 },
-	{ x: 310, y: 90, delay: 0.2 },
-	{ x: 440, y: 60, delay: 0.3 },
-	{ x: 20, y: 200, delay: 0.4 },
-	{ x: 150, y: 170, delay: 0.5 },
-	{ x: 280, y: 210, delay: 0.6 },
-	{ x: 410, y: 180, delay: 0.7 },
-	{ x: 70, y: 320, delay: 0.8 },
-	{ x: 200, y: 290, delay: 0.9 },
-	{ x: 330, y: 330, delay: 1.0 },
-	{ x: 150, y: 440, delay: 1.1 },
+	{ x: 180, y: 50, delay: 0.2 },
+	{ x: 310, y: 90, delay: 0.4 },
+	{ x: 440, y: 60, delay: 0.6 },
+	{ x: 20, y: 200, delay: 0.8 },
+	{ x: 150, y: 170, delay: 1.0 },
+	{ x: 280, y: 210, delay: 1.2 },
+	{ x: 410, y: 180, delay: 1.4 },
+	{ x: 70, y: 320, delay: 1.6 },
+	{ x: 200, y: 290, delay: 1.8 },
+	{ x: 330, y: 330, delay: 2.0 },
+	{ x: 150, y: 440, delay: 2.1 },
 ];
 
 const codeSnippets = [
@@ -103,182 +108,303 @@ const result = await ai.generate({
 	},
 ];
 
-const platformVariants = ["SaaS", "Automations", "Internal Tools"];
+const platformVariants = ["SaaS", "Automation", "Internal Tools"];
+
+const ColorTransitionBox: React.FC = () => {
+	return null;
+};
 
 const Hero: React.FC = () => {
 	const [particles, setParticles] = useState<
 		Array<{ id: number; x: number; y: number; delay: number }>
 	>([]);
-	const [, setActiveCodeIndex] = useState(0);
-	const [currentPlatformIndex, setCurrentPlatformIndex] = useState(0);
-	const [displayedText, setDisplayedText] = useState("");
-	const [isTyping, setIsTyping] = useState(true);
-	const [currentSnippetIndex, setCurrentSnippetIndex] = useState(0);
-	const [displayedCode, setDisplayedCode] = useState("");
-	const [isCodeTyping, setIsCodeTyping] = useState(true);
-	const [showCursor, setShowCursor] = useState(true);
+	const platformTextRef = useRef<HTMLSpanElement>(null);
+	const codeTextRef = useRef<HTMLSpanElement>(null);
+	const codeTitleRef = useRef<HTMLDivElement>(null);
+	const codeCursorRef = useRef<HTMLSpanElement>(null);
+	const heroSectionRef = useRef<HTMLElement>(null);
+	const hexagonContainerRef = useRef<HTMLDivElement>(null);
+
+	useGSAP(() => {
+		gsap.set("body", { backgroundColor: "#0f172a" });
+	});
 
 	useEffect(() => {
-		const newParticles = Array.from({ length: 25 }, (_, i) => ({
+		const newParticles = Array.from({ length: 20 }, (_, i) => ({
 			id: i,
 			x: Math.random() * 100,
 			y: Math.random() * 100,
 			delay: Math.random() * 2,
 		}));
 		setParticles(newParticles);
-
-		const interval = setInterval(() => {
-			setActiveCodeIndex((prev) => (prev + 1) % codeSnippets.length);
-		}, 4000);
-
-		return () => clearInterval(interval);
 	}, []);
 
 	useEffect(() => {
-		const currentWord = platformVariants[currentPlatformIndex];
-		const timeouts: NodeJS.Timeout[] = [];
+		const handleHeroScroll = () => {
+			if (!heroSectionRef.current || !hexagonContainerRef.current) return;
 
-		if (isTyping) {
-			currentWord.split("").forEach((char, index) => {
-				const timeout = setTimeout(() => {
-					setDisplayedText((prev) => prev + char);
-					if (index === currentWord.length - 1) {
-						const deleteTimeout = setTimeout(() => {
-							setIsTyping(false);
-						}, 2000);
-						timeouts.push(deleteTimeout);
-					}
-				}, index * 100);
-				timeouts.push(timeout);
-			});
-		} else {
-			for (let i = currentWord.length; i >= 0; i--) {
-				const timeout = setTimeout(() => {
-					setDisplayedText(currentWord.slice(0, i));
-					if (i === 0) {
-						setTimeout(() => {
-							setCurrentPlatformIndex(
-								(prev) => (prev + 1) % platformVariants.length
-							);
-							setIsTyping(true);
-						}, 300);
-					}
-				}, (currentWord.length - i) * 50);
-				timeouts.push(timeout);
+			const scrollY = window.scrollY;
+			const heroHeight = heroSectionRef.current.offsetHeight;
+
+			if (scrollY < heroHeight) {
+				const parallaxSpeed = scrollY * 0.5;
+
+				hexagonContainerRef.current.style.transform = `translateY(${
+					parallaxSpeed * 0.3
+				}px)`;
+
+				const curves = heroSectionRef.current.querySelector("svg");
+				if (curves) {
+					curves.style.transform = `translateY(${
+						parallaxSpeed * 0.2
+					}px)`;
+				}
+
+				const particleContainer = heroSectionRef.current.querySelector(
+					'[style*="pointer-events: none"]'
+				);
+				if (particleContainer) {
+					(
+						particleContainer as HTMLElement
+					).style.transform = `translateY(${parallaxSpeed * 0.1}px)`;
+				}
 			}
-		}
-
-		return () => {
-			timeouts.forEach(clearTimeout);
 		};
-	}, [currentPlatformIndex, isTyping]);
+
+		window.addEventListener("scroll", handleHeroScroll, { passive: true });
+		return () => window.removeEventListener("scroll", handleHeroScroll);
+	}, []);
 
 	useEffect(() => {
-		const currentSnippet = codeSnippets[currentSnippetIndex];
-		const currentCodeText = currentSnippet.code;
-		const timeouts: NodeJS.Timeout[] = [];
+		if (!platformTextRef.current) return;
 
-		if (isCodeTyping) {
-			currentCodeText.split("").forEach((char, index) => {
-				const timeout = setTimeout(() => {
-					setDisplayedCode((prev) => prev + char);
-					if (index === currentCodeText.length - 1) {
-						const pauseTimeout = setTimeout(() => {
-							setIsCodeTyping(false);
-						}, 2000);
-						timeouts.push(pauseTimeout);
+		let currentIndex = 0;
+		let isTyping = true;
+		let currentText = "";
+		const typewriterTimeouts: NodeJS.Timeout[] = [];
+
+		const typeNextCharacter = () => {
+			const currentWord = platformVariants[currentIndex];
+
+			if (isTyping) {
+				if (currentText.length < currentWord.length) {
+					currentText += currentWord[currentText.length];
+					if (platformTextRef.current) {
+						platformTextRef.current.textContent = currentText + "|";
 					}
-				}, index * 50);
-				timeouts.push(timeout);
-			});
-		} else {
-			for (let i = currentCodeText.length; i >= 0; i--) {
-				const timeout = setTimeout(() => {
-					setDisplayedCode(currentCodeText.slice(0, i));
-					if (i === 0) {
+					typewriterTimeouts.push(setTimeout(typeNextCharacter, 100));
+				} else {
+					typewriterTimeouts.push(
 						setTimeout(() => {
-							setCurrentSnippetIndex(
-								(prev) => (prev + 1) % codeSnippets.length
-							);
-							setIsCodeTyping(true);
-						}, 300);
+							isTyping = false;
+							typeNextCharacter();
+						}, 2000)
+					);
+				}
+			} else {
+				if (currentText.length > 0) {
+					currentText = currentText.slice(0, -1);
+					if (platformTextRef.current) {
+						platformTextRef.current.textContent = currentText + "|";
 					}
-				}, (currentCodeText.length - i) * 25);
-				timeouts.push(timeout);
+					typewriterTimeouts.push(setTimeout(typeNextCharacter, 50));
+				} else {
+					currentIndex = (currentIndex + 1) % platformVariants.length;
+					isTyping = true;
+					typewriterTimeouts.push(setTimeout(typeNextCharacter, 300));
+				}
 			}
-		}
+		};
+
+		typeNextCharacter();
 
 		return () => {
-			timeouts.forEach(clearTimeout);
+			typewriterTimeouts.forEach(clearTimeout);
 		};
-	}, [currentSnippetIndex, isCodeTyping]);
+	}, []);
 
 	useEffect(() => {
+		if (
+			!codeTextRef.current ||
+			!codeTitleRef.current ||
+			!codeCursorRef.current
+		)
+			return;
+
+		let currentSnippetIndex = 0;
+		let isCodeTyping = true;
+		let currentCodeText = "";
+		const codeTimeouts: NodeJS.Timeout[] = [];
+
+		const highlightSyntax = (code: string) => {
+			return code
+				.replace(
+					/('.*?'|".*?")/g,
+					'<span style="color: #22c55e">$1</span>'
+				)
+				.replace(
+					/\b(fetch|method|import|const|await|from|new)\b/g,
+					'<span style="color: #3b82f6">$1</span>'
+				)
+				.replace(
+					/(\{|\}|\[|\])/g,
+					'<span style="color: #eab308">$1</span>'
+				)
+				.replace(/\b(\d+)\b/g, '<span style="color: #f97316">$1</span>')
+				.replace(
+					/(\/\/.*$)/gm,
+					'<span style="color: #6b7280">$1</span>'
+				);
+		};
+
+		const typeCodeCharacter = () => {
+			const currentSnippet = codeSnippets[currentSnippetIndex];
+			const targetCode = currentSnippet.code;
+
+			if (isCodeTyping) {
+				if (currentCodeText.length < targetCode.length) {
+					currentCodeText += targetCode[currentCodeText.length];
+					if (codeTextRef.current) {
+						codeTextRef.current.innerHTML =
+							highlightSyntax(currentCodeText);
+					}
+					if (codeTitleRef.current) {
+						codeTitleRef.current.textContent = currentSnippet.title;
+					}
+					codeTimeouts.push(setTimeout(typeCodeCharacter, 50));
+				} else {
+					codeTimeouts.push(
+						setTimeout(() => {
+							isCodeTyping = false;
+							typeCodeCharacter();
+						}, 3000)
+					);
+				}
+			} else {
+				if (currentCodeText.length > 0) {
+					currentCodeText = currentCodeText.slice(0, -1);
+					if (codeTextRef.current) {
+						codeTextRef.current.innerHTML =
+							highlightSyntax(currentCodeText);
+					}
+					codeTimeouts.push(setTimeout(typeCodeCharacter, 25));
+				} else {
+					currentSnippetIndex =
+						(currentSnippetIndex + 1) % codeSnippets.length;
+					isCodeTyping = true;
+					codeTimeouts.push(setTimeout(typeCodeCharacter, 500));
+				}
+			}
+		};
+
+		codeTimeouts.push(setTimeout(typeCodeCharacter, 2000));
 		const cursorInterval = setInterval(() => {
-			setShowCursor((prev) => !prev);
+			if (codeCursorRef.current) {
+				codeCursorRef.current.style.opacity =
+					codeCursorRef.current.style.opacity === "0" ? "1" : "0";
+			}
 		}, 500);
 
-		return () => clearInterval(cursorInterval);
+		return () => {
+			codeTimeouts.forEach(clearTimeout);
+			clearInterval(cursorInterval);
+		};
 	}, []);
 
-	const titleVariants: Variants = {
-		hidden: { opacity: 0, y: 30 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.8,
-				ease: "easeOut",
+	const titleVariants: Variants = React.useMemo(
+		() => ({
+			hidden: { opacity: 0, y: 30 },
+			visible: {
+				opacity: 1,
+				y: 0,
+				transition: {
+					duration: 0.8,
+					ease: "easeOut",
+				},
 			},
-		},
-	};
+		}),
+		[]
+	);
 
-	const subtitleVariants: Variants = {
-		hidden: { opacity: 0, y: 20 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.8,
-				delay: 0.3,
-				ease: "easeOut",
+	const subtitleVariants: Variants = React.useMemo(
+		() => ({
+			hidden: { opacity: 0, y: 20 },
+			visible: {
+				opacity: 1,
+				y: 0,
+				transition: {
+					duration: 0.8,
+					delay: 0.3,
+					ease: "easeOut",
+				},
 			},
-		},
-	};
+		}),
+		[]
+	);
 
-	const ctaVariants: Variants = {
-		hidden: { opacity: 0, y: 20 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.8,
-				delay: 0.6,
-				ease: "easeOut",
+	const ctaVariants: Variants = React.useMemo(
+		() => ({
+			hidden: { opacity: 0, y: 20 },
+			visible: {
+				opacity: 1,
+				y: 0,
+				transition: {
+					duration: 0.8,
+					delay: 0.6,
+					ease: "easeOut",
+				},
 			},
-		},
-	};
+		}),
+		[]
+	);
 
-	const floatingVariants: Variants = {
-		animate: {
-			y: [-10, 10, -10],
-			rotate: [0, 5, -5, 0],
-			transition: {
-				duration: 6,
-				repeat: Infinity,
-				ease: "easeInOut",
+	const hexagonVariants: Variants = React.useMemo(
+		() => ({
+			hidden: { scale: 0, rotate: -180, opacity: 0 },
+			visible: (delay: number) => ({
+				scale: 1,
+				rotate: 0,
+				opacity: 1,
+				transition: {
+					duration: 0.8,
+					delay: delay,
+					ease: "easeOut",
+				},
+			}),
+		}),
+		[]
+	);
+
+	const floatingVariants: Variants = React.useMemo(
+		() => ({
+			animate: {
+				y: [-10, 10, -10],
+				rotate: [0, 5, -5, 0],
+				transition: {
+					duration: 6,
+					repeat: Infinity,
+					ease: "easeInOut",
+				},
 			},
-		},
-	};
+		}),
+		[]
+	);
 
 	const Hexagon: React.FC<{
 		tech: (typeof techIcons)[0];
 		position: (typeof hexagonPositions)[0];
-	}> = ({ tech, position }) => {
+	}> = React.memo(({ tech, position }) => {
+		Hexagon.displayName = "Hexagon";
 		const IconComponent = tech.icon;
 
 		return (
-			<HexagonContainer style={{ left: position.x, top: position.y }}>
+			<HexagonContainer
+				style={{ left: position.x, top: position.y }}
+				variants={hexagonVariants}
+				initial="hidden"
+				animate="visible"
+				custom={position.delay}
+				whileHover={{ scale: 1.1, rotate: 10 }}>
 				<HexagonSVG viewBox="0 0 100 100">
 					<defs>
 						<linearGradient
@@ -314,24 +440,12 @@ const Hero: React.FC = () => {
 						transform: "translate(-50%, -50%)",
 						color: tech.color,
 						filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
-					}} className="animate-pulse">
+					}}>
 					<IconComponent size={24} />
 				</div>
 			</HexagonContainer>
 		);
-	};
-
-	const highlightSyntax = (code: string) => {
-		return code
-			.replace(/('.*?'|".*?")/g, '<span style="color: #22c55e">$1</span>')
-			.replace(
-				/\b(fetch|method|import|const|await|from|new)\b/g,
-				'<span style="color: #3b82f6">$1</span>'
-			)
-			.replace(/(\{|\}|\[|\])/g, '<span style="color: #eab308">$1</span>')
-			.replace(/\b(\d+)\b/g, '<span style="color: #f97316">$1</span>')
-			.replace(/(\/\/.*$)/gm, '<span style="color: #6b7280">$1</span>');
-	};
+	});
 
 	const CodeBlock: React.FC = () => (
 		<div
@@ -352,13 +466,14 @@ const Hero: React.FC = () => {
 				zIndex: 15,
 			}}>
 			<div
+				ref={codeTitleRef}
 				style={{
 					color: "#3b82f6",
 					fontWeight: "bold",
 					marginBottom: "0.75rem",
 					fontSize: "0.9rem",
 				}}>
-				{codeSnippets[currentSnippetIndex].title}
+				API Call
 			</div>
 			<pre
 				style={{
@@ -366,20 +481,18 @@ const Hero: React.FC = () => {
 					whiteSpace: "pre-wrap",
 					lineHeight: "1.4",
 				}}>
-				<span
-					dangerouslySetInnerHTML={{
-						__html: highlightSyntax(displayedCode),
-					}}
-				/>
-				{showCursor && isCodeTyping && (
-					<span style={{ color: "#3b82f6" }}>|</span>
-				)}
+				<span ref={codeTextRef}></span>
+				<span ref={codeCursorRef} style={{ color: "#3b82f6" }}>
+					|
+				</span>
 			</pre>
 		</div>
 	);
 
 	return (
-		<HeroSection>
+		<HeroSection ref={heroSectionRef}>
+			<ColorTransitionBox />
+
 			<BackgroundCurves viewBox="0 0 1200 800">
 				<defs>
 					<linearGradient
@@ -454,6 +567,7 @@ const Hero: React.FC = () => {
 						AI in your
 						<br />
 						<span
+							ref={platformTextRef}
 							style={{
 								background:
 									"linear-gradient(135deg, #3b82f6, #8b5cf6)",
@@ -461,23 +575,7 @@ const Hero: React.FC = () => {
 								WebkitBackgroundClip: "text",
 								WebkitTextFillColor: "transparent",
 							}}>
-							{displayedText}
-							<motion.span
-								animate={{ opacity: [1, 0, 1] }}
-								transition={{
-									duration: 1,
-									repeat: Infinity,
-									ease: "easeInOut",
-								}}
-								style={{
-									background:
-										"linear-gradient(135deg, #3b82f6, #8b5cf6)",
-									backgroundClip: "text",
-									WebkitBackgroundClip: "text",
-									WebkitTextFillColor: "transparent",
-								}}>
-								|
-							</motion.span>
+							Platform
 						</span>
 					</HeroTitle>
 
@@ -506,7 +604,7 @@ const Hero: React.FC = () => {
 					</HeroCTAGroup>
 				</HeroContent>
 
-				<HeroVisual>
+				<HeroVisual ref={hexagonContainerRef}>
 					<ConnectionLine viewBox="0 0 600 500">
 						<defs>
 							<linearGradient
@@ -532,26 +630,39 @@ const Hero: React.FC = () => {
 								/>
 							</linearGradient>
 						</defs>
-						{[
-							{ x1: 130, y1: 130, x2: 260, y2: 100, delay: 2 },
-							{ x1: 260, y1: 250, x2: 390, y2: 220, delay: 2.2 },
-							{ x1: 150, y1: 350, x2: 280, y2: 320, delay: 2.4 },
-							{ x1: 80, y1: 240, x2: 210, y2: 210, delay: 2.6 },
-							{ x1: 310, y1: 270, x2: 440, y2: 240, delay: 2.8 },
-						].map((line, index) => (
-							<motion.line
-								key={index}
-								x1={line.x1}
-								y1={line.y1}
-								x2={line.x2}
-								y2={line.y2}
-								stroke="url(#lineGrad)"
-								strokeWidth="1.5"
-								initial={{ pathLength: 0, opacity: 0 }}
-								animate={{ pathLength: 1, opacity: 1 }}
-								transition={{ duration: 1, delay: line.delay }}
-							/>
-						))}
+						<motion.line
+							x1="280"
+							y1="150"
+							x2="380"
+							y2="100"
+							stroke="url(#lineGrad)"
+							strokeWidth="2"
+							initial={{ pathLength: 0, opacity: 0 }}
+							animate={{ pathLength: 1, opacity: 1 }}
+							transition={{ duration: 1, delay: 2 }}
+						/>
+						<motion.line
+							x1="380"
+							y1="250"
+							x2="480"
+							y2="200"
+							stroke="url(#lineGrad)"
+							strokeWidth="2"
+							initial={{ pathLength: 0, opacity: 0 }}
+							animate={{ pathLength: 1, opacity: 1 }}
+							transition={{ duration: 1, delay: 2.5 }}
+						/>
+						<motion.line
+							x1="230"
+							y1="300"
+							x2="330"
+							y2="250"
+							stroke="url(#lineGrad)"
+							strokeWidth="2"
+							initial={{ pathLength: 0, opacity: 0 }}
+							animate={{ pathLength: 1, opacity: 1 }}
+							transition={{ duration: 1, delay: 3 }}
+						/>
 					</ConnectionLine>
 
 					{techIcons.slice(0, 12).map((tech, index) => (
@@ -567,7 +678,7 @@ const Hero: React.FC = () => {
 					<FloatingElement
 						style={{
 							top: "0%",
-							right: "35%",
+							right: "50%",
 							width: "120px",
 							height: "60px",
 						}}
@@ -579,8 +690,8 @@ const Hero: React.FC = () => {
 
 					<FloatingElement
 						style={{
-							bottom: "15%",
-							left: "5%",
+							bottom: "20%",
+							left: "04%",
 							width: "140px",
 							height: "60px",
 						}}
@@ -594,7 +705,7 @@ const Hero: React.FC = () => {
 					<FloatingElement
 						style={{
 							top: "50%",
-							right: "25%",
+							right: "30%",
 							width: "100px",
 							height: "60px",
 						}}
@@ -610,4 +721,4 @@ const Hero: React.FC = () => {
 	);
 };
 
-export default Hero;
+export default Hero
