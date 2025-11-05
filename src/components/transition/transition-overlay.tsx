@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Services from "@/components/services/services";
-import FeaturedAPIs from "@/components/featured-apis/featured-apis";
+// import FeaturedAPIs from "@/components/featured-apis/featured-apis";
 import OurProcess from "@/components/process/our-process";
 import WhyChooseUs from "@/components/why-choose-us/why-choose-us";
 import UseCases from "@/components/use-cases/use-cases";
@@ -69,7 +69,7 @@ const TransitionOverlay: React.FC = () => {
 	return (
 		<>
 			<Services />
-			<FeaturedAPIs />
+			{/* <FeaturedAPIs /> */}
 			<OurProcess />
 			<WhyChooseUs />
 			<UseCases />

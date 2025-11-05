@@ -193,30 +193,46 @@ export const DropdownContainer = styled(motion.div)`
 	z-index: 1000;
 `;
 
-export const DropdownContent = styled.div`
-	max-width: 80rem;
-	margin: 0 auto;
-	padding: 3rem 2rem;
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	gap: 4rem;
-
-	@media (max-width: 1280px) {
-		max-width: 72rem;
-		padding: 2.5rem 1.5rem;
-	}
-
-	@media (max-width: 768px) {
-		grid-template-columns: 1fr;
-		gap: 2rem;
-		padding: 2rem 1rem;
-	}
-`;
 
 export const DropdownColumn = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+`;
+
+export const DropdownContent = styled.div`
+	max-width: 80rem;
+	margin: 0 auto;
+	padding: 2.5rem 2rem;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 3rem;
+
+	.featured-block {
+		flex: 1.2;
+		min-width: 260px;
+	}
+
+	@media (max-width: 1280px) {
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		gap: 2rem;
+		padding: 2rem 1rem;
+	}
+`;
+
+export const DropdownSection = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	flex: 1;
+	min-width: 200px;
 `;
 
 export const DropdownLinksArea = styled.div`
@@ -295,14 +311,6 @@ export const ReadMoreLink = styled.a`
 	&:hover {
 		color: #60a5fa;
 		text-decoration: underline;
-	}
-`;
-
-export const DropdownSection = styled.div`
-	margin-bottom: 2.5rem;
-
-	&:last-child {
-		margin-bottom: 0;
 	}
 `;
 

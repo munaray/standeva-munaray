@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
 import React from "react";
-import { Star, Quote, ArrowRight } from 'lucide-react'
+import { Star, Quote, ArrowRight } from "lucide-react";
 import { TertiaryButton } from "@/components/ui/buttons";
 
 const caseStudies = [
@@ -63,82 +63,72 @@ const stats = [
 
 const SuccessStories: React.FC = () => {
 	return (
-		<section className="success-stories-section py-20 bg-linear-to-br from-slate-900 via-blue-900 to-slate-900">
+		<section className="py-20 bg-[linear-gradient(135deg,#0B0F19_0%,#0C2258_50%,#0B0F19_100%)] text-white">
 			<div className="container mx-auto px-6">
-				{/* Header */}
 				<div className="text-center mb-16">
-					<p className="text-sm uppercase tracking-wide text-blue-400 font-semibold mb-4">
+					<p className="text-sm uppercase tracking-wide text-[#60A5FA] font-semibold mb-4">
 						SUCCESS STORIES
 					</p>
-					<h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+					<h2 className="text-4xl md:text-5xl font-bold mb-6">
 						Real Results from Real Integrations
 					</h2>
-					<p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+					<p className="text-lg text-[#CBD5E1] max-w-3xl mx-auto leading-relaxed">
 						See how companies are shipping faster and scaling
-						effortlessly with Standeva&apos;s APIs
+						effortlessly with Standeva&apos;s APIs.
 					</p>
 				</div>
 
-				{/* Case Studies Grid */}
-				<div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16">
+				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 					{caseStudies.map((caseStudy) => (
 						<div
 							key={caseStudy.id}
-							className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-700 hover:border-blue-500 hover:shadow-xl transition-all duration-200">
-							{/* Industry Badge */}
-							<div className="flex items-center justify-between mb-4 sm:mb-6">
-								<span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-semibold rounded-full border border-blue-400/30">
+							className="bg-[#111827]/70 backdrop-blur-sm rounded-2xl p-8 border border-[#1E3A8A]/30 hover:border-[#2563EB]/60 hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] transition-all duration-300">
+							<div className="flex items-center justify-between mb-6">
+								<span className="px-3 py-1 bg-[#2563EB]/20 text-[#60A5FA] text-xs font-semibold rounded-full border border-[#2563EB]/40">
 									{caseStudy.industry}
 								</span>
-								<Quote
-									size={24}
-									className="text-blue-400 sm:w-8 sm:h-8"
-								/>
+								<Quote size={24} className="text-[#60A5FA]" />
 							</div>
 
-							{/* Rating */}
-							<div className="flex gap-1 mb-3 sm:mb-4">
+							<div className="flex gap-1 mb-4">
 								{[...Array(caseStudy.rating)].map((_, i) => (
 									<Star
 										key={i}
-										size={14}
-										className="text-yellow-400 fill-current sm:w-4 sm:h-4"
+										size={16}
+										className="text-yellow-400 fill-current"
 									/>
 								))}
 							</div>
 
-							{/* Testimonial Text */}
-							<p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4 sm:mb-6">
+							<p className="text-[#E2E8F0] text-base leading-relaxed mb-6">
 								&ldquo;{caseStudy.testimonial}&rdquo;
 							</p>
 
-							{/* API Used & Results */}
-							<div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-blue-500/10 rounded-lg border border-blue-500/30">
-								<h4 className="text-sm sm:text-base font-semibold text-blue-300 mb-2">
+							<div className="mb-6 p-4 bg-[#1E3A8A]/20 rounded-lg border border-[#2563EB]/30">
+								<h4 className="text-sm font-semibold text-[#60A5FA] mb-2">
 									{caseStudy.apiUsed}
 								</h4>
 								<div className="space-y-1">
 									{caseStudy.results.map((result, index) => (
 										<div
 											key={index}
-											className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
-											<div className="w-1.5 h-1.5 bg-green-400 rounded-full" />
+											className="flex items-center gap-2 text-sm text-[#CBD5E1]">
+											<div className="w-2 h-2 bg-[#34D399] rounded-full" />
 											{result}
 										</div>
 									))}
 								</div>
 							</div>
 
-							{/* Author */}
-							<div className="flex items-center gap-2 sm:gap-3">
-								<div className="w-10 h-10 sm:w-12 sm:h-12 bg-linear-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-lg sm:text-2xl">
+							<div className="flex items-center gap-3">
+								<div className="w-12 h-12 bg-linear-to-br from-[#3B82F6] to-[#2563EB] rounded-full flex items-center justify-center text-2xl">
 									{caseStudy.avatar}
 								</div>
 								<div>
-									<h4 className="text-sm sm:text-base font-semibold text-white">
+									<h4 className="font-semibold text-white">
 										{caseStudy.name}
 									</h4>
-									<p className="text-slate-400 text-xs sm:text-sm">
+									<p className="text-[#94A3B8] text-sm">
 										{caseStudy.role}, {caseStudy.company}
 									</p>
 								</div>
@@ -147,30 +137,28 @@ const SuccessStories: React.FC = () => {
 					))}
 				</div>
 
-				{/* Stats Section */}
-				<div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16">
+				<div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
 					{stats.map((stat, index) => (
 						<div
 							key={index}
-							className="text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700">
-							<div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-1 sm:mb-2">
+							className="text-center p-6 bg-[#111827]/70 backdrop-blur-sm rounded-xl border border-[#1E3A8A]/30">
+							<div className="text-3xl font-bold text-[#60A5FA] mb-2">
 								{stat.value}
 							</div>
-							<p className="text-xs sm:text-sm md:text-base text-slate-400 font-medium">
+							<p className="text-sm text-[#94A3B8]">
 								{stat.label}
 							</p>
 						</div>
 					))}
 				</div>
 
-				{/* Bottom CTA */}
-				<div className="text-center px-4">
-					<div className="inline-flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
-						<TertiaryButton className="px-6 py-3 sm:px-8 sm:py-4 flex items-center justify-center gap-2 text-sm sm:text-base bg-blue-600 hover:bg-blue-500">
+				<div className="text-center">
+					<div className="inline-flex flex-col sm:flex-row gap-4">
+						<TertiaryButton className="px-8 py-4 flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#1E40AF] rounded-xl transition">
 							Browse APIs
 							<ArrowRight size={16} />
 						</TertiaryButton>
-						<TertiaryButton className="px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base">
+						<TertiaryButton className="px-8 py-4 rounded-xl border border-[#2563EB]/40 hover:bg-[#2563EB]/10 transition">
 							Read More Case Studies
 						</TertiaryButton>
 					</div>
@@ -180,4 +168,4 @@ const SuccessStories: React.FC = () => {
 	);
 };
 
-export default SuccessStories
+export default SuccessStories;

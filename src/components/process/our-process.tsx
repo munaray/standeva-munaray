@@ -1,17 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import {
-	BookOpen,
-	Code,
-	Rocket,
-	MessageSquare,
-	Wrench,
-	Zap,
-} from "lucide-react";
+import { BookOpen, Code, Rocket, MessageSquare, Wrench } from "lucide-react";
 
 type Track = "ready-apis" | "custom-dev";
 
@@ -21,7 +13,7 @@ const integrationTracks = {
 		title: "Ready-Made APIs",
 		subtitle: "Get started in minutes",
 		badge: "Quick Start",
-		color: "from-blue-500 to-blue-600",
+		color: "from-[#3B82F6] to-[#2563EB]",
 		steps: [
 			{
 				id: 1,
@@ -69,7 +61,7 @@ const integrationTracks = {
 		title: "Custom Development",
 		subtitle: "Tailored solutions for unique needs",
 		badge: "Custom Build",
-		color: "from-blue-600 to-blue-700",
+		color: "from-[#2563EB] to-[#1E40AF]",
 		steps: [
 			{
 				id: 1,
@@ -116,12 +108,11 @@ const integrationTracks = {
 
 const OurProcess: React.FC = () => {
 	const [activeTrack, setActiveTrack] = useState<Track>("ready-apis");
-
 	const { ref: headerRef, isInView: headerInView } = useScrollAnimation({
 		threshold: 0.3,
 		triggerOnce: false,
 	});
-	const { ref: stepsRef, isInView: stepsInView } = useScrollAnimation({
+	const { ref: stepsRef } = useScrollAnimation({
 		threshold: 0.2,
 		triggerOnce: false,
 	});
@@ -131,64 +122,35 @@ const OurProcess: React.FC = () => {
 		visible: {
 			opacity: 1,
 			y: 0,
-			transition: {
-				duration: 0.8,
-				ease: [0.25, 0.46, 0.45, 0.94],
-			},
-		},
-	};
-
-	const containerVariants: Variants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.2,
-				delayChildren: 0.1,
-			},
-		},
-	};
-
-	const cardVariants: Variants = {
-		hidden: {
-			opacity: 0,
-			y: 60,
-			scale: 0.9,
-		},
-		visible: {
-			opacity: 1,
-			y: 0,
-			scale: 1,
-			transition: {
-				duration: 0.7,
-				ease: [0.25, 0.46, 0.45, 0.94],
-			},
+			transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
 		},
 	};
 
 	const currentTrack = integrationTracks[activeTrack];
 
 	return (
-		<section className="process-section py-20 bg-linear-to-br from-white via-slate-50 to-blue-50">
+		<section className="py-20 bg-[linear-gradient(135deg,#0B0F19_0%,#0C2258_50%,#0B0F19_100%)] text-white">
 			<div className="container mx-auto px-6">
-				{/* Header */}
-				<div ref={headerRef} className="text-center mb-16">
-					<p className="text-sm uppercase tracking-wide text-blue-600 font-semibold mb-4">
+				<motion.div
+					ref={headerRef}
+					initial="hidden"
+					animate={headerInView ? "visible" : "hidden"}
+					variants={headerVariants}
+					className="text-center mb-16">
+					<p className="text-sm uppercase tracking-wide text-[#60A5FA] font-semibold mb-4">
 						HOW IT WORKS
 					</p>
-
-					<h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
+					<h2 className="text-4xl md:text-5xl font-bold mb-6">
 						Two Ways to Integrate
 					</h2>
-					<p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+					<p className="text-lg text-[#CBD5E1] max-w-3xl mx-auto">
 						Choose the path that fits your needs: instant API
 						integration or custom-built solutions
 					</p>
-				</div>
+				</motion.div>
 
-				{/* Track Selector Tabs */}
 				<div className="flex justify-center mb-12">
-					<div className="inline-flex bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+					<div className="inline-flex bg-[#111827]/70 p-2 rounded-xl border border-[#1E3A8A]/40 shadow-md">
 						{Object.values(integrationTracks).map((track) => (
 							<button
 								key={track.id}
@@ -197,10 +159,8 @@ const OurProcess: React.FC = () => {
 								}
 								className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
 									activeTrack === track.id
-										? "bg-linear-to-r " +
-										  track.color +
-										  " text-white shadow-lg"
-										: "text-slate-600 hover:text-slate-900"
+										? `bg-linear-to-r ${track.color} text-white shadow-lg`
+										: "text-[#CBD5E1] hover:text-white"
 								}`}>
 								<div className="flex items-center gap-2">
 									<span>{track.title}</span>
@@ -213,53 +173,45 @@ const OurProcess: React.FC = () => {
 					</div>
 				</div>
 
-				{/* Process Steps */}
 				<div
 					ref={stepsRef}
-					className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto mb-12">
+					className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
 					{currentTrack.steps.map((step, index) => {
 						const IconComponent = step.icon;
 						return (
 							<div
 								key={step.id}
-								className="relative bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all duration-200 group">
-								{/* Step Number */}
+								className="relative bg-[#111827]/70 backdrop-blur-sm rounded-2xl p-8 border border-[#1E3A8A]/30 hover:border-[#2563EB]/60 hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] transition-all duration-300 group">
 								<div
 									className={`absolute -top-4 -left-4 w-10 h-10 bg-linear-to-r ${currentTrack.color} rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
 									{step.id}
 								</div>
 
-								{/* Icon */}
 								<div
-									className={`w-16 h-16 rounded-xl bg-linear-to-r ${currentTrack.color} flex items-center justify-center mb-6`}>
+									className={`w-16 h-16 rounded-xl bg-linear-to-r ${currentTrack.color} flex items-center justify-center mb-6 shadow-lg`}>
 									<IconComponent className="w-8 h-8 text-white" />
 								</div>
 
-								{/* Content */}
-								<h3 className="text-xl font-bold text-slate-900 mb-4">
+								<h3 className="text-xl font-bold mb-4 text-white">
 									{step.title}
 								</h3>
-								<p className="text-base text-slate-600 leading-relaxed mb-6">
+								<p className="text-base text-[#CBD5E1] leading-relaxed mb-6">
 									{step.description}
 								</p>
 
-								{/* Features List */}
 								<ul className="space-y-2">
-									{step.features.map(
-										(feature, featureIndex) => (
-											<li
-												key={featureIndex}
-												className="flex items-start text-sm text-slate-600">
-												<span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 shrink-0"></span>
-												{feature}
-											</li>
-										)
-									)}
+									{step.features.map((feature, idx) => (
+										<li
+											key={idx}
+											className="flex items-start text-sm text-[#E2E8F0]">
+											<span className="w-2 h-2 bg-[#3B82F6] rounded-full mt-2 mr-3 shrink-0"></span>
+											{feature}
+										</li>
+									))}
 								</ul>
 
-								{/* Connection Arrow for larger screens */}
 								{index < currentTrack.steps.length - 1 && (
-									<div className="hidden md:block absolute top-1/2 -right-4 text-slate-300 transform -translate-y-1/2">
+									<div className="hidden md:block absolute top-1/2 -right-4 text-[#1E3A8A] transform -translate-y-1/2">
 										<svg
 											width="32"
 											height="32"
@@ -280,12 +232,11 @@ const OurProcess: React.FC = () => {
 					})}
 				</div>
 
-				{/* Bottom Info */}
 				<div className="text-center max-w-2xl mx-auto">
-					<p className="text-slate-500 text-sm">
+					<p className="text-[#94A3B8] text-sm">
 						{activeTrack === "ready-apis"
-							? "Most developers are integrated and making production calls within 30 minutes"
-							: "Custom projects typically launch in 4-8 weeks depending on complexity"}
+							? "Most developers are integrated and making production calls within 30 minutes."
+							: "Custom projects typically launch in 4–8 weeks depending on complexity."}
 					</p>
 				</div>
 			</div>

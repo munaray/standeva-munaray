@@ -39,7 +39,8 @@ const solutionsData = [
 			},
 		],
 		buttonText: "Browse APIs",
-		buttonColor: "#3b82f6",
+		buttonColor: "#3B82F6",
+		gradient: "from-[#3B82F6] to-[#2563EB]",
 	},
 	{
 		id: "custom-solutions",
@@ -66,48 +67,46 @@ const solutionsData = [
 			},
 		],
 		buttonText: "Request Custom Solution",
-		buttonColor: "#10b981",
+		buttonColor: "#10B981",
+		gradient: "from-[#10B981] to-[#059669]",
 	},
 ];
 
 const Services: React.FC = () => {
 	return (
-		<section className="services-section py-20 bg-linear-to-br from-white via-slate-50 to-blue-50">
+		<section className="py-20 bg-[linear-gradient(135deg,#0B0F19_0%,#0C2258_50%,#0B0F19_100%)] text-white">
 			<div className="container mx-auto px-6">
-				{/* Header */}
 				<div className="text-center mb-16">
-					<p className="text-sm uppercase tracking-wide text-blue-600 font-semibold mb-4">
+					<p className="text-sm uppercase tracking-wide text-[#60A5FA] font-semibold mb-4">
 						YOUR PATH TO SUCCESS
 					</p>
-					<h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+					<h2 className="text-4xl md:text-5xl font-bold mb-6">
 						Choose Your Integration Path
 					</h2>
-					<p className="text-xl text-slate-600 max-w-3xl mx-auto">
+					<p className="text-lg text-[#CBD5E1] max-w-3xl mx-auto leading-relaxed">
 						Use our ready-made APIs for instant integration, or let
-						us build custom solutions tailored to your needs
+						us build custom solutions tailored to your needs.
 					</p>
 				</div>
 
-				{/* Solutions Grid */}
 				<div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
 					{solutionsData.map((service) => (
 						<div
 							key={service.id}
-							className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl hover:border-blue-400 transition-all duration-200">
-							{/* Card Header */}
+							className="bg-[#111827]/70 backdrop-blur-sm rounded-2xl p-8 border border-[#1E3A8A]/30 hover:border-[#2563EB]/60 hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] transition-all duration-300">
 							<div className="mb-8">
-								<div className="inline-block px-4 py-2 bg-blue-50 text-blue-700 text-sm font-medium rounded-full mb-4">
+								<div
+									className={`inline-block px-4 py-2 bg-linear-to-r ${service.gradient} text-white text-sm font-medium rounded-full mb-4 shadow-md`}>
 									{service.badge}
 								</div>
-								<h3 className="text-2xl font-bold text-slate-900 mb-4">
+								<h3 className="text-2xl font-bold mb-4 text-white">
 									{service.title}
 								</h3>
-								<p className="text-slate-600 leading-relaxed">
+								<p className="text-[#CBD5E1] leading-relaxed">
 									{service.description}
 								</p>
 							</div>
 
-							{/* Features List */}
 							<div className="space-y-4 mb-8">
 								{service.features.map(
 									(feature, featureIndex) => {
@@ -115,14 +114,15 @@ const Services: React.FC = () => {
 										return (
 											<div
 												key={featureIndex}
-												className="flex items-start gap-3">
-												<div className="shrink-0 w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center">
+												className="flex items-start gap-3 text-[#E2E8F0]">
+												<div
+													className={`shrink-0 w-8 h-8 bg-linear-to-br ${service.gradient} rounded-lg flex items-center justify-center`}>
 													<IconComponent
 														size={16}
-														className="text-slate-600"
+														className="text-white"
 													/>
 												</div>
-												<p className="text-slate-700 leading-relaxed">
+												<p className="leading-relaxed text-sm sm:text-base">
 													{feature.text}
 												</p>
 											</div>
@@ -131,8 +131,11 @@ const Services: React.FC = () => {
 								)}
 							</div>
 
-							{/* Button */}
-							<PrimaryButton className="w-full flex items-center justify-center gap-2">
+							<PrimaryButton
+								className="w-full flex items-center justify-center gap-2 text-base font-medium rounded-xl py-3 hover:opacity-90 transition"
+								style={{
+									backgroundColor: service.buttonColor,
+								}}>
 								{service.buttonText}
 								<ArrowRight size={16} />
 							</PrimaryButton>

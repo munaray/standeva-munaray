@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { TertiaryButton } from "@/components/ui/buttons";
@@ -51,53 +51,47 @@ const FAQ: React.FC = () => {
 	};
 
 	return (
-		<section className="faq-section py-20 bg-linear-to-br from-slate-900 via-blue-900 to-slate-900">
+		<section className="py-20 bg-[linear-gradient(135deg,#0B0F19_0%,#0C2258_50%,#0B0F19_100%)]">
 			<div className="container mx-auto px-6">
-				{/* Header */}
 				<div className="text-center mb-16">
-					<p className="text-sm uppercase tracking-wide text-blue-400 font-semibold mb-4">
+					<p className="text-sm uppercase tracking-wide text-[#60A5FA] font-semibold mb-4">
 						FAQ
 					</p>
 					<h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
 						Frequently Asked Questions
 					</h2>
-					<p className="text-xl text-slate-300 max-w-3xl mx-auto">
+					<p className="text-lg text-[#CBD5E1] max-w-3xl mx-auto">
 						Everything you need to know about integrating and using
 						Standeva&apos;s APIs
 					</p>
 				</div>
 
-				{/* FAQ Items */}
-				<div className="max-w-4xl mx-auto space-y-3 sm:space-y-4 px-4 sm:px-0">
+				<div className="max-w-4xl mx-auto space-y-4">
 					{faqData.map((item) => {
 						const isOpen = openItems.includes(item.id);
-
 						return (
 							<div
 								key={item.id}
-								className="bg-slate-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-slate-700 overflow-hidden hover:border-blue-500 transition-all duration-200 touch-manipulation">
-								{/* Question */}
+								className="bg-[#111827]/70 backdrop-blur-sm rounded-2xl border border-[#1E3A8A]/30 hover:border-[#2563EB]/60 hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] transition-all duration-300 overflow-hidden">
 								<button
 									onClick={() => toggleItem(item.id)}
-									className="w-full p-4 sm:p-6 md:p-8 text-left flex items-center justify-between gap-3 sm:gap-4 hover:bg-gray-700/50 active:bg-gray-700/70 transition-colors duration-300 touch-manipulation">
-									<h3 className="text-base sm:text-lg md:text-xl font-semibold text-white pr-2 sm:pr-4 leading-tight">
+									className="w-full p-6 text-left flex items-center justify-between gap-4 hover:bg-[#1E293B]/50 transition-colors duration-300">
+									<h3 className="text-lg md:text-xl font-semibold text-white leading-tight">
 										{item.question}
 									</h3>
 									<motion.div
 										animate={{ rotate: isOpen ? 180 : 0 }}
 										transition={{ duration: 0.3 }}>
 										<ChevronDown
-											size={20}
-											className="text-blue-400 shrink-0 sm:w-6 sm:h-6"
+											size={22}
+											className="text-[#60A5FA]"
 										/>
 									</motion.div>
 								</button>
 
-								{/* Answer */}
 								<AnimatePresence>
 									{isOpen && (
 										<motion.div
-											className="overflow-hidden"
 											initial={{ height: 0, opacity: 0 }}
 											animate={{
 												height: "auto",
@@ -108,10 +102,10 @@ const FAQ: React.FC = () => {
 												duration: 0.3,
 												ease: "easeInOut",
 											}}>
-											<div className="px-4 pb-4 sm:px-6 sm:pb-6 md:px-8 md:pb-8">
-												<div className="w-full h-px bg-gray-700 mb-4 sm:mb-6" />
+											<div className="px-6 pb-6">
+												<div className="w-full h-px bg-[#1E3A8A]/40 mb-4" />
 												<motion.p
-													className="text-sm sm:text-base text-slate-300 leading-relaxed"
+													className="text-base text-[#CBD5E1] leading-relaxed"
 													initial={{
 														y: -10,
 														opacity: 0,
@@ -132,18 +126,17 @@ const FAQ: React.FC = () => {
 					})}
 				</div>
 
-				{/* Bottom CTA */}
-				<div className="text-center mt-12 sm:mt-16 px-4">
-					<div className="p-6 sm:p-8 bg-slate-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-slate-700 max-w-2xl mx-auto">
-						<h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">
+				<div className="text-center mt-16">
+					<div className="p-8 bg-[#111827]/70 backdrop-blur-sm rounded-2xl border border-[#1E3A8A]/30 max-w-2xl mx-auto hover:border-[#2563EB]/60 transition">
+						<h3 className="text-2xl font-bold mb-4 text-white">
 							Still have questions?
 						</h3>
-						<p className="text-sm sm:text-base text-slate-300 mb-4 sm:mb-6">
+						<p className="text-base text-[#CBD5E1] mb-6">
 							Can&apos;t find the answer you&apos;re looking for?
 							Our technical team is ready to help with your
 							integration.
 						</p>
-						<TertiaryButton className="px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base touch-manipulation w-full sm:w-auto bg-blue-600 hover:bg-blue-500">
+						<TertiaryButton className="px-8 py-4 text-base bg-[#2563EB] hover:bg-[#1E40AF] transition rounded-xl">
 							Contact Support
 						</TertiaryButton>
 					</div>
@@ -153,4 +146,4 @@ const FAQ: React.FC = () => {
 	);
 };
 
-export default FAQ
+export default FAQ;
