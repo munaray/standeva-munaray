@@ -32,7 +32,9 @@ const Header: React.FC = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isVisible, setIsVisible] = useState(true);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-	const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+	const [activeDropdown, setActiveDropdown] = useState<
+		"Platform" | "Solutions" | "Developers" | null
+	>(null);
 	const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 	const lastScrollY = useRef(0);
 
@@ -70,7 +72,13 @@ const Header: React.FC = () => {
 		if (timeoutRef.current) {
 			clearTimeout(timeoutRef.current);
 		}
-		setActiveDropdown(itemName);
+		if (
+			itemName === "Platform" ||
+			itemName === "Solutions" ||
+			itemName === "Developers"
+		) {
+			setActiveDropdown(itemName);
+		}
 	};
 
 	const handleMouseLeave = () => {
