@@ -90,7 +90,7 @@ export const PrimaryButton = styled(motion.button)`
 	border: none;
 	color: white;
 	font-weight: 600;
-	padding: 1rem 2rem;
+	padding: 1rem 1.5rem;
 	border-radius: 12px;
 	cursor: pointer;
 	font-size: 1.1rem;
@@ -128,7 +128,7 @@ export const SecondaryButton = styled(motion.button)`
 	border: 2px solid rgba(59, 130, 246, 0.3);
 	color: #e2e8f0;
 	font-weight: 600;
-	padding: 1rem 2rem;
+	padding: 1rem 1.5rem;
 	border-radius: 12px;
 	cursor: pointer;
 	font-size: 1.1rem;

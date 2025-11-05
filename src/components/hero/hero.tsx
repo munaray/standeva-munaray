@@ -562,9 +562,9 @@ const Hero: React.FC = () => {
 						variants={titleVariants}
 						initial="hidden"
 						animate="visible">
-						Easily integrate
+						Powerful APIs
 						<br />
-						AI in your
+						for your
 						<br />
 						<span
 							ref={platformTextRef}
@@ -583,8 +583,8 @@ const Hero: React.FC = () => {
 						variants={subtitleVariants}
 						initial="hidden"
 						animate="visible">
-						Access all AI models with one API, or let us do the hard
-						part and build a custom AI solution for you.
+						Ready-made APIs for AI, product sourcing, integrations, and more.
+						Or request custom solutions built specifically for your platform.
 					</HeroSubtitle>
 
 					<HeroCTAGroup
@@ -594,14 +594,38 @@ const Hero: React.FC = () => {
 						<PrimaryButton
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}>
-							Start Building
+							Browse APIs
 						</PrimaryButton>
 						<SecondaryButton
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}>
-							View Documentation
+							Request Custom Solution
 						</SecondaryButton>
 					</HeroCTAGroup>
+
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8, delay: 0.9 }}
+						style={{
+							marginTop: "2rem",
+							display: "flex",
+							alignItems: "center",
+							gap: "1.5rem",
+							flexWrap: "wrap",
+							justifyContent: "center",
+							fontSize: "0.9rem",
+							color: "#94a3b8",
+						}}>
+						<div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+							<div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#10b981" }} />
+							<span>99.9% Uptime</span>
+						</div>
+						<span style={{ color: "#475569" }}>•</span>
+						<span>Trusted by 500+ Developers</span>
+						<span style={{ color: "#475569" }}>•</span>
+						<span>Built in the UK</span>
+					</motion.div>
 				</HeroContent>
 
 				<HeroVisual ref={hexagonContainerRef}>

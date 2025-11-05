@@ -7,30 +7,30 @@ import { Github, Twitter, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 const footerSections = [
 	{
-		title: "Platform",
+		title: "APIs",
 		links: [
-			{ name: "Development Services", href: "#services" },
-			{ name: "Training Programs", href: "#training" },
-			{ name: "Our Process", href: "#process" },
-			{ name: "Pricing", href: "#pricing" },
+			{ name: "Sourceora API", href: "/apis/sourceora" },
+			{ name: "AI/ML APIs", href: "/apis/ai-ml" },
+			{ name: "API Documentation", href: "/docs" },
+			{ name: "API Status", href: "/status" },
 		],
 	},
 	{
 		title: "Solutions",
 		links: [
-			{ name: "Web Development", href: "#web-dev" },
-			{ name: "Mobile Development", href: "#mobile-dev" },
-			{ name: "AI/ML Integration", href: "#ai-ml" },
-			{ name: "Team Training", href: "#team-training" },
+			{ name: "Ready-Made APIs", href: "#apis" },
+			{ name: "Custom Development", href: "#custom" },
+			{ name: "Enterprise Plans", href: "/enterprise" },
+			{ name: "Pricing", href: "/pricing" },
 		],
 	},
 	{
 		title: "Resources",
 		links: [
-			{ name: "Blog", href: "/blog" },
-			{ name: "Case Studies", href: "/case-studies" },
 			{ name: "Documentation", href: "/docs" },
-			{ name: "Success Stories", href: "#success-stories" },
+			{ name: "API Guides", href: "/guides" },
+			{ name: "Case Studies", href: "#case-studies" },
+			{ name: "Blog", href: "/blog" },
 		],
 	},
 	{
@@ -40,7 +40,7 @@ const footerSections = [
 			{ name: "Contact", href: "/contact" },
 			{ name: "Careers", href: "/careers" },
 			{ name: "Terms & Conditions", href: "/terms" },
-			{ name: "Privacy Notice", href: "/privacy" },
+			{ name: "Privacy Policy", href: "/privacy" },
 		],
 	},
 ];
@@ -101,9 +101,8 @@ const Footer: React.FC = () => {
 						</div>
 
 						<p className="text-slate-400 leading-relaxed mb-6 max-w-sm">
-							Empowering businesses with custom development
-							solutions and comprehensive training programs.
-							Building the future, one project at a time.
+							Production-ready APIs and custom solutions for modern applications.
+							Ship faster with enterprise-grade infrastructure.
 						</p>
 
 						{/* Contact Info */}
@@ -114,11 +113,11 @@ const Footer: React.FC = () => {
 							</div>
 							<div className="flex items-center gap-3 text-slate-400">
 								<Phone size={16} />
-								<span>+234 (0) 901 234 5678</span>
+								<span>+44 (0) 20 1234 5678</span>
 							</div>
 							<div className="flex items-center gap-3 text-slate-400">
 								<MapPin size={16} />
-								<span>Lagos, Nigeria</span>
+								<span>London, United Kingdom</span>
 							</div>
 						</div>
 
@@ -172,11 +171,10 @@ const Footer: React.FC = () => {
 				<div className="border-t border-slate-800 pt-12 mb-8">
 					<div className="max-w-md">
 						<h3 className="text-xl font-semibold mb-4">
-							Stay Updated
+							Developer Newsletter
 						</h3>
 						<p className="text-slate-400 mb-4">
-							Get the latest updates on our training programs and
-							development insights.
+							Get API updates, integration guides, and technical insights delivered to your inbox.
 						</p>
 						<div className="flex gap-3">
 							<input

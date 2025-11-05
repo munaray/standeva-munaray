@@ -1,169 +1,99 @@
 "use client";
 
 import React from "react";
-import { motion, Variants } from "framer-motion";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import {
 	ArrowRight,
 	Code,
-	GraduationCap,
-	Smartphone,
+	Zap,
+	Wrench,
 	Brain,
-	Globe,
-	Users,
+	Package,
+	Shield,
+	Clock,
 } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/buttons";
 
-const servicesData = [
+const solutionsData = [
 	{
-		id: "development",
-		badge: "Build it yourself...",
-		title: "Development Services",
+		id: "ready-apis",
+		badge: "Quick Integration",
+		title: "Ready-Made APIs",
 		description:
-			"For businesses who want custom software solutions built by experienced developers:",
+			"Pre-built, documented, and ready to integrate. Get up and running in minutes:",
 		features: [
 			{
-				icon: Globe,
-				text: "Web Development with React, Next.js, and modern frameworks",
+				icon: Zap,
+				text: "Integrate in minutes with comprehensive documentation",
 			},
 			{
-				icon: Smartphone,
-				text: "Mobile Development for iOS and Android platforms",
+				icon: Package,
+				text: "Pre-built solutions like Sourceora API for product sourcing",
 			},
 			{
 				icon: Brain,
-				text: "AI/ML Integration with cutting-edge models and APIs",
+				text: "AI/ML endpoints for intelligent automation",
 			},
 			{
-				icon: Code,
-				text: "Custom Software Solutions tailored to your business needs",
+				icon: Shield,
+				text: "Battle-tested, secure, and production-ready APIs",
 			},
 		],
-		buttonText: "Start Your Project",
+		buttonText: "Browse APIs",
 		buttonColor: "#3b82f6",
 	},
 	{
-		id: "training",
-		badge: "...or let us train your team",
-		title: "Training Programs",
+		id: "custom-solutions",
+		badge: "Tailored for You",
+		title: "Custom Development",
 		description:
-			"For companies and individuals who want to build internal development capabilities:",
+			"Need something specific? Our engineering team builds tailored API solutions:",
 		features: [
 			{
-				icon: GraduationCap,
-				text: "React & Next.js courses from beginner to advanced level",
-			},
-			{
-				icon: Brain,
-				text: "Python for AI/ML training with hands-on projects",
-			},
-			{
-				icon: Users,
-				text: "Full-Stack Development bootcamps and workshops",
+				icon: Wrench,
+				text: "Custom API endpoints designed for your use case",
 			},
 			{
 				icon: Code,
-				text: "Corporate team training with customized curriculum",
+				text: "Dedicated engineering team for your project",
+			},
+			{
+				icon: Clock,
+				text: "Ongoing maintenance and support included",
+			},
+			{
+				icon: Shield,
+				text: "Scalable infrastructure that grows with you",
 			},
 		],
-		buttonText: "Explore Training",
+		buttonText: "Request Custom Solution",
 		buttonColor: "#10b981",
 	},
 ];
 
 const Services: React.FC = () => {
-	const { ref: headerRef, isInView: headerInView } = useScrollAnimation({
-		threshold: 0.3,
-		triggerOnce: false,
-	});
-	const { ref: cardsRef, isInView: cardsInView } = useScrollAnimation({
-		threshold: 0.2,
-		triggerOnce: false,
-	});
-
-	const containerVariants: Variants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.3,
-				delayChildren: 0.2,
-			},
-		},
-	};
-
-	const cardVariants: Variants = {
-		hidden: {
-			opacity: 0,
-			y: 60,
-			scale: 0.95,
-		},
-		visible: {
-			opacity: 1,
-			y: 0,
-			scale: 1,
-			transition: {
-				duration: 0.8,
-				ease: [0.25, 0.46, 0.45, 0.94],
-			},
-		},
-	};
-
-	const headerVariants: Variants = {
-		hidden: { opacity: 0, y: 40 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.8,
-				ease: [0.25, 0.46, 0.45, 0.94],
-			},
-		},
-	};
-
 	return (
-		<section className="services-section relative py-20 bg-linear-to-br from-slate-50 to-blue-50 overflow-hidden">
-			{/* Background Elements */}
-			<div className="absolute top-10 left-5 w-48 h-48 bg-gradient-radial from-blue-100/30 to-transparent rounded-full pointer-events-none" />
-			<div className="absolute top-20 right-10 w-36 h-36 bg-gradient-radial from-purple-100/20 to-transparent rounded-full pointer-events-none" />
-			<div className="absolute bottom-15 left-15 w-32 h-32 bg-gradient-radial from-green-100/15 to-transparent rounded-full pointer-events-none" />
-
-			<div className="container mx-auto px-6 relative z-10">
+		<section className="services-section py-20 bg-linear-to-br from-white via-slate-50 to-blue-50">
+			<div className="container mx-auto px-6">
 				{/* Header */}
-				<motion.div
-					ref={headerRef}
-					className="text-center mb-16"
-					variants={headerVariants}
-					initial="hidden"
-					animate={headerInView ? "visible" : "hidden"}>
+				<div className="text-center mb-16">
 					<p className="text-sm uppercase tracking-wide text-blue-600 font-semibold mb-4">
-						SOLUTIONS
+						YOUR PATH TO SUCCESS
 					</p>
 					<h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-						Got specific needs? We&apos;re here to help
+						Choose Your Integration Path
 					</h2>
 					<p className="text-xl text-slate-600 max-w-3xl mx-auto">
-						Choose the approach that fits your development style and
-						business requirements
+						Use our ready-made APIs for instant integration, or let
+						us build custom solutions tailored to your needs
 					</p>
-				</motion.div>
+				</div>
 
-				{/* Services Grid */}
-				<motion.div
-					ref={cardsRef}
-					className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-					variants={containerVariants}
-					initial="hidden"
-					animate={cardsInView ? "visible" : "hidden"}>
-					{servicesData.map((service) => (
-						<motion.div
+				{/* Solutions Grid */}
+				<div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+					{solutionsData.map((service) => (
+						<div
 							key={service.id}
-							className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 hover:scale-105"
-							variants={cardVariants}
-							whileHover={{
-								scale: 1.02,
-								y: -8,
-								transition: { duration: 0.3 },
-							}}>
+							className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl hover:border-blue-400 transition-all duration-200">
 							{/* Card Header */}
 							<div className="mb-8">
 								<div className="inline-block px-4 py-2 bg-blue-50 text-blue-700 text-sm font-medium rounded-full mb-4">
@@ -202,17 +132,13 @@ const Services: React.FC = () => {
 							</div>
 
 							{/* Button */}
-							<button
-								className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
-								style={{
-									backgroundColor: service.buttonColor,
-								}}>
+							<PrimaryButton className="w-full flex items-center justify-center gap-2">
 								{service.buttonText}
 								<ArrowRight size={16} />
-							</button>
-						</motion.div>
+							</PrimaryButton>
+						</div>
 					))}
-				</motion.div>
+				</div>
 			</div>
 		</section>
 	);
