@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+// @ts-expect-error - allow side-effect import of global CSS without type declarations
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,12 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
-      >
-        {children}
-      </body>
-    </html>
+		<html lang="en" className="overflow-x-hidden">
+			<body
+				className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
+				{children}
+			</body>
+		</html>
   );
 }

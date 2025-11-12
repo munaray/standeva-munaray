@@ -1,5 +1,5 @@
-import Header from "@/components/header/header";
-import Hero from "@/components/hero/hero";
+import Header from "@/components/landing/header/header";
+import Hero from "@/components/landing/hero/hero";
 import TransitionOverlay from "@/components/transition/transition-overlay";
 
 export default function Home() {
