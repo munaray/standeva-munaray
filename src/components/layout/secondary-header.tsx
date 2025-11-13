@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -85,6 +85,28 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
 		return pathname === href;
 	};
 
+	const smoothScrollTo = useCallback((hash: string) => {
+		if (typeof window === "undefined" || !hash.startsWith("#")) return;
+		const target = document.querySelector(hash);
+		if (target) {
+			target.scrollIntoView({ behavior: "smooth", block: "start" });
+			setActiveHash(hash);
+			window.history.replaceState(null, "", hash);
+		}
+	}, []);
+
+	const handleAnchorClick = useCallback(
+		(event: React.MouseEvent, href: string, closeMenu = false) => {
+			if (!href.startsWith("#")) return;
+			event.preventDefault();
+			smoothScrollTo(href);
+			if (closeMenu) {
+				setIsMobileMenuOpen(false);
+			}
+		},
+		[smoothScrollTo]
+	);
+
 	const linkBaseClasses =
 		"text-sm font-medium tracking-wide transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-blue-500 after:to-purple-500 after:transition-all after:duration-300 hover:text-white hover:after:w-full";
 
@@ -123,6 +145,9 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
 							<li key={item.label}>
 								<Link
 									href={item.href}
+									onClick={(event) =>
+										handleAnchorClick(event, item.href)
+									}
 									className={`${linkBaseClasses} ${
 										isActive
 											? "text-blue-400 after:w-full"
@@ -139,6 +164,7 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
 					{ctaConfig && (
 						<Link
 							href={ctaConfig.href}
+							onClick={(event) => handleAnchorClick(event, ctaConfig.href)}
 							className="hidden rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition hover:opacity-90 md:inline-flex">
 							{ctaConfig.label}
 						</Link>
@@ -168,8 +194,8 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
 									<Link
 										key={item.label}
 										href={item.href}
-										onClick={() =>
-											setIsMobileMenuOpen(false)
+										onClick={(event) =>
+											handleAnchorClick(event, item.href, true)
 										}
 										className={`rounded-lg px-3 py-2 text-sm font-semibold transition ${
 											isActive
@@ -184,7 +210,9 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
 							{ctaConfig && (
 								<Link
 									href={ctaConfig.href}
-									onClick={() => setIsMobileMenuOpen(false)}
+									onClick={(event) =>
+										handleAnchorClick(event, ctaConfig.href, true)
+									}
 									className="rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-blue-500/40">
 									{ctaConfig.label}
 								</Link>

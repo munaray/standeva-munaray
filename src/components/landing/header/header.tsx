@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Dropdown } from "./dropdown";
@@ -99,6 +99,32 @@ const Header: React.FC = () => {
 		</svg>
 	);
 
+	const smoothScrollTo = useCallback((hash: string) => {
+		if (typeof window === "undefined" || !hash.startsWith("#")) return;
+		const target = document.querySelector(hash);
+		if (target) {
+			target.scrollIntoView({ behavior: "smooth", block: "start" });
+			window.history.replaceState(null, "", hash);
+		}
+	}, []);
+
+	const handleAnchorClick = useCallback(
+		(event: React.MouseEvent<HTMLAnchorElement>, href?: string, closeMenu = false) => {
+			if (!href || !href.startsWith("#")) {
+				if (closeMenu) {
+					setIsMobileMenuOpen(false);
+				}
+				return;
+			}
+			event.preventDefault();
+			smoothScrollTo(href);
+			if (closeMenu) {
+				setIsMobileMenuOpen(false);
+			}
+		},
+		[smoothScrollTo]
+	);
+
 	const linkClasses =
 		"relative text-sm font-medium text-slate-300 transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-blue-500 after:to-purple-500 after:transition-all hover:text-white hover:-translate-y-0.5 hover:after:w-full";
 
@@ -166,6 +192,12 @@ const Header: React.FC = () => {
 									{item.href ? (
 										<a
 											href={item.href}
+											onClick={(event) =>
+												handleAnchorClick(
+													event,
+													item.href
+												)
+											}
 											className={linkClasses}>
 											{item.name}
 										</a>
@@ -251,7 +283,9 @@ const Header: React.FC = () => {
 									initial={{ x: -20, opacity: 0 }}
 									animate={{ x: 0, opacity: 1 }}
 									transition={{ delay: index * 0.05 }}
-									onClick={() => setIsMobileMenuOpen(false)}
+									onClick={(event) =>
+										handleAnchorClick(event, item.href || "#", true)
+									}
 									className="rounded-lg px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10">
 									{item.name}
 								</motion.a>
