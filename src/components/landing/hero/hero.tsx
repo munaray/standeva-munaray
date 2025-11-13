@@ -23,25 +23,6 @@ import {
 	Server,
 	Terminal,
 } from "lucide-react";
-import {
-	HeroSection,
-	HeroContainer,
-	HeroContent,
-	HeroTitle,
-	HeroSubtitle,
-	HeroCTAGroup,
-	PrimaryButton,
-	SecondaryButton,
-	HeroVisual,
-	FloatingElement,
-	HexagonContainer,
-	HexagonSVG,
-	ConnectionLine,
-	BackgroundCurves,
-	ParticleContainer,
-	Particle,
-} from "./hero.styles";
-
 const techIcons = [
 	{ name: "React", icon: Code, color: "#3b82f6" },
 	{ name: "Node.js", icon: Server, color: "#10b981" },
@@ -96,9 +77,9 @@ const codeSnippets = [
 	},
 	{
 		title: "Integration",
-		code: `import { StandevaAI } from '@standeva/sdk'
+		code: `import { ClickbuyAI } from '@clickbuy/sdk'
 
-const ai = new StandevaAI({
+const ai = new ClickbuyAI({
   apiKey: process.env.API_KEY
 })
 
@@ -153,15 +134,17 @@ const Hero: React.FC = () => {
 					parallaxSpeed * 0.3
 				}px)`;
 
-				const curves = heroSectionRef.current.querySelector("svg");
+				const curves = heroSectionRef.current.querySelector(
+					"[data-curves]"
+				);
 				if (curves) {
-					curves.style.transform = `translateY(${
+					(curves as HTMLElement).style.transform = `translateY(${
 						parallaxSpeed * 0.2
 					}px)`;
 				}
 
 				const particleContainer = heroSectionRef.current.querySelector(
-					'[style*="pointer-events: none"]'
+					"[data-particles]"
 				);
 				if (particleContainer) {
 					(
@@ -398,14 +381,17 @@ const Hero: React.FC = () => {
 		const IconComponent = tech.icon;
 
 		return (
-			<HexagonContainer
+			<motion.div
+				className="absolute flex h-24 w-24 items-center justify-center"
 				style={{ left: position.x, top: position.y }}
 				variants={hexagonVariants}
 				initial="hidden"
 				animate="visible"
 				custom={position.delay}
 				whileHover={{ scale: 1.1, rotate: 10 }}>
-				<HexagonSVG viewBox="0 0 100 100">
+				<motion.svg
+					viewBox="0 0 100 100"
+					className="h-full w-full drop-shadow-[0_4px_12px_rgba(59,130,246,0.3)]">
 					<defs>
 						<linearGradient
 							id={`grad-${tech.name}`}
@@ -431,58 +417,32 @@ const Hero: React.FC = () => {
 						stroke={tech.color}
 						strokeWidth="2"
 					/>
-				</HexagonSVG>
+				</motion.svg>
 				<div
+					className="absolute -translate-x-1/2 -translate-y-1/2 drop-shadow-lg"
 					style={{
-						position: "absolute",
-						top: "50%",
 						left: "50%",
-						transform: "translate(-50%, -50%)",
+						top: "50%",
 						color: tech.color,
-						filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
 					}}>
 					<IconComponent size={24} />
 				</div>
-			</HexagonContainer>
+			</motion.div>
 		);
 	});
 
 	const CodeBlock: React.FC = () => (
 		<div
-			style={{
-				position: "absolute",
-				background: "rgba(15, 23, 42, 0.95)",
-				border: "1px solid rgba(59, 130, 246, 0.4)",
-				borderRadius: "12px",
-				padding: "1.5rem",
-				fontFamily: "monospace",
-				fontSize: "0.85rem",
-				color: "#e2e8f0",
-				width: "380px",
-				backdropFilter: "blur(15px)",
-				boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
-				top: "68%",
-				right: "11%",
-				zIndex: 15,
-			}}>
+			className="absolute z-20 w-full max-w-[380px] rounded-2xl border border-blue-500/40 bg-slate-900/95 p-6 font-mono text-xs text-slate-100 shadow-2xl backdrop-blur-2xl sm:text-sm"
+			style={{ top: "68%", right: "11%" }}>
 			<div
 				ref={codeTitleRef}
-				style={{
-					color: "#3b82f6",
-					fontWeight: "bold",
-					marginBottom: "0.75rem",
-					fontSize: "0.9rem",
-				}}>
+				className="mb-3 text-sm font-bold uppercase tracking-wide text-blue-400">
 				API Call
 			</div>
-			<pre
-				style={{
-					margin: 0,
-					whiteSpace: "pre-wrap",
-					lineHeight: "1.4",
-				}}>
+			<pre className="m-0 whitespace-pre-wrap leading-relaxed">
 				<span ref={codeTextRef}></span>
-				<span ref={codeCursorRef} style={{ color: "#3b82f6" }}>
+				<span ref={codeCursorRef} className="text-blue-400">
 					|
 				</span>
 			</pre>
@@ -490,10 +450,15 @@ const Hero: React.FC = () => {
 	);
 
 	return (
-		<HeroSection ref={heroSectionRef}>
+		<section
+			ref={heroSectionRef}
+			className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 py-24">
 			<ColorTransitionBox />
 
-			<BackgroundCurves viewBox="0 0 1200 800">
+			<motion.svg
+				data-curves
+				viewBox="0 0 1200 800"
+				className="pointer-events-none absolute inset-0 h-full w-full opacity-30">
 				<defs>
 					<linearGradient
 						id="curveGrad"
@@ -501,16 +466,8 @@ const Hero: React.FC = () => {
 						y1="0%"
 						x2="100%"
 						y2="100%">
-						<stop
-							offset="0%"
-							stopColor="#3b82f6"
-							stopOpacity="0.1"
-						/>
-						<stop
-							offset="100%"
-							stopColor="#8b5cf6"
-							stopOpacity="0.2"
-						/>
+						<stop offset="0%" stopColor="#3b82f6" stopOpacity="0.1" />
+						<stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.2" />
 					</linearGradient>
 				</defs>
 				<motion.path
@@ -531,12 +488,15 @@ const Hero: React.FC = () => {
 					animate={{ pathLength: 1 }}
 					transition={{ duration: 3, delay: 1, ease: "easeInOut" }}
 				/>
-			</BackgroundCurves>
+			</motion.svg>
 
-			<ParticleContainer>
+			<div
+				data-particles
+				className="pointer-events-none absolute inset-0">
 				{particles.map((particle) => (
-					<Particle
+					<motion.span
 						key={particle.id}
+						className="absolute h-1 w-1 rounded-full bg-blue-500/70"
 						style={{
 							left: `${particle.x}%`,
 							top: `${particle.y}%`,
@@ -554,95 +514,79 @@ const Hero: React.FC = () => {
 						}}
 					/>
 				))}
-			</ParticleContainer>
+			</div>
 
-			<HeroContainer>
-				<HeroContent>
-					<HeroTitle
+			<div className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 lg:grid-cols-[minmax(0,1fr)_1.2fr]">
+				<motion.div className="flex flex-col gap-8 text-white">
+					<motion.h1
 						variants={titleVariants}
 						initial="hidden"
-						animate="visible">
+						animate="visible"
+						className="text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
 						Powerful APIs
 						<br />
 						for your
 						<br />
 						<span
 							ref={platformTextRef}
-							style={{
-								background:
-									"linear-gradient(135deg, #3b82f6, #8b5cf6)",
-								backgroundClip: "text",
-								WebkitBackgroundClip: "text",
-								WebkitTextFillColor: "transparent",
-							}}>
+							className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
 							Platform
 						</span>
-					</HeroTitle>
+					</motion.h1>
 
-					<HeroSubtitle
+					<motion.p
 						variants={subtitleVariants}
 						initial="hidden"
-						animate="visible">
-						Ready-made APIs for AI, product sourcing, integrations,
-						and more. Or request custom solutions built specifically
-						for your platform.
-					</HeroSubtitle>
+						animate="visible"
+						className="text-lg text-slate-300 sm:text-xl">
+						Ready-made APIs for AI, product sourcing, integrations, and more. Or
+						request custom solutions built specifically for your platform.
+					</motion.p>
 
-					<HeroCTAGroup
+					<motion.div
 						variants={ctaVariants}
 						initial="hidden"
-						animate="visible">
-						<PrimaryButton
+						animate="visible"
+						className="flex flex-col gap-4 text-base md:flex-row md:flex-wrap">
+						<motion.button
 							whileHover={{ scale: 1.05 }}
-							whileTap={{ scale: 0.95 }}>
+							whileTap={{ scale: 0.95 }}
+							className="rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-500/30 transition hover:opacity-90">
 							Browse APIs
-						</PrimaryButton>
-						<SecondaryButton
+						</motion.button>
+						<motion.button
 							whileHover={{ scale: 1.05 }}
-							whileTap={{ scale: 0.95 }}>
+							whileTap={{ scale: 0.95 }}
+							className="rounded-xl border border-blue-500/40 px-6 py-3 font-semibold text-slate-100 transition hover:border-blue-500 hover:bg-blue-500/10">
 							Request Custom Solution
-						</SecondaryButton>
-					</HeroCTAGroup>
+						</motion.button>
+						<Link
+							href="/blog"
+							className="inline-flex items-center justify-center rounded-xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:border-blue-400 hover:text-blue-200">
+							Visit Blog
+						</Link>
+					</motion.div>
 
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.9 }}
-						style={{
-							marginTop: "2rem",
-							display: "flex",
-							alignItems: "center",
-							gap: "1.5rem",
-							flexWrap: "wrap",
-							justifyContent: "center",
-							fontSize: "0.9rem",
-							color: "#94a3b8",
-						}}>
-						<div
-							style={{
-								display: "flex",
-								alignItems: "center",
-								gap: "0.5rem",
-							}}>
-							<div
-								style={{
-									width: "8px",
-									height: "8px",
-									borderRadius: "50%",
-									backgroundColor: "#10b981",
-								}}
-							/>
+						className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-300">
+						<div className="flex items-center gap-2">
+							<span className="h-2 w-2 rounded-full bg-emerald-400" />
 							<span>99.9% Uptime</span>
 						</div>
-						<span style={{ color: "#475569" }}>•</span>
+						<span className="text-slate-600">•</span>
 						<span>Trusted by 500+ Developers</span>
-						<span style={{ color: "#475569" }}>•</span>
+						<span className="text-slate-600">•</span>
 						<span>Built in the UK</span>
 					</motion.div>
-				</HeroContent>
+				</motion.div>
 
-				<HeroVisual ref={hexagonContainerRef}>
-					<ConnectionLine viewBox="0 0 600 500">
+				<div
+					ref={hexagonContainerRef}
+					className="relative h-[500px] w-full md:h-[580px]">
+					<svg viewBox="0 0 600 500" className="absolute inset-0 h-full w-full">
 						<defs>
 							<linearGradient
 								id="lineGrad"
@@ -650,21 +594,9 @@ const Hero: React.FC = () => {
 								y1="0%"
 								x2="100%"
 								y2="0%">
-								<stop
-									offset="0%"
-									stopColor="#3b82f6"
-									stopOpacity="0.3"
-								/>
-								<stop
-									offset="50%"
-									stopColor="#8b5cf6"
-									stopOpacity="0.6"
-								/>
-								<stop
-									offset="100%"
-									stopColor="#3b82f6"
-									stopOpacity="0.3"
-								/>
+								<stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
+								<stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.6" />
+								<stop offset="100%" stopColor="#3b82f6" stopOpacity="0.3" />
 							</linearGradient>
 						</defs>
 						<motion.line
@@ -700,7 +632,7 @@ const Hero: React.FC = () => {
 							animate={{ pathLength: 1, opacity: 1 }}
 							transition={{ duration: 1, delay: 3 }}
 						/>
-					</ConnectionLine>
+					</svg>
 
 					{techIcons.slice(0, 12).map((tech, index) => (
 						<Hexagon
@@ -712,49 +644,37 @@ const Hero: React.FC = () => {
 
 					<CodeBlock />
 
-					<FloatingElement
-						style={{
-							top: "0%",
-							right: "50%",
-							width: "120px",
-							height: "60px",
-						}}
+					<motion.div
+						className="absolute flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white backdrop-blur-xl"
+						style={{ top: "0%", right: "50%", width: "140px", height: "60px" }}
 						variants={floatingVariants}
 						animate="animate">
-						<Terminal size={20} style={{ marginRight: "8px" }} />
+						<Terminal className="h-5 w-5" />
 						Live API
-					</FloatingElement>
+					</motion.div>
 
-					<FloatingElement
-						style={{
-							bottom: "20%",
-							left: "04%",
-							width: "140px",
-							height: "60px",
-						}}
+					<motion.div
+						className="absolute flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white backdrop-blur-xl"
+						style={{ bottom: "15%", left: "5%", width: "160px", height: "60px" }}
 						variants={floatingVariants}
 						animate="animate"
 						transition={{ delay: 1 }}>
-						<Rocket size={20} style={{ marginRight: "8px" }} />
+						<Rocket className="h-5 w-5" />
 						Fast Deploy
-					</FloatingElement>
+					</motion.div>
 
-					<FloatingElement
-						style={{
-							top: "50%",
-							right: "30%",
-							width: "100px",
-							height: "60px",
-						}}
+					<motion.div
+						className="absolute flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white backdrop-blur-xl"
+						style={{ top: "45%", right: "25%", width: "130px", height: "60px" }}
 						variants={floatingVariants}
 						animate="animate"
 						transition={{ delay: 2 }}>
-						<Lock size={20} style={{ marginRight: "8px" }} />
+						<Lock className="h-5 w-5" />
 						Secure
-					</FloatingElement>
-				</HeroVisual>
-			</HeroContainer>
-		</HeroSection>
+					</motion.div>
+				</div>
+			</div>
+		</section>
 	);
 };
 

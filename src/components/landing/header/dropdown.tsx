@@ -1,20 +1,7 @@
 "use client";
 
 import React from "react";
-import { AnimatePresence, Variants } from "framer-motion";
-import {
-	DropdownOverlay,
-	DropdownContainer,
-	DropdownContent,
-	DropdownSection,
-	DropdownLabel,
-	DropdownItem,
-	FeaturedCard,
-	FeaturedCardTitle,
-	FeaturedCardDescription,
-	FeaturedCardImage,
-	ReadMoreLink,
-} from "./header.styles";
+import { AnimatePresence, Variants, motion } from "framer-motion";
 
 interface DropdownItemData {
 	label: string;
@@ -204,70 +191,70 @@ export const Dropdown: React.FC<DropdownProps> = ({
 		<AnimatePresence>
 			{isOpen && (
 				<>
-					<DropdownOverlay
+					<motion.div
 						variants={overlayVariants}
 						initial="hidden"
 						animate="visible"
 						exit="exit"
 						onClick={onClose}
+						className="fixed top-20 left-0 right-0 bottom-0 z-40 bg-black/40 backdrop-blur-sm"
 					/>
-					<DropdownContainer
+					<motion.div
 						variants={dropdownVariants}
 						initial="hidden"
 						animate="visible"
 						exit="exit"
 						onMouseEnter={onMouseEnter}
-						onMouseLeave={onMouseLeave}>
-						<DropdownContent>
-							{currentContent.sections.map(
-								(section, sectionIndex) => (
-									<DropdownSection key={section.title}>
-										<DropdownLabel>
+						onMouseLeave={onMouseLeave}
+						className="fixed top-20 left-0 right-0 z-50 border-b border-blue-500/20 bg-slate-950/95 shadow-2xl">
+						<div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-10 lg:flex-row">
+							<div className="grid flex-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+								{currentContent.sections.map((section, sectionIndex) => (
+									<div key={section.title} className="flex flex-col gap-3">
+										<p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
 											{section.title}
-										</DropdownLabel>
-										{section.items.map(
-											(item, itemIndex) => (
-												<DropdownItem
-													key={item.label}
-													href={item.href}
-													variants={itemVariants}
-													custom={
-														sectionIndex *
-															section.items
-																.length +
-														itemIndex
-													}
-													whileHover={{ x: 4 }}>
-													{item.label}
-												</DropdownItem>
-											)
-										)}
-									</DropdownSection>
-								)
-							)}
-
-							<div className="featured-block">
-								<DropdownLabel>LATEST</DropdownLabel>
-								<FeaturedCard
-									whileHover={{ scale: 1.02 }}
-									whileTap={{ scale: 0.98 }}>
-									<FeaturedCardImage>
-										{currentContent.featured.image}
-									</FeaturedCardImage>
-									<FeaturedCardTitle>
-										{currentContent.featured.title}
-									</FeaturedCardTitle>
-									<FeaturedCardDescription>
-										{currentContent.featured.description}
-									</FeaturedCardDescription>
-									<ReadMoreLink
-										href={currentContent.featured.link}>
-										Read more
-									</ReadMoreLink>
-								</FeaturedCard>
+										</p>
+										{section.items.map((item, itemIndex) => (
+											<motion.a
+												key={item.label}
+												href={item.href}
+												variants={itemVariants}
+												custom={sectionIndex * section.items.length + itemIndex}
+												whileHover={{ x: 4 }}
+												className="block rounded-lg border-b border-white/5 px-2 py-2 text-sm font-semibold text-slate-100 transition last:border-b-0 hover:bg-white/5 hover:text-blue-400">
+												{item.label}
+											</motion.a>
+										))}
+									</div>
+								))}
 							</div>
-						</DropdownContent>
-					</DropdownContainer>
+
+							<div className="flex w-full max-w-sm flex-col gap-3 rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-6 text-white">
+								<p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
+									Latest
+								</p>
+								<motion.div
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									className="flex flex-col gap-4">
+									<div className="flex h-28 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-3xl">
+										{currentContent.featured.image}
+									</div>
+									<h4 className="text-lg font-semibold">
+										{currentContent.featured.title}
+									</h4>
+									<p className="text-sm text-slate-200">
+										{currentContent.featured.description}
+									</p>
+									<a
+										href={currentContent.featured.link}
+										className="text-sm font-semibold text-blue-400 transition hover:text-blue-300">
+										Read more →
+									</a>
+								</motion.div>
+							</div>
+						</div>
+					</motion.div>
 				</>
 			)}
 		</AnimatePresence>

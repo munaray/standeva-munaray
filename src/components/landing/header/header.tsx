@@ -1,26 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Dropdown } from "./dropdown";
-import {
-	HeaderContainer,
-	Nav,
-	Logo,
-	LogoIcon,
-	LogoText,
-	NavMenu,
-	NavItem,
-	NavLinkButton,
-	NavLinkAnchor,
-	CTASection,
-	SignInButton,
-	SignUpButton,
-	MobileMenuButton,
-	MobileMenu,
-	MobileNavItem,
-	FloatingParticle,
-} from "./header.styles";
 
 interface NavItemConfig {
 	name: string;
@@ -44,12 +27,9 @@ const Header: React.FC = () => {
 
 			setIsScrolled(currentScrollY > 20);
 
-			// Show/hide header based on scroll direction
 			if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-				// Scrolling down
 				setIsVisible(false);
 			} else {
-				// Scrolling up
 				setIsVisible(true);
 			}
 
@@ -66,6 +46,7 @@ const Header: React.FC = () => {
 		{ name: "Pricing", href: "#pricing" },
 		{ name: "Developers", hasDropdown: true },
 		{ name: "Company", href: "/company/about" },
+		{ name: "Blog", href: "/blog" },
 	];
 
 	const handleMouseEnter = (itemName: string) => {
@@ -118,102 +99,134 @@ const Header: React.FC = () => {
 		</svg>
 	);
 
+	const linkClasses =
+		"relative text-sm font-medium text-slate-300 transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-blue-500 after:to-purple-500 after:transition-all hover:text-white hover:-translate-y-0.5 hover:after:w-full";
+
 	return (
-		<HeaderContainer
-			className={isScrolled ? "scrolled" : ""}
+		<motion.header
 			variants={headerVariants}
-			animate={isVisible ? "visible" : "hidden"}>
-			{[...Array(5)].map((_, i) => (
-				<FloatingParticle
-					key={i}
-					animate={{
-						x: [0, 30, 0],
-						y: [0, -20, 0],
-						opacity: [0.3, 0.8, 0.3],
-					}}
-					transition={{
-						duration: 3 + i,
-						repeat: Infinity,
-						ease: "easeInOut",
-						delay: i * 0.5,
-					}}
-					style={{
-						left: `${20 + i * 15}%`,
-						top: "50%",
-					}}
-				/>
-			))}
+			animate={isVisible ? "visible" : "hidden"}
+			className={`fixed left-0 right-0 top-0 z-50 border-b backdrop-blur-xl transition-all ${
+				isScrolled
+					? "border-blue-500/30 bg-slate-950/95"
+					: "border-white/10 bg-slate-950/80"
+			}`}>
+			<div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+				<div className="relative flex items-center justify-between py-4">
+					<div className="pointer-events-none absolute inset-0">
+						{[...Array(5)].map((_, i) => (
+							<motion.span
+								key={i}
+								className="absolute h-1 w-1 rounded-full bg-blue-500/70"
+								style={{
+									left: `${20 + i * 15}%`,
+									top: "50%",
+								}}
+								animate={{
+									x: [0, 30, 0],
+									y: [0, -20, 0],
+									opacity: [0.3, 0.8, 0.3],
+								}}
+								transition={{
+									duration: 3 + i,
+									repeat: Infinity,
+									ease: "easeInOut",
+									delay: i * 0.5,
+								}}
+							/>
+						))}
+					</div>
 
-			<Nav>
-				<Logo>
-					<LogoIcon>
-						<motion.div
-							animate={{ rotate: 360 }}
-							transition={{
-								duration: 20,
-								repeat: Infinity,
-								ease: "linear",
-							}}
-							style={{
-								width: "20px",
-								height: "20px",
-								background: "white",
-								borderRadius: "4px",
-							}}
-						/>
-					</LogoIcon>
-					<LogoText>Standeva</LogoText>
-				</Logo>
+					<div className="relative flex w-full h-16 items-center justify-between gap-6">
+						<Link href="/" className="flex items-center gap-3">
+							<motion.div
+								className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-linear-to-br from-blue-500 to-purple-600"
+								animate={{ rotate: 360 }}
+								transition={{
+									duration: 20,
+									repeat: Infinity,
+									ease: "linear",
+								}}>
+								<span className="h-5 w-5 rounded-md bg-white" />
+							</motion.div>
+							<span className="text-xl font-bold tracking-tight text-white">
+								Clickbuy
+							</span>
+						</Link>
 
-				<NavMenu>
-					{navItems.map((item) => (
-						<NavItem
-							key={item.name}
-							onMouseEnter={() =>
-								item.hasDropdown && handleMouseEnter(item.name)
-							}
-							onMouseLeave={handleMouseLeave}>
-							{item.href ? (
-								<NavLinkAnchor
-									href={item.href}
-									whileHover={{ y: -2 }}
-									whileTap={{ y: 0 }}>
-									{item.name}
-								</NavLinkAnchor>
-							) : (
-								<NavLinkButton
-									data-open={activeDropdown === item.name}
-									whileHover={{ y: -2 }}
-									whileTap={{ y: 0 }}>
-									{item.name}
-									{item.hasDropdown && <ChevronDown />}
-								</NavLinkButton>
-							)}
-						</NavItem>
-					))}
-				</NavMenu>
+						<ul className="hidden items-center gap-8 md:flex">
+							{navItems.map((item) => (
+								<li
+									key={item.name}
+									onMouseEnter={() =>
+										item.hasDropdown &&
+										handleMouseEnter(item.name)
+									}
+									onMouseLeave={handleMouseLeave}>
+									{item.href ? (
+										<a
+											href={item.href}
+											className={linkClasses}>
+											{item.name}
+										</a>
+									) : (
+										<button
+											type="button"
+											data-open={
+												activeDropdown === item.name
+											}
+											className={`${linkClasses} flex items-center gap-2`}
+											onMouseEnter={() =>
+												handleMouseEnter(item.name)
+											}
+											onFocus={() =>
+												handleMouseEnter(item.name)
+											}>
+											{item.name}
+											{item.hasDropdown && (
+												<span
+													className={`transition-transform ${
+														activeDropdown ===
+														item.name
+															? "rotate-180 text-blue-400"
+															: "text-slate-400"
+													}`}>
+													<ChevronDown />
+												</span>
+											)}
+										</button>
+									)}
+								</li>
+							))}
+						</ul>
 
-				<CTASection>
-					<SignInButton
-						whileHover={{ scale: 1.05 }}
-						whileTap={{ scale: 0.95 }}>
-						Sign in
-					</SignInButton>
-					<SignUpButton
-						whileHover={{ scale: 1.05 }}
-						whileTap={{ scale: 0.95 }}>
-						Get Started
-					</SignUpButton>
+						<div className="flex items-center gap-3">
+							<motion.button
+								className="hidden rounded-lg px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-white/10 md:inline-flex"
+								whileHover={{ scale: 1.05 }}
+								whileTap={{ scale: 0.95 }}>
+								Sign in
+							</motion.button>
+							<motion.button
+								className="hidden rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition hover:opacity-90 md:inline-flex"
+								whileHover={{ scale: 1.05 }}
+								whileTap={{ scale: 0.95 }}>
+								Get Started
+							</motion.button>
 
-					<MobileMenuButton
-						onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-						whileTap={{ scale: 0.95 }}>
-						☰
-					</MobileMenuButton>
-				</CTASection>
-			</Nav>
+							<motion.button
+								className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 text-white md:hidden"
+								onClick={() =>
+									setIsMobileMenuOpen(!isMobileMenuOpen)
+								}
+								whileTap={{ scale: 0.95 }}>
+								{isMobileMenuOpen ? "✕" : "☰"}
+							</motion.button>
+						</div>
+					</div>
+				</div>
+			</div>
 
-			{/* Single Dropdown Container */}
 			<Dropdown
 				isOpen={!!activeDropdown}
 				activeItem={activeDropdown}
@@ -224,24 +237,42 @@ const Header: React.FC = () => {
 
 			<AnimatePresence>
 				{isMobileMenuOpen && (
-					<MobileMenu
+					<motion.div
 						initial={{ opacity: 0, height: 0 }}
 						animate={{ opacity: 1, height: "auto" }}
 						exit={{ opacity: 0, height: 0 }}
-						transition={{ duration: 0.3 }}>
-						{navItems.map((item, i) => (
-							<MobileNavItem
-								key={item.name}
-								initial={{ x: -20, opacity: 0 }}
-								animate={{ x: 0, opacity: 1 }}
-								transition={{ delay: i * 0.1 }}>
-								<a href={item.href || "#"}>{item.name}</a>
-							</MobileNavItem>
-						))}
-					</MobileMenu>
+						transition={{ duration: 0.3 }}
+						className="border-t border-white/10 bg-slate-950/95 px-4 py-4 md:hidden">
+						<div className="flex flex-col space-y-2">
+							{navItems.map((item, index) => (
+								<motion.a
+									key={item.name}
+									href={item.href || "#"}
+									initial={{ x: -20, opacity: 0 }}
+									animate={{ x: 0, opacity: 1 }}
+									transition={{ delay: index * 0.05 }}
+									onClick={() => setIsMobileMenuOpen(false)}
+									className="rounded-lg px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10">
+									{item.name}
+								</motion.a>
+							))}
+							<div className="flex flex-col gap-2 pt-2">
+								<button
+									type="button"
+									className="rounded-lg px-3 py-2 text-center text-sm font-semibold text-slate-200 hover:bg-white/10">
+									Sign in
+								</button>
+								<button
+									type="button"
+									className="rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-3 py-2 text-center text-sm font-semibold text-white">
+									Get Started
+								</button>
+							</div>
+						</div>
+					</motion.div>
 				)}
 			</AnimatePresence>
-		</HeaderContainer>
+		</motion.header>
 	);
 };
 
