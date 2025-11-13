@@ -28,7 +28,9 @@ const perspectives = [
 
 const PerspectiveSection: React.FC = () => {
 	return (
-		<section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+		<section
+			id="insights"
+			className="py-20 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
 			<div className="container mx-auto px-6">
 				<motion.div
 					className="text-center mb-16"
@@ -60,7 +62,7 @@ const PerspectiveSection: React.FC = () => {
 									fill
 									className="object-cover group-hover:scale-110 transition-transform duration-300"
 								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
+								<div className="absolute inset-0 bg-linear-to-t from-slate-900 to-transparent" />
 							</div>
 
 							<div className="p-6">
@@ -83,7 +85,10 @@ const PerspectiveSection: React.FC = () => {
 
 								<button className="flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors group">
 									Read More
-									<ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+									<ArrowRight
+										size={14}
+										className="group-hover:translate-x-1 transition-transform"
+									/>
 								</button>
 							</div>
 						</motion.div>

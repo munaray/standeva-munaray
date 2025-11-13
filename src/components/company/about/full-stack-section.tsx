@@ -24,7 +24,9 @@ const solutions = [
 
 const FullStackSection: React.FC = () => {
 	return (
-		<section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900/10 to-slate-900 text-white">
+		<section
+			id="capabilities"
+			className="py-20 bg-gradient-to-br from-slate-900 via-blue-900/10 to-slate-900 text-white">
 			<div className="container mx-auto px-6">
 				<motion.div
 					className="text-center mb-12"

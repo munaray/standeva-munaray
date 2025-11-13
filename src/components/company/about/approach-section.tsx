@@ -30,7 +30,7 @@ const approaches = [
 
 const ApproachSection: React.FC = () => {
 	return (
-		<section className="py-20 bg-black text-white">
+		<section id="approach" className="py-20 bg-black text-white">
 			<div className="container mx-auto px-6">
 				<motion.div
 					className="text-center mb-16"
@@ -42,7 +42,9 @@ const ApproachSection: React.FC = () => {
 						Our Approach to AI Success
 					</h2>
 					<p className="text-xl text-slate-400 max-w-3xl mx-auto">
-						We blend strategic insight, advanced technology, and a commitment to excellence to drive transformative results for your business.
+						We blend strategic insight, advanced technology, and a
+						commitment to excellence to drive transformative results
+						for your business.
 					</p>
 				</motion.div>
 
@@ -56,14 +58,19 @@ const ApproachSection: React.FC = () => {
 								initial={{ opacity: 0, y: 30 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
-								transition={{ duration: 0.6, delay: index * 0.1 }}>
+								transition={{
+									duration: 0.6,
+									delay: index * 0.1,
+								}}>
 								<div className="relative mb-6 inline-block">
-									<div className="w-24 h-24 bg-gradient-to-r from-[#2563EB] to-[#7C3AED] rounded-2xl flex items-center justify-center mx-auto">
+									<div className="w-24 h-24 bg-linear-to-r from-[#2563EB] to-[#7C3AED] rounded-2xl flex items-center justify-center mx-auto">
 										<Icon size={36} />
 									</div>
-									<div className="absolute inset-0 bg-gradient-to-r from-[#2563EB] to-[#7C3AED] rounded-2xl blur-xl opacity-50" />
+									<div className="absolute inset-0 bg-linear-to-r from-[#2563EB] to-[#7C3AED] rounded-2xl blur-xl opacity-50" />
 								</div>
-								<h3 className="text-xl font-bold mb-3">{approach.title}</h3>
+								<h3 className="text-xl font-bold mb-3">
+									{approach.title}
+								</h3>
 								<p className="text-slate-400 leading-relaxed">
 									{approach.description}
 								</p>
@@ -85,7 +92,7 @@ const ApproachSection: React.FC = () => {
 							fill
 							className="object-cover"
 						/>
-						<div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-purple-900/60" />
+						<div className="absolute inset-0 bg-linear-to-r from-blue-900/60 to-purple-900/60" />
 					</div>
 				</motion.div>
 			</div>

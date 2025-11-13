@@ -9,14 +9,26 @@ import CTASection from "@/components/company/about/cta-section";
 import PerspectiveSection from "@/components/company/about/perspective-section";
 
 export const metadata = {
-	title: "About Us - Standeva | AI Solutions for Enterprise",
-	description: "Learn about Standeva, a generative AI company driving innovation and efficiency through scalable AI solutions for enterprises.",
+	title: "About Us - Clickbuy | AI Solutions for Enterprise",
+	description: "Learn about Clickbuy, a generative AI company driving innovation and efficiency through scalable AI solutions for enterprises.",
 };
 
 export default function AboutPage() {
+	const navItems = [
+		{ label: "Overview", href: "#overview" },
+		{ label: "Core Solutions", href: "#core-solutions" },
+		{ label: "Capabilities", href: "#capabilities" },
+		{ label: "Approach", href: "#approach" },
+		{ label: "Insights", href: "#insights" },
+		{ label: "Blog", href: "/blog" }
+	];
+
 	return (
 		<main className="min-h-screen bg-black">
-			<SecondaryHeader />
+			<SecondaryHeader
+				navItems={navItems}
+				cta={{ label: "Plan a Call", href: "#contact" }}
+			/>
 			<AboutHero />
 			<CoreSolutions />
 			<FullStackSection />
