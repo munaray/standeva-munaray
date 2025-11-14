@@ -88,7 +88,7 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 				chip: "bg-[#131b33] border-[#1f2a4a] text-slate-200"
 		  }
 		: {
-				page: "bg-[#fdf9f0] text-[#04060a]",
+				page: "bg-[#fefcf7] text-[#0b0b0b]",
 				pattern: "opacity-12",
 				header: "bg-white/95 border-[#e5d9c8] text-[#04060a]",
 				panel: "bg-white border border-[#e6dcca]",
