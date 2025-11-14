@@ -77,26 +77,26 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 	const [activeHeading, setActiveHeading] = useState("");
 	const themeClasses = isDarkMode
 		? {
-				page: "bg-[#05060a] text-white",
-				pattern: "opacity-20",
-				header: "bg-[#05060afb]/90 border-slate-800 text-white",
-				panel: "bg-[#0b0f19]/70 border border-slate-800",
-				panelSoft: "bg-[#0b0f19]/50 border-slate-800",
-				input: "bg-[#05060a] border-slate-700 text-white placeholder-slate-400",
+				page: "bg-[#03040a] text-[#fdfcf7]",
+				pattern: "opacity-25",
+				header: "bg-[#03040a]/95 border-[#0d1224] text-white",
+				panel: "bg-[#0b1224]/80 border border-[#141f3b]",
+				panelSoft: "bg-[#0b1224]/60 border-[#141f3b]",
+				input: "bg-[#050815] border-[#1d2644] text-white placeholder-slate-400",
 				textMuted: "text-slate-400",
 				commentText: "text-slate-100",
-				chip: "bg-slate-800 border-slate-700 text-slate-200"
+				chip: "bg-[#131b33] border-[#1f2a4a] text-slate-200"
 		  }
 		: {
-				page: "bg-[#f5f7fb] text-slate-900",
-				pattern: "opacity-5",
-				header: "bg-white/90 border-slate-200 text-slate-900",
-				panel: "bg-white border border-slate-200",
-				panelSoft: "bg-white border-slate-200",
-				input: "bg-white border-slate-300 text-slate-900 placeholder-slate-500",
-				textMuted: "text-slate-500",
-				commentText: "text-slate-700",
-				chip: "bg-slate-100 border-slate-200 text-slate-600"
+				page: "bg-[#fdf9f0] text-[#04060a]",
+				pattern: "opacity-12",
+				header: "bg-white/95 border-[#e5d9c8] text-[#04060a]",
+				panel: "bg-white border border-[#e6dcca]",
+				panelSoft: "bg-white border-[#e6dcca]",
+				input: "bg-white border-[#d5c8b5] text-[#04060a] placeholder-slate-600",
+				textMuted: "text-slate-600",
+				commentText: "text-slate-800",
+				chip: "bg-[#f3ebdd] border-[#e6dcca] text-[#5c4f3d]"
 		  };
 
 	// Load theme preference
@@ -398,18 +398,18 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 					>
 						<div className="flex gap-3">
 							<Image
-								src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop"
+								src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=200&auto=format&fit=crop"
 								alt="You"
-								width={32}
-								height={32}
-								className="rounded-full"
+								width={40}
+								height={40}
+								className="h-10 w-10 rounded-full object-cover"
 							/>
 							<div className="flex-1">
 								<textarea
 									value={replyContent}
 									onChange={(e) => setReplyContent(e.target.value)}
 									placeholder="Write a reply..."
-									className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 resize-none"
+									className={`w-full rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 resize-none ${themeClasses.input}`}
 									rows={3}
 								/>
 								<div className="flex justify-end gap-2 mt-2">
@@ -684,19 +684,16 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 											? src
 											: FALLBACK_IMAGE;
 									return (
-										<div className="my-10 flex flex-col items-center">
-											<div className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-white/10 shadow-lg">
-												<Image
-													src={resolvedSrc}
-													alt={alt || post.title}
-													width={1400}
-													height={900}
-													className="w-full max-h-[420px] object-cover md:object-contain bg-black/20"
-													priority={false}
-												/>
-											</div>
+										<div className="my-8">
+											<Image
+												src={resolvedSrc}
+												alt={alt || post.title}
+												width={1200}
+												height={600}
+												className="rounded-xl object-cover border border-white/10 shadow-lg"
+											/>
 											{alt && (
-												<p className="text-center text-slate-400 text-sm mt-3 italic max-w-2xl">
+												<p className="text-center text-slate-400 text-sm mt-2 italic">
 													{alt}
 												</p>
 											)}
