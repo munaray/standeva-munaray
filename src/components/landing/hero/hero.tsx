@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
