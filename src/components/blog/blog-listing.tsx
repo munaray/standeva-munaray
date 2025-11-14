@@ -8,6 +8,10 @@ import Link from "next/link";
 import BlogBackButton from "@/components/blog/back-button";
 
 // Types
+const FALLBACK_IMAGE = "/blog 1.1.png";
+const FALLBACK_AVATAR =
+	"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop";
+
 interface BlogPost {
 	slug: string;
 	title: string;
@@ -19,7 +23,7 @@ interface BlogPost {
 	publishedAt: string;
 	readTime: number;
 	tags: string[];
-	image: string;
+	image?: string;
 	views: number;
 	likes: number;
 }
@@ -88,20 +92,29 @@ const BlogListing: React.FC<BlogListingProps> = ({
 		<motion.article
 			whileHover={{ scale: 1.02 }}
 			className={`group cursor-pointer bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-blue-500/50 overflow-hidden ${
-				viewMode === "list" ? "flex gap-6" : ""
+				viewMode === "list" ? "flex flex-col gap-4 sm:flex-row sm:gap-6" : ""
 			}`}>
 			<Link href={`/blog/${post.slug}`} className="block h-full">
 				<div
 					className={`relative overflow-hidden ${
 						viewMode === "list"
-							? "w-48 h-32 shrink-0"
+							? "w-full h-48 sm:w-48 sm:h-32 shrink-0"
 							: "aspect-video"
 					}`}>
 					<Image
-						src={post.image}
+						src={
+							post.image && post.image.trim().length > 0
+								? post.image
+								: FALLBACK_IMAGE
+						}
 						alt={post.title}
 						fill
 						className="object-cover group-hover:scale-110 transition-transform duration-500"
+						sizes={
+							viewMode === "list"
+								? "(max-width: 768px) 50vw, 300px"
+								: "(max-width: 768px) 100vw, 420px"
+						}
 					/>
 					<div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
 
@@ -116,7 +129,7 @@ const BlogListing: React.FC<BlogListingProps> = ({
 
 				<div className={`p-4 ${viewMode === "list" ? "flex-1" : ""}`}>
 					{viewMode === "list" && (
-						<div className="flex items-center gap-4 text-xs text-slate-400 mb-2">
+						<div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 mb-2">
 							<span>{post.publishedAt}</span>
 							<span>•</span>
 							<span>{post.readTime} min read</span>
@@ -127,13 +140,16 @@ const BlogListing: React.FC<BlogListingProps> = ({
 
 					<div className="flex items-center gap-2 mb-3">
 						<Image
-							src={post.author.avatar}
-							alt={post.author.name}
-							width={24}
-							height={24}
-							className="rounded-full"
+							src={
+								post.author.avatar ||
+								FALLBACK_AVATAR
+							}
+							alt={post.author.name || "Author avatar"}
+							width={32}
+							height={32}
+							className="rounded-full object-cover border border-white/10"
 						/>
-						<span className="text-xs text-slate-400">
+						<span className="text-xs text-slate-300 font-medium">
 							{post.author.name}
 						</span>
 						{viewMode === "grid" && (
@@ -209,8 +225,8 @@ const BlogListing: React.FC<BlogListingProps> = ({
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0 }}
 				className="relative z-10 bg-black/80 backdrop-blur-lg border-b border-slate-800 top-0">
-				<div className="container mx-auto px-6 py-6">
-					<div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
+				<div className="container mx-auto px-4 sm:px-6 py-6">
+					<div className="flex flex-col lg:flex-row gap-8 w-full">
 						<div className="w-full">
 							{showBackButton && (
 								<div className="mb-4">
@@ -229,8 +245,8 @@ const BlogListing: React.FC<BlogListingProps> = ({
 							</p>
 						</div>
 
-						<div className="flex items-center gap-4">
-							<div className="relative">
+						<div className="flex w-full flex-col gap-4 lg:w-auto lg:flex-row lg:items-center">
+							<div className="relative w-full lg:w-72">
 								<Search
 									className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"
 									size={20}
@@ -242,11 +258,11 @@ const BlogListing: React.FC<BlogListingProps> = ({
 									onChange={(e) =>
 										setSearchTerm(e.target.value)
 									}
-									className="pl-10 pr-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 w-64"
+									className="w-full pl-10 pr-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-500"
 								/>
 							</div>
 
-							<div className="flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-lg p-1">
+							<div className="flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-lg p-1 self-start">
 								<button
 									onClick={() => setViewMode("grid")}
 									className={`p-2 rounded ${
@@ -279,7 +295,7 @@ const BlogListing: React.FC<BlogListingProps> = ({
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.2 }}
 					className="mb-8">
-					<div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
+					<div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
 						{/* Categories */}
 						<div className="flex flex-wrap gap-2">
 							{categories.map((category) => (
