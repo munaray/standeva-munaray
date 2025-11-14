@@ -1,12 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { notFound } from "next/navigation";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-	Clock,
-	Calendar,
-	User,
 	ArrowLeft,
 	Share2,
 	Bookmark,
@@ -16,11 +12,8 @@ import {
 	MoreVertical,
 	Flag,
 	Heart,
-	Sun,
-	Moon,
 	Menu,
 	X,
-	ArrowUp,
 	Twitter,
 	Linkedin,
 	Link as LinkIcon,
@@ -71,46 +64,35 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 	const [isBookmarked, setIsBookmarked] = useState(false);
 	const [isLiked, setIsLiked] = useState(false);
 	const [showShareMenu, setShowShareMenu] = useState(false);
-	const [isDarkMode, setIsDarkMode] = useState(true);
 	const [showTOC, setShowTOC] = useState(false);
 	const [readingProgress, setReadingProgress] = useState(0);
 	const [activeHeading, setActiveHeading] = useState("");
-	const themeClasses = isDarkMode
-		? {
-				page: "bg-[#03040a] text-[#fdfcf7]",
-				pattern: "opacity-25",
-				header: "bg-[#03040a]/95 border-[#0d1224] text-white",
-				panel: "bg-[#0b1224]/80 border border-[#141f3b]",
-				panelSoft: "bg-[#0b1224]/60 border-[#141f3b]",
-				input: "bg-[#050815] border-[#1d2644] text-white placeholder-slate-400",
-				textMuted: "text-slate-400",
-				commentText: "text-slate-100",
-				chip: "bg-[#131b33] border-[#1f2a4a] text-slate-200",
-		  }
-		: {
-				page: "bg-[#fefcf7] text-[#0b0b0b]",
-				pattern: "opacity-12",
-				header: "bg-white/95 border-[#e5d9c8] text-[#04060a]",
-				panel: "bg-white border border-[#e6dcca]",
-				panelSoft: "bg-white border-[#e6dcca]",
-				input: "bg-white border-[#d5c8b5] text-[#04060a] placeholder-slate-600",
-				textMuted: "text-slate-800",
-				commentText: "text-slate-800",
-				chip: "bg-[#f3ebdd] border-[#e6dcca] text-[#5c4f3d]",
-		  };
 
-	// Load theme preference
-	useEffect(() => {
-		const savedTheme = localStorage.getItem("blog-theme");
-		const dark = savedTheme !== "light";
-		setIsDarkMode(dark);
-		document.documentElement.classList.toggle("blog-dark", dark);
-	}, []);
+	type ThemeClasses = {
+		page: string;
+		pattern: string;
+		header: string;
+		panel: string;
+		panelSoft: string;
+		input: string;
+		textMuted: string;
+		commentText: string;
+		chip: string;
+	};
 
-	useEffect(() => {
-		document.documentElement.classList.toggle("blog-dark", isDarkMode);
-		localStorage.setItem("blog-theme", isDarkMode ? "dark" : "light");
-	}, [isDarkMode]);
+	const darkTheme: ThemeClasses = {
+		page: "bg-[#03040a] text-[#fdfcf7]",
+		pattern: "opacity-25",
+		header: "bg-[#03040a]/95 border-[#0d1224] text-white",
+		panel: "bg-[#0b1224]/80 border border-[#141f3b]",
+		panelSoft: "bg-[#0b1224]/60 border-[#141f3b]",
+		input: "bg-[#050815] border-[#1d2644] text-white placeholder-slate-400",
+		textMuted: "text-slate-400",
+		commentText: "text-slate-100",
+		chip: "bg-[#131b33] border-[#1f2a4a] text-slate-200",
+	};
+
+	const themeClasses = darkTheme;
 
 	// Mock comments data
 	useEffect(() => {
@@ -189,11 +171,6 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 		});
 
 		return toc;
-	};
-
-	// Handle theme toggle
-	const toggleTheme = () => {
-		setIsDarkMode((prev) => !prev);
 	};
 
 	// Handle scroll for reading progress and active heading
@@ -441,7 +418,7 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 
 	if (!post) {
 		return (
-			<div className={`min-h-screen bg-black text-white flex items-center justify-center ${isDarkMode ? "dark" : "light"}`}>
+			<div className="min-h-screen bg-[#03040a] text-white flex items-center justify-center">
 				<div className="text-center">
 					<h1 className="text-2xl font-bold mb-4">Article not found</h1>
 					<Link href="/blog" className="text-blue-400 hover:text-blue-300">
@@ -490,7 +467,7 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 	};
 
 	return (
-		<div className={`min-h-screen ${themeClasses.page} ${isDarkMode ? "dark" : "light"}`}>
+		<div className={`min-h-screen ${themeClasses.page}`}>
 			{/* Background Pattern */}
 			<div className={`fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg1OSwgMTMwLCAyNDYsIDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] ${themeClasses.pattern}`} />
 
@@ -508,16 +485,6 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 						</Link>
 
 						<div className="flex items-center gap-4">
-							{/* Theme Toggle */}
-							<motion.button
-								onClick={toggleTheme}
-								className="p-2 rounded-lg bg-slate-800 border border-slate-700 hover:bg-slate-700 transition-colors"
-								whileHover={{ scale: 1.1 }}
-								whileTap={{ scale: 0.9 }}
-							>
-								{isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-							</motion.button>
-
 							{/* TOC Toggle */}
 							<motion.button
 								onClick={() => setShowTOC(!showTOC)}
@@ -635,7 +602,7 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 						className="object-cover"
 						priority
 					/>
-					<div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+					<div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
 				</div>
 
 				{/* Article Body */}
@@ -652,7 +619,7 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.2 }}
-						className={`prose prose-invert prose-lg max-w-none ${isDarkMode ? "dark" : "light"}`}
+						className="prose prose-invert prose-lg max-w-none"
 					>
 						<ReactMarkdown
 							remarkPlugins={[remarkGfm]}
@@ -700,11 +667,14 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 										</div>
 									);
 								},
-								code: ({ children, className, ...props }) => (
-									<div className={`bg-slate-900 rounded-lg p-4 overflow-x-auto my-4 ${className || ""}`} {...props}>
-										<code className="text-sm">{children}</code>
-									</div>
-								),
+								code: ({ children, className, ...props }: { children?: React.ReactNode; className?: string } & React.HTMLAttributes<HTMLDivElement>) => {
+
+									return (
+										<div className={`bg-slate-900 rounded-lg p-4 overflow-x-auto my-4 ${className || ""}`} {...props}>
+											<code className="text-sm">{children}</code>
+										</div>
+									);
+								},
 								blockquote: ({ children, ...props }) => (
 									<blockquote className="border-l-4 border-blue-500 pl-4 italic text-slate-300 my-4" {...props}>
 										{children}
