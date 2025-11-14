@@ -85,7 +85,7 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 				input: "bg-[#050815] border-[#1d2644] text-white placeholder-slate-400",
 				textMuted: "text-slate-400",
 				commentText: "text-slate-100",
-				chip: "bg-[#131b33] border-[#1f2a4a] text-slate-200"
+				chip: "bg-[#131b33] border-[#1f2a4a] text-slate-200",
 		  }
 		: {
 				page: "bg-[#fefcf7] text-[#0b0b0b]",
@@ -94,9 +94,9 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 				panel: "bg-white border border-[#e6dcca]",
 				panelSoft: "bg-white border-[#e6dcca]",
 				input: "bg-white border-[#d5c8b5] text-[#04060a] placeholder-slate-600",
-				textMuted: "text-slate-600",
+				textMuted: "text-slate-800",
 				commentText: "text-slate-800",
-				chip: "bg-[#f3ebdd] border-[#e6dcca] text-[#5c4f3d]"
+				chip: "bg-[#f3ebdd] border-[#e6dcca] text-[#5c4f3d]",
 		  };
 
 	// Load theme preference
@@ -373,7 +373,7 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ initialPost }) => {
 						<Heart size={16} className={comment.isLiked ? "fill-current" : ""} />
 						{comment.likes}
 					</motion.button>
-					
+
 					<motion.button
 						onClick={() => setReplyingTo(comment.id)}
 						className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
