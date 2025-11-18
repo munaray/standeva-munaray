@@ -45,6 +45,7 @@ const Header: React.FC = () => {
 		{ name: "Solutions", hasDropdown: true },
 		{ name: "Pricing", href: "#pricing" },
 		{ name: "Developers", hasDropdown: true },
+		{ name: "Affiliate", href: "/affiliate" },
 		{ name: "Company", href: "/company/about" },
 		{ name: "Blog", href: "/blog" },
 	];

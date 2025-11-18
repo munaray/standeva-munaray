@@ -3,15 +3,20 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Services from "@/components/landing/services";
+import ProblemSection from "@/components/landing/problem-section";
+// import Services from "@/components/landing/services";
+import SolutionsSection from "@/components/landing/solutions-section";
+import BeforeAfterSection from "@/components/landing/before-after-section";
+import PricingSection from "@/components/landing/pricing-section";
+import FounderMissionSection from "@/components/landing/founder-mission-section";
 // import FeaturedAPIs from "@/components/landing/featured-apis"; // Commented out as requested
 import OurProcess from "@/components/landing/our-process";
 import WhyChooseUs from "@/components/landing/why-choose-us";
-import UseCases from "@/components/landing/use-cases";
-import SuccessStories from "@/components/landing/success-stories";
+// import UseCases from "@/components/landing/use-cases";
+// import SuccessStories from "@/components/landing/success-stories";
 import Faq from "@/components/landing/faq";
 import CtaSection from "@/components/landing/cta-section";
-import Footer from "@/components/landing/footer";
+// import Footer from "@/components/landing/footer";
 // import Process from "@/components/landing/process";
 // import TrainingPrograms from "@/components/landing/training-programs";
 
@@ -70,17 +75,21 @@ const TransitionOverlay: React.FC = () => {
 
 	return (
 		<>
-			<Services />
+			<ProblemSection />
+			<SolutionsSection />
+			<WhyChooseUs />
+			<BeforeAfterSection />
+			<PricingSection />
+			<FounderMissionSection />
+			{/* <Services /> */}
 			{/* <FeaturedAPIs /> */}
 			<OurProcess />
 			{/* <Process /> */}
-			<WhyChooseUs />
-			<UseCases />
-			<SuccessStories />
+			{/* <UseCases />
+			<SuccessStories /> */}
 			{/* <TrainingPrograms /> */}
 			<Faq />
 			<CtaSection />
-			<Footer />
 		</>
 	);
 };

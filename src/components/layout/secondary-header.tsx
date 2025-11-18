@@ -120,7 +120,7 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
 			initial={{ y: -40, opacity: 0 }}
 			variants={headerVariants}
 			animate={isVisible ? "visible" : "hidden"}
-			className={`fixed top-0 left-0 right-0 z-40 h-16 border-b border-white/5 ${isScrolled ? "bg-slate-950/95" : "bg-slate-950/80"} backdrop-blur-xl transition-all ${className}`}>
+			className={`fixed top-0 left-0 right-0 z-40 h-20 border-b border-white/5 ${isScrolled ? "bg-slate-950/95" : "bg-slate-950/80"} backdrop-blur-xl transition-all ${className}`}>
 			<nav className="mx-auto flex h-full w-full max-w-6xl items-center justify-between px-6">
 				<Link href="/" className="flex items-center gap-3 no-underline">
 					<motion.div

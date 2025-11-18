@@ -1,5 +1,6 @@
 import Header from "@/components/landing/header/header";
 import Hero from "@/components/landing/hero/hero";
+import SecondaryFooter from "@/components/layout/secondary-footer";
 import TransitionOverlay from "@/components/transition/transition-overlay";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
 				<Hero />
 				<TransitionOverlay />
 			</main>
+			<SecondaryFooter />
 		</div>
 	);
 }

@@ -1,150 +1,84 @@
 "use client";
 
 import React from "react";
-import { Clock, DollarSign, Shield, TrendingUp, Check, X } from "lucide-react";
-import { PrimaryButton, SecondaryButton } from "@/components/ui/buttons";
+import { CheckCircle2, XCircle } from "lucide-react";
 
-const comparisons = [
-	{
-		id: "time-to-market",
-		icon: Clock,
-		title: "Time to Market",
-		withClickbuy: "Minutes to Hours",
-		buildingYourself: "Weeks to Months",
-		description:
-			"Integrate production-ready APIs instantly instead of spending months on development, testing, and deployment.",
-		gradient: "from-[#3B82F6] to-[#2563EB]",
-	},
-	{
-		id: "cost",
-		icon: DollarSign,
-		title: "Cost Efficiency",
-		withClickbuy: "Pay per Use",
-		buildingYourself: "Full Development Team",
-		description:
-			"Eliminate hiring, infrastructure, and maintenance costs. Pay only for what you use with transparent, scalable pricing.",
-		gradient: "from-[#2563EB] to-[#1D4ED8]",
-	},
-	{
-		id: "reliability",
-		icon: Shield,
-		title: "Reliability & Support",
-		withClickbuy: "99.9% Uptime SLA",
-		buildingYourself: "Your Responsibility",
-		description:
-			"Enterprise-grade infrastructure with 24/7 monitoring, dedicated support, and guaranteed uptime. We handle the complexity.",
-		gradient: "from-[#1E40AF] to-[#1E3A8A]",
-	},
-	{
-		id: "scalability",
-		icon: TrendingUp,
-		title: "Instant Scalability",
-		withClickbuy: "Auto-scales Globally",
-		buildingYourself: "Manual Scaling Required",
-		description:
-			"Handle traffic spikes effortlessly. Our infrastructure scales automatically from 10 to 10 million requests without intervention.",
-		gradient: "from-[#1E3A8A] to-[#1E40AF]",
-	},
+const otherProviderItems = [
+	"Send your data to public AI models (OpenAI, Google).",
+	"Run critical workflows on a rented, third‑party platform.",
+	"Rely on closed‑source tools with opaque licensing.",
 ];
 
-const ComparisonCard: React.FC<{
-	comparison: (typeof comparisons)[0];
-	index: number;
-}> = ({ comparison }) => {
-	const IconComponent = comparison.icon;
-
-	return (
-		<div className="bg-[#111827]/70 backdrop-blur-sm rounded-2xl p-8 border border-[#1E3A8A]/30 hover:border-[#2563EB]/60 hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] transition-all duration-300">
-			<div className="flex items-center gap-4 mb-6">
-				<div
-					className={`w-14 h-14 rounded-xl bg-linear-to-br ${comparison.gradient} flex items-center justify-center shadow-lg`}>
-					<IconComponent className="w-7 h-7 text-white" />
-				</div>
-				<h3 className="text-2xl font-bold text-white">
-					{comparison.title}
-				</h3>
-			</div>
-
-			<p className="text-[#CBD5E1] leading-relaxed mb-6">
-				{comparison.description}
-			</p>
-
-			<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-				<div className="bg-[#064E3B]/40 border border-[#10B981]/30 rounded-xl p-4">
-					<div className="flex items-center gap-2 mb-2">
-						<Check className="w-5 h-5 text-[#34D399]" />
-						<span className="text-sm font-semibold text-[#34D399] uppercase tracking-wide">
-							With Clickbuy
-						</span>
-					</div>
-					<p className="text-lg font-bold text-white">
-						{comparison.withClickbuy}
-					</p>
-				</div>
-
-				<div className="bg-[#7F1D1D]/30 border border-[#DC2626]/30 rounded-xl p-4">
-					<div className="flex items-center gap-2 mb-2">
-						<X className="w-5 h-5 text-[#F87171]" />
-						<span className="text-sm font-semibold text-[#F87171] uppercase tracking-wide">
-							Building Yourself
-						</span>
-					</div>
-					<p className="text-lg font-bold text-white">
-						{comparison.buildingYourself}
-					</p>
-				</div>
-			</div>
-		</div>
-	);
-};
+const clickbuyItems = [
+	"Keep sensitive data inside your own network perimeter.",
+	"Own and control every AI agent, prompt and workflow.",
+	"Build on an open, transparent stack with no hidden fees.",
+];
 
 const WhyChooseUs: React.FC = () => {
 	return (
-		<section className="py-20 bg-[linear-gradient(135deg,#0B0F19_0%,#0C2258_50%,#0B0F19_100%)] text-white">
-			<div className="container mx-auto px-6">
-				<div className="text-center mb-16">
-					<p className="text-sm uppercase tracking-wide text-[#60A5FA] font-semibold mb-4">
-						THE CLICKBUY ADVANTAGE
-					</p>
-					<h2 className="text-4xl md:text-5xl font-bold mb-6">
-						Why Choose Our APIs?
+		<section className="relative overflow-hidden bg-black py-20 text-slate-50 sm:py-24 md:py-28">
+			<div className="pointer-events-none absolute inset-0">
+				<div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-black" />
+				<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.3),transparent_60%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.24),transparent_55%)] opacity-70 mix-blend-screen" />
+			</div>
+
+			<div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 text-center md:px-6">
+				<div className="inline-flex items-center rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1 text-xs font-medium uppercase tracking-[0.22em] text-emerald-200">
+					Why Clickbuy
+				</div>
+
+				<div className="mt-6 space-y-4">
+					<h2 className="text-balance text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl md:text-[2.5rem]">
+						Not All Automation is Created Equal.
 					</h2>
-					<p className="text-lg text-[#CBD5E1] max-w-3xl mx-auto leading-relaxed">
-						Building features from scratch is expensive and
-						time-consuming. Our APIs give you production-ready
-						solutions that integrate in minutes, not months.
+					<p className="mx-auto max-w-2xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
+						See how our approach keeps your data secure, preserves ownership and
+						delivers long‑term value—without locking you into someone else&apos;s
+						platform.
 					</p>
 				</div>
 
-				<div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto mb-16">
-					{comparisons.map((comparison, index) => (
-						<ComparisonCard
-							key={comparison.id}
-							comparison={comparison}
-							index={index}
-						/>
-					))}
-				</div>
+				<div className="mt-10 w-full max-w-5xl">
+					<div className="grid overflow-hidden rounded-[2.25rem] border border-slate-800 bg-slate-950/80 shadow-[0_26px_90px_rgba(15,23,42,0.9)] md:grid-cols-2">
+						<div className="border-b border-slate-800 bg-rose-950/40 px-8 py-5 text-left md:border-b-0 md:border-r">
+							<div className="inline-flex rounded-full bg-rose-900/70 px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-rose-200">
+								Other Providers
+							</div>
+						</div>
+						<div className="border-b border-slate-800 bg-emerald-950/40 px-8 py-5 text-left md:border-b-0">
+							<div className="inline-flex rounded-full bg-emerald-900/70 px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200">
+								The Clickbuy Approach
+							</div>
+						</div>
 
-				<div className="text-center">
-					<div className="p-8 bg-[linear-gradient(135deg,#111827_0%,#1E3A8A_100%)] rounded-2xl max-w-4xl mx-auto border border-[#2563EB]/30 hover:border-[#2563EB]/60 hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] transition-all duration-300">
-						<h3 className="text-2xl font-bold mb-4 text-white">
-							Stop building what already exists
-						</h3>
-						<p className="text-base text-[#CBD5E1] mb-6 max-w-2xl mx-auto">
-							Focus on your core product while we handle the
-							infrastructure. Get started with our APIs in
-							minutes.
-						</p>
-						<div className="flex flex-col sm:flex-row gap-4 justify-center">
-							<PrimaryButton className="text-base px-8 py-4 bg-[#2563EB] hover:bg-[#1E40AF] rounded-xl transition">
-								Browse API Catalog
-							</PrimaryButton>
-							<SecondaryButton className="text-base px-8 py-4 border border-[#2563EB]/40 hover:bg-[#2563EB]/10 rounded-xl transition">
-								Talk to Engineering
-							</SecondaryButton>
+						<div className="space-y-4 bg-rose-950/30 px-8 pb-8 pt-6 text-left">
+							{otherProviderItems.map((item) => (
+								<div key={item} className="flex gap-3">
+									<XCircle className="mt-1 h-5 w-5 flex-shrink-0 text-rose-400" />
+									<p className="text-sm leading-relaxed text-slate-200">
+										{item}
+									</p>
+								</div>
+							))}
+						</div>
+
+						<div className="space-y-4 bg-emerald-950/30 px-8 pb-8 pt-6 text-left">
+							{clickbuyItems.map((item) => (
+								<div key={item} className="flex gap-3">
+									<CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-emerald-400" />
+									<p className="text-sm leading-relaxed text-slate-100">
+										{item}
+									</p>
+								</div>
+							))}
 						</div>
 					</div>
+
+					<p className="mt-6 text-xs text-slate-400 sm:text-[0.8rem]">
+						This is why teams that care about security, control and transparency
+						standardise on Clickbuy for automation.
+					</p>
 				</div>
 			</div>
 		</section>

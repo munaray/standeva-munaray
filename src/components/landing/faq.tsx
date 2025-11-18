@@ -2,45 +2,43 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { TertiaryButton } from "@/components/ui/buttons";
 
 const faqData = [
 	{
 		id: 1,
-		question: "How quickly can I start using your APIs?",
-		answer: "You can start immediately! Ready-made APIs like Sourceora and AI/ML APIs are available right now. Simply sign up for an API key, check our documentation, and make your first call. Most developers integrate successfully within 30-60 minutes. For custom solutions, we can start with a free consultation and typically launch in 4-8 weeks.",
+		question: "What makes the Clickbuy approach different?",
+		answer:
+			"Our approach prioritises your security and ownership. Your data stays within your network and is never exposed to public AI models. We build open, transparent solutions with no hidden fees so you fully own and control your AI agents—unlike providers that run on rented, third‑party platforms.",
 	},
 	{
 		id: 2,
-		question: "What's your pricing model for APIs?",
-		answer: "Our ready-made APIs use transparent pay-as-you-go pricing based on usage (API calls, data volume, etc.). We offer different tiers from free developer plans to enterprise packages with volume discounts. Custom API development is quoted based on scope and complexity. All pricing details are available in our documentation, and there are no hidden fees.",
+		question: "How does your pricing model work?",
+		answer:
+			"Our model is 100% risk‑free and performance‑based. We charge a one‑time fee equal to 33% of the first year’s validated, recurring savings. If we don’t generate any savings for you, you pay absolutely nothing.",
 	},
 	{
 		id: 3,
-		question: "How long does API integration typically take?",
-		answer: "It depends on complexity. Ready-made APIs typically integrate in under an hour using our SDKs and comprehensive documentation. We provide code snippets for popular languages (JavaScript, Python, PHP, etc.) to get you started quickly. Custom integrations may take longer depending on your specific requirements, but our team provides dedicated support throughout.",
+		question: "What is the process for getting started?",
+		answer:
+			"We follow a five‑step process: Discovery & AI audit, solution proposal, pilot build and validation, full implementation and training, then post‑launch support and improvement. You always see a working pilot before committing to full rollout.",
 	},
 	{
 		id: 4,
-		question:
-			"Do you offer custom API development for unique requirements?",
-		answer: "Absolutely! While our ready-made APIs cover common use cases, we specialize in building custom APIs tailored to your specific needs. Our engineering team will work with you to design, develop, and deploy a solution that fits your exact requirements. Custom projects include full documentation, deployment support, and ongoing maintenance.",
+		question: "What kind of tasks can you automate?",
+		answer:
+			"We specialise in automating Finance, HR and eCommerce workflows: invoice processing, approvals, reconciliations, exception handling, journal entries, onboarding tasks, and product or order operations. If it’s repetitive, rules‑based and high volume, it’s a strong candidate for automation.",
 	},
 	{
 		id: 5,
-		question: "What kind of support and SLAs do you provide?",
-		answer: "All our APIs come with comprehensive documentation, code examples, and community support. Paid plans include priority email support with response times under 24 hours. Enterprise customers get dedicated support channels, custom SLAs (up to 99.9% uptime guarantee), and access to our engineering team. We also provide status pages, monitoring dashboards, and proactive incident notifications.",
-	},
-	{
-		id: 6,
-		question: "How secure are your APIs and how is my data protected?",
-		answer: "Security is our foundation. All APIs use industry-standard encryption (TLS 1.3+), OAuth 2.0 authentication, and API key management. We conduct regular security audits, penetration testing, and comply with GDPR, SOC 2, and other data protection standards. Your data is never shared with third parties, and we provide detailed security documentation for compliance teams.",
+		question: "Do I need a technical team to manage the AI agents?",
+		answer:
+			"No. We design and run the agents with you, including monitoring, updates and health checks. Your existing teams stay in control of decisions and workflows, while we handle the technical complexity behind the scenes.",
 	},
 ];
 
 const FAQ: React.FC = () => {
-	const [openItems, setOpenItems] = useState<number[]>([]);
+	const [openItems, setOpenItems] = useState<number[]>([faqData[0]?.id]);
 
 	const toggleItem = (id: number) => {
 		setOpenItems((prev) =>
@@ -50,42 +48,53 @@ const FAQ: React.FC = () => {
 		);
 	};
 
+	const renderToggleIcon = (isOpen: boolean) => (
+		<div className="relative flex h-5 w-5 items-center justify-center">
+			<span className="h-[2px] w-3 rounded-full bg-slate-500" />
+			{!isOpen && (
+				<span className="absolute h-3 w-[2px] rounded-full bg-slate-500" />
+			)}
+		</div>
+	);
+
 	return (
-		<section className="py-20 bg-[linear-gradient(135deg,#0B0F19_0%,#0C2258_50%,#0B0F19_100%)]">
-			<div className="container mx-auto px-6">
-				<div className="text-center mb-16">
-					<p className="text-sm uppercase tracking-wide text-[#60A5FA] font-semibold mb-4">
-						FAQ
-					</p>
-					<h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-						Frequently Asked Questions
+		<section className="relative overflow-hidden bg-black py-20 text-slate-50 sm:py-24 md:py-28">
+			<div className="pointer-events-none absolute inset-0">
+				<div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-black" />
+				<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.22),transparent_60%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.18),transparent_55%)] opacity-70 mix-blend-screen" />
+			</div>
+
+			<div className="relative mx-auto max-w-6xl px-4 md:px-6">
+				<div className="mb-12 text-center sm:mb-16">
+					<div className="inline-flex items-center rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1 text-xs font-medium uppercase tracking-[0.22em] text-emerald-200">
+						FAQs
+					</div>
+					<h2 className="mt-6 text-balance text-3xl font-semibold leading-tight sm:text-4xl md:text-[2.4rem]">
+						All You Need to Know
 					</h2>
-					<p className="text-lg text-[#CBD5E1] max-w-3xl mx-auto">
-						Everything you need to know about integrating and using
-						Clickbuy&apos;s APIs
+					<p className="mt-4 text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
+						Got questions? We have answers. Find out everything you need to know
+						before getting started.
 					</p>
 				</div>
 
-				<div className="max-w-4xl mx-auto space-y-4">
+				<div className="mx-auto max-w-4xl space-y-4">
 					{faqData.map((item) => {
 						const isOpen = openItems.includes(item.id);
 						return (
 							<div
 								key={item.id}
-								className="bg-[#111827]/70 backdrop-blur-sm rounded-2xl border border-[#1E3A8A]/30 hover:border-[#2563EB]/60 hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] transition-all duration-300 overflow-hidden">
+								className="overflow-hidden rounded-[1.75rem] border border-slate-800 bg-slate-950/80 shadow-[0_18px_60px_rgba(15,23,42,0.8)] transition-colors duration-300 hover:border-sky-500/50">
 								<button
 									onClick={() => toggleItem(item.id)}
-									className="w-full p-6 text-left flex items-center justify-between gap-4 hover:bg-[#1E293B]/50 transition-colors duration-300">
-									<h3 className="text-lg md:text-xl font-semibold text-white leading-tight">
+									className="flex w-full items-center justify-between gap-4 px-8 py-6 text-left sm:py-7 md:py-8">
+									<h3 className="text-sm font-semibold leading-snug text-slate-50 sm:text-[0.95rem] md:text-lg">
 										{item.question}
 									</h3>
 									<motion.div
-										animate={{ rotate: isOpen ? 180 : 0 }}
+										animate={{ rotate: isOpen ? 0 : 0 }}
 										transition={{ duration: 0.3 }}>
-										<ChevronDown
-											size={22}
-											className="text-[#60A5FA]"
-										/>
+										{renderToggleIcon(isOpen)}
 									</motion.div>
 								</button>
 
@@ -102,10 +111,10 @@ const FAQ: React.FC = () => {
 												duration: 0.3,
 												ease: "easeInOut",
 											}}>
-											<div className="px-6 pb-6">
-												<div className="w-full h-px bg-[#1E3A8A]/40 mb-4" />
+											<div className="px-8 pb-7">
+												<div className="mb-4 h-px w-full bg-slate-800/80" />
 												<motion.p
-													className="text-base text-[#CBD5E1] leading-relaxed"
+													className="text-sm leading-relaxed text-slate-300 sm:text-[0.95rem]"
 													initial={{
 														y: -10,
 														opacity: 0,
@@ -126,17 +135,17 @@ const FAQ: React.FC = () => {
 					})}
 				</div>
 
-				<div className="text-center mt-16">
-					<div className="p-8 bg-[#111827]/70 backdrop-blur-sm rounded-2xl border border-[#1E3A8A]/30 max-w-2xl mx-auto hover:border-[#2563EB]/60 transition">
-						<h3 className="text-2xl font-bold mb-4 text-white">
+				<div className="mt-16 text-center">
+					<div className="mx-auto max-w-2xl rounded-2xl border border-slate-800 bg-slate-950/80 p-8 backdrop-blur-sm transition hover:border-sky-500/50">
+						<h3 className="mb-4 text-2xl font-bold text-slate-50">
 							Still have questions?
 						</h3>
-						<p className="text-base text-[#CBD5E1] mb-6">
-							Can&apos;t find the answer you&apos;re looking for?
-							Our technical team is ready to help with your
-							integration.
+						<p className="mx-auto mb-6 max-w-2xl text-sm text-slate-300 sm:text-[0.95rem]">
+							Can&apos;t find the answer you&apos;re looking for? Our team is
+							ready to help you design and launch the right AI automation for
+							your organisation.
 						</p>
-						<TertiaryButton className="px-8 py-4 text-base bg-[#2563EB] hover:bg-[#1E40AF] transition rounded-xl">
+						<TertiaryButton className="rounded-xl bg-sky-500 px-8 py-4 text-base text-slate-950 transition hover:bg-sky-400">
 							Contact Support
 						</TertiaryButton>
 					</div>
