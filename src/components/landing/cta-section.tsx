@@ -7,8 +7,8 @@ const CTASection: React.FC = () => {
 	return (
 		<section className="relative overflow-hidden bg-black py-20 text-slate-50 sm:py-24 md:py-28">
 			<div className="pointer-events-none absolute inset-0">
-				<div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-black" />
-				<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),transparent_60%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.16),transparent_55%)] opacity-70 mix-blend-screen" />
+				<div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-950 to-black" />
+				<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.18),transparent_60%),radial-gradient(circle_at_bottom,rgba(16,185,129,0.16),transparent_55%)] opacity-70 mix-blend-screen" />
 			</div>
 
 			<div className="relative mx-auto flex max-w-3xl flex-col items-center px-4 text-center md:px-6">
@@ -19,8 +19,8 @@ const CTASection: React.FC = () => {
 					Ready to boost your team&apos;s efficiency?
 				</h2>
 				<p className="mt-4 max-w-2xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
-					Discover how automation can reduce your manual workload and unlock
-					higher‑value work for your team.
+					Discover how automation can reduce your manual workload and
+					unlock higher‑value work for your team.
 				</p>
 
 				<div className="mt-8">

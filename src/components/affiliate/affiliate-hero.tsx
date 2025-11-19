@@ -24,9 +24,9 @@ const AffiliateHero: FC = () => {
 						</span>
 					</h1>
 					<p className="mx-auto max-w-2xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
-						Refer clients, we handle the automation. You keep the
-						relationship and earn a share of every project we
-						deliver.
+						Don&apos;t let hiring freezes stop you. Earn from the
+						£12bn UK AI opportunity by offering automation to your
+						clients.
 					</p>
 				</div>
 

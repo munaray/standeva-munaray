@@ -42,11 +42,12 @@ const SolutionsSection: FC = () => {
 
 				<div className="mt-6 space-y-4">
 					<h2 className="text-balance text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl md:text-5xl">
-						Finance, HR, &amp; eCommerce Solutions
+						Reduce your operational costs by up to 90%
 					</h2>
 					<p className="mx-auto max-w-2xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
-						Click on a department to see how our specialist automation can
-						transform your workflows.
+						Not all automation solutions are created equal. Our
+						unique approach keeps your data secure by working within
+						your existing systems.
 					</p>
 				</div>
 

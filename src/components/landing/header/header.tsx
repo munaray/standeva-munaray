@@ -45,7 +45,7 @@ const Header: React.FC = () => {
 		{ name: "Solutions", hasDropdown: true },
 		{ name: "Pricing", href: "#pricing" },
 		{ name: "Developers", hasDropdown: true },
-		{ name: "Affiliate", href: "/affiliate" },
+		{ name: "Partner", href: "/partner" },
 		{ name: "Company", href: "/company/about" },
 		{ name: "Blog", href: "/blog" },
 	];
@@ -244,7 +244,7 @@ const Header: React.FC = () => {
 								className="hidden rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition hover:opacity-90 md:inline-flex"
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}>
-								Get Started
+								Get Free AI Audit
 							</motion.button>
 
 							<motion.button
@@ -285,7 +285,11 @@ const Header: React.FC = () => {
 									animate={{ x: 0, opacity: 1 }}
 									transition={{ delay: index * 0.05 }}
 									onClick={(event) =>
-										handleAnchorClick(event, item.href || "#", true)
+										handleAnchorClick(
+											event,
+											item.href || "#",
+											true
+										)
 									}
 									className="rounded-lg px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10">
 									{item.name}
@@ -300,7 +304,7 @@ const Header: React.FC = () => {
 								<button
 									type="button"
 									className="rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-3 py-2 text-center text-sm font-semibold text-white">
-									Get Started
+									Get Free AI Audit
 								</button>
 							</div>
 						</div>

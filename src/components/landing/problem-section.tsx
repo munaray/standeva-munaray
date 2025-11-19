@@ -5,20 +5,20 @@ const items = [
 	{
 		id: "finance",
 		icon: CreditCard,
-		title: "Finance is stuck in inboxes",
-		body: "Invoices, approvals and reconciliations move slowly because they rely on email, spreadsheets and manual checks.",
+		title: "Finance",
+		body: "The cost of processing finance tasks is increasing, driven by rising salaries and software licensing fees, as well as growing demands for information.",
 	},
 	{
 		id: "hr",
 		icon: Users,
-		title: "HR is buried in admin",
-		body: "Onboarding, changes and routine requests consume hours every week that should go into people and culture.",
+		title: "HR",
+		body: "Onboarding, staff changes, and routine requests consume an increasing number of manual hours, driving up your operational costs.",
 	},
 	{
 		id: "ecommerce",
 		icon: ShoppingBag,
-		title: "eCommerce work never stops",
-		body: "Listings, pricing and order updates are handled one-by-one instead of flowing through a reliable automation layer.",
+		title: "E-commerce",
+		body: "Finding, sourcing, and processing orders is extremely manual and expensive, putting pressure on your profit margins.",
 	},
 ];
 
@@ -34,16 +34,16 @@ const ProblemSection: FC = () => {
 
 			<div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 text-center md:px-6 md:gap-12">
 				<div className="space-y-4">
-					<p className="text-xs font-medium uppercase tracking-[0.22em] text-sky-300/80">
-						The problem
-					</p>
+					<div className="inline-flex items-center rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1 text-xs font-medium uppercase tracking-[0.22em] text-emerald-200">
+						The Problem
+					</div>
 					<h2 className="text-balance text-2xl font-semibold leading-tight sm:text-3xl md:text-[2.1rem]">
-						Your teams are buried in repetitive Finance, HR &amp; eCommerce work.
+						Your team&apos;s processing costs are high in finance,
+						HR, or e-commerce.
 					</h2>
 					<p className="mx-auto max-w-3xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
-						Most of your workflow still runs on copy‑paste, email approvals and
-						manual checks. It&apos;s accurate but painfully slow—and your people
-						feel it every day.
+						Most of your processing tasks are not automated, which
+						is painfully slow and expensive to run.
 					</p>
 				</div>
 

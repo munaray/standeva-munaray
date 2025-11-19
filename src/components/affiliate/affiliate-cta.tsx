@@ -15,14 +15,15 @@ const AffiliateCta: FC = () => {
 
 			<div className="relative mx-auto flex max-w-3xl flex-col items-center px-4 text-center md:px-6">
 				<p className="text-xs font-medium uppercase tracking-[0.28em] text-slate-400">
-					Clickbuy AI Affiliates
+					Clickbuy AI Partners
 				</p>
 				<h2 className="mt-5 text-balance text-3xl font-semibold leading-tight sm:text-4xl md:text-[2.4rem]">
 					Ready to unlock new recurring revenue for your agency?
 				</h2>
 				<p className="mt-4 max-w-2xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
-					Share a client, we handle the automation. You keep the relationship and earn commission on every
-					project we deliver.
+					Share a client, we handle the automation. You keep the
+					relationship and earn commission on every project we
+					deliver.
 				</p>
 
 				<div className="mt-8">

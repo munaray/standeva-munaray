@@ -26,7 +26,7 @@ const Hero: FC = () => {
 							))}
 						</div>
 						<p className="text-xs font-medium uppercase tracking-[0.25em] text-slate-400">
-							Trusted by top-performing teams globally
+							Your trusted AI partner
 						</p>
 					</div>
 

@@ -5,28 +5,18 @@ import type { FC } from "react";
 const steps = [
 	{
 		id: 1,
-		title: "Discovery & AI Audit",
-		body: "We capture your pain points, SOPs and costs, then run a remote AI audit to define scope, timeline and a clear ROI case.",
+		title: "Book Your Call",
+		body: "Schedule a brief discovery call so we can understand your goals, processes and where automation could help most.",
 	},
 	{
 		id: 2,
-		title: "Solution Proposal",
-		body: "You receive a fixed-scope pilot plan with success metrics, SLAs and pricing—no ambiguity, just a clear path forward.",
+		title: "Free AI Audit",
+		body: "We conduct a complimentary AI audit to identify automation opportunities and estimate potential savings.",
 	},
 	{
 		id: 3,
-		title: "Pilot Build & Validation",
-		body: "In a secure sandbox we build and test the solution against real scenarios. You sign off only when you see it working.",
-	},
-	{
-		id: 4,
-		title: "Full Implementation & Training",
-		body: "We deploy into your environment, integrate with existing systems and train your team so they feel confident using AI daily.",
-	},
-	{
-		id: 5,
-		title: "Post‑Launch Support & Improvement",
-		body: "After go‑live we monitor, review and iterate, ensuring agents stay aligned with your processes and keep delivering savings.",
+		title: "Receive Your Plan",
+		body: "We present a high-level implementation plan outlining potential savings, timelines and recommended next steps.",
 	},
 ];
 
@@ -45,14 +35,14 @@ const OurProcess: FC = () => {
 
 				<div className="mt-6 space-y-4">
 					<h2 className="text-balance text-3xl font-semibold leading-tight sm:text-4xl md:text-[2.4rem]">
-						Getting started is easy
+						Getting Started is Easy
 					</h2>
 					<p className="mx-auto max-w-2xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
-						From problem to automation and savings in just five practical steps.
+						From first conversation to an actionable AI plan in just three simple steps.
 					</p>
 				</div>
 
-				<div className="mt-12 grid w-full gap-10 text-left sm:grid-cols-2 lg:grid-cols-5">
+				<div className="mt-12 grid w-full gap-10 text-left sm:grid-cols-3 lg:grid-cols-3">
 					{steps.map((step) => (
 						<div key={step.id} className="flex flex-col gap-4">
 							<div className="flex items-center gap-3">
@@ -68,6 +58,14 @@ const OurProcess: FC = () => {
 							</p>
 						</div>
 					))}
+				</div>
+
+				<div className="mt-10">
+					<a
+						href="/company/about#approach"
+						className="text-sm font-medium text-emerald-300 underline decoration-emerald-400/60 underline-offset-4 hover:text-emerald-200">
+						See Our Full Development Roadmap →
+					</a>
 				</div>
 			</div>
 		</section>
