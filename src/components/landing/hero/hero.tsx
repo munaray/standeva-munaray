@@ -105,7 +105,7 @@ const Hero: FC = () => {
 								</span>
 							</h1>
 							<p className="mx-auto max-w-2xl text-balance text-sm text-slate-300 sm:text-base md:text-lg">
-								ClickBuy automates your finance, HR, and
+								ClickAgent automates your finance, HR, and
 								eCommerce workflows so teams can focus on
 								high-impact work instead of manual tasks.
 							</p>
@@ -141,7 +141,7 @@ const Hero: FC = () => {
 						<div className="mx-auto overflow-hidden px-2 py-4 md:px-4 md:py-5">
 							<div
 								className="flex flex-col gap-4 md:gap-5"
-								aria-label="Companies that integrate with ClickBuy">
+								aria-label="Companies that integrate with ClickAgent">
 								{[0, 1, 2].map((rowIndex) => {
 									const rowLogos = featuredLogoIcons.filter(
 										(_, index) => index % 3 === rowIndex,

@@ -118,7 +118,7 @@ const dropdownContent: DropdownContentMap = {
 				title: "Services",
 				items: [
 					{ label: "AI Consulting", href: "/solutions/ai-consulting" },
-					// { label: "ClickBuy", href: "/solutions/clickbuy" }, // Not implemented yet
+					// { label: "ClickAgent", href: "/solutions/clickagent" }, // Not implemented yet
 				],
 			},
 			{

@@ -13,7 +13,7 @@ const solutions = [
 		image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop",
 	},
 	{
-		title: "ClickBuy: Autonomous Product Sourcing",
+		title: "ClickAgent: Autonomous Product Sourcing",
 		description: "An autonomous agent designed to automate product sourcing for e-commerce platforms, enhancing efficiency and scalability.",
 		icon: ShoppingCart,
 		image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=800&auto=format&fit=crop",
