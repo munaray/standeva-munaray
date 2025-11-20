@@ -178,7 +178,7 @@ const Header: React.FC = () => {
 								<span className="h-5 w-5 rounded-md bg-white" />
 							</motion.div>
 							<span className="text-xl font-bold tracking-tight text-white">
-								Clickbuy
+								Clickagent
 							</span>
 						</Link>
 

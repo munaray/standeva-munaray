@@ -3,9 +3,9 @@ import { getBlogPostsData } from "@/lib/blog-data";
 import BlogListing from "@/components/blog/blog-listing";
 
 export const metadata: Metadata = {
-	title: "Clickbuy Blog & Insights",
+	title: "Clickagent Blog & Insights",
 	description:
-		"Stay up to date with Clickbuy's latest thinking on AI, automation, and building modern engineering teams."
+		"Stay up to date with Clickagent's latest thinking on AI, automation, and building modern engineering teams."
 };
 
 export default async function BlogPage() {

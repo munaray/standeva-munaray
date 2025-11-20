@@ -86,9 +86,9 @@ export const heroContent = {
 		},
 		{
 			title: "Integration",
-			code: `import { ClickbuyAI } from '@clickbuy/sdk'
+			code: `import { ClickagentAI } from '@clickagent/sdk'
 
-const ai = new ClickbuyAI({
+const ai = new ClickagentAI({
   apiKey: process.env.API_KEY
 })
 
@@ -100,7 +100,7 @@ const result = await ai.generate({
 };
 
 export const headerContent = {
-	logoText: "Clickbuy",
+	logoText: "Clickagent",
 	navItems: [
 		{ name: "Platform", hasDropdown: true },
 		{ name: "Solutions", hasDropdown: true },

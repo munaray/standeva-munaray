@@ -1,7 +1,7 @@
 ---
 title: "Human Sourcing vs. AI Sourcing: Why the Data Says It’s Not Even Close"
 description: "Modern agentic AI now outperforms human sourcing in cost, accuracy, speed, and scale—here’s the data-backed case and how to operationalize it."
-keywords: ["AI sourcing", "human sourcing", "recruitment automation", "AI in HR", "talent acquisition", "procurement", "cost reduction", "clickbuy.ai"]
+keywords: ["AI sourcing", "human sourcing", "recruitment automation", "AI in HR", "talent acquisition", "procurement", "cost reduction", "clickagent.ai"]
 ---
 
 <image src="../public/blog-2-1.png" alt="Illustration comparing human sourcing workflows to AI agents" />
@@ -16,7 +16,7 @@ Traditional sourcing has become a soul-crushing grind: agency retainers that yie
 - **Accuracy without fatigue:** Agentic AI doesn’t suffer from bias or burnout, delivering consistent, high-quality matches.
 - **Instant, elastic scale:** Spin up sourcing for one hard-to-fill role or a thousand suppliers—no new headcount required.
 - **On-demand freedom:** AI agents run 24/7 on your terms, so you pay for outcomes, not idle time.
-- **Build your advantage:** Platforms like clickbuy.ai let you encode proprietary workflows into agents nobody else has.
+- **Build your advantage:** Platforms like clickagent.ai let you encode proprietary workflows into agents nobody else has.
 
 ## The Tectonic Shift in Sourcing Technology
 
@@ -43,7 +43,7 @@ Agentic AI flips that model:
 The move isn’t about dabbling with chatbots; it’s about codifying your sourcing logic into autonomous workflows:
 
 1. **Map the workflow.** Document the repeatable steps a top-performing sourcer follows—data sources, filters, evaluation criteria, outreach cadences.
-2. **Encode it.** Use clickbuy.ai (or a similar platform) to build agents that execute each step end-to-end with audit trails and guardrails.
+2. **Encode it.** Use clickagent.ai (or a similar platform) to build agents that execute each step end-to-end with audit trails and guardrails.
 3. **Measure relentlessly.** Track cost per qualified lead, time-to-pipeline, accuracy, and throughput to quantify ROI.
 4. **Iterate fast.** Because agents are software, you can update heuristics instantly instead of retraining entire teams.
 

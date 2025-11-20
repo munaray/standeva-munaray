@@ -29,7 +29,7 @@ const FitSection: React.FC = () => {
 						Is this for you?
 					</p>
 					<h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-						Clickbuy Browser Agent is a perfect fit if…
+						Clickagent Browser Agent is a perfect fit if…
 					</h2>
 				</div>
 

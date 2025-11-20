@@ -16,13 +16,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 	const post = await getBlogPostData(params.slug);
 	if (!post) {
 		return {
-			title: "Clickbuy Blog",
+			title: "Clickagent Blog",
 			description: "Insights on AI, automation, and product engineering."
 		};
 	}
 
 	return {
-		title: `${post.title} | Clickbuy Blog`,
+		title: `${post.title} | Clickagent Blog`,
 		description: post.description,
 		keywords: post.keywords
 	};

@@ -13,9 +13,9 @@ import FinalCTA from "@/components/solutions/ai-consulting/final-cta";
 import { getBlogPostsData } from "@/lib/blog-data";
 
 export const metadata = {
-	title: "AI Consulting Services - Clickbuy | Expert AI Strategy & Implementation",
+	title: "AI Consulting Services - Clickagent | Expert AI Strategy & Implementation",
 	description:
-		"Navigate AI's complexities with Clickbuy's expert consulting services. We help you identify strategic opportunities, optimize performance, and ensure compliance for seamless AI adoption.",
+		"Navigate AI's complexities with Clickagent's expert consulting services. We help you identify strategic opportunities, optimize performance, and ensure compliance for seamless AI adoption.",
 };
 
 export default async function AIConsultingPage() {
@@ -24,7 +24,7 @@ export default async function AIConsultingPage() {
 		{ label: "Overview", href: "#consulting-overview" },
 		{ label: "Services", href: "#consulting-services" },
 		{ label: "Internal AI", href: "#internal-ai" },
-		{ label: "Why Clickbuy", href: "#why-clickbuy" },
+		{ label: "Why Clickagent", href: "#why-clickagent" },
 		{ label: "Partners", href: "#partners" },
 		{ label: "FAQ", href: "#consulting-faq" },
 		{ label: "Blog", href: "/blog" }

@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Clickbuy",
-  description: "Clickbuy Landing Page",
+  title: "Clickagent",
+  description: "Clickagent Landing Page",
 };
 
 export default function RootLayout({

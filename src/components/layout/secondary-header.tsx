@@ -134,7 +134,7 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
 						<span className="h-4 w-4 sm:h-5 sm:w-5 rounded-md bg-white" />
 					</motion.div>
 					<span className="text-lg sm:text-xl font-bold text-white">
-						Clickbuy
+						Clickagent
 					</span>
 				</Link>
 

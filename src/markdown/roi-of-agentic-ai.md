@@ -1,7 +1,7 @@
 ---
 title: "The ROI of Agentic AI: Your New Engine for Enterprise Profitability"
 description: "How forward-looking enterprises are using agentic AI to slash operational costs, lift productivity, and convert efficiency into durable profit."
-keywords: ["agentic AI", "enterprise AI", "ROI of AI", "cost savings", "business automation", "profit margin", "profitability", "clickbuy.ai"]
+keywords: ["agentic AI", "enterprise AI", "ROI of AI", "cost savings", "business automation", "profit margin", "profitability", "clickagent.ai"]
 ---
 
 <image src="../public/blog-4-1.png" alt="Enterprise dashboard visualizing AI-driven ROI" />
@@ -43,7 +43,7 @@ If the answer is yes, build an agent. Finance reconciliations, logistics trackin
 ## Make the Business Case, Then Scale
 
 1. **Pick a beachhead.** Choose one high-friction process in a single department. Size the hours and dollars it consumes today.
-2. **Prototype with clickbuy.ai.** Encode the workflow into an agent with auditable steps and clear guardrails.
+2. **Prototype with clickagent.ai.** Encode the workflow into an agent with auditable steps and clear guardrails.
 3. **Measure ruthlessly.** Track hours saved, error-rate reductions, cycle-time improvements, and direct cost savings.
 4. **Share the case study.** Use that data to secure buy-in for broader rollout, then scale to adjacent processes.
 

@@ -69,7 +69,7 @@ const TechnologyPartners: React.FC = () => {
 
 					{/* Subtitle */}
 					<p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-4xl mx-auto">
-						Clickbuy helps ambitious companies turn AI into a competitive advantage by making operations faster, smarter, and more resilient. By working with leading frontier model platforms, we ensure you have access to the most powerful and advanced AI capabilities available.
+						Clickagent helps ambitious companies turn AI into a competitive advantage by making operations faster, smarter, and more resilient. By working with leading frontier model platforms, we ensure you have access to the most powerful and advanced AI capabilities available.
 					</p>
 				</motion.div>
 

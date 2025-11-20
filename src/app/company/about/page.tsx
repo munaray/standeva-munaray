@@ -9,8 +9,8 @@ import CTASection from "@/components/company/about/cta-section";
 import PerspectiveSection from "@/components/company/about/perspective-section";
 
 export const metadata = {
-	title: "About Us - Clickbuy | AI Solutions for Enterprise",
-	description: "Learn about Clickbuy, a generative AI company driving innovation and efficiency through scalable AI solutions for enterprises.",
+	title: "About Us - Clickagent | AI Solutions for Enterprise",
+	description: "Learn about Clickagent, a generative AI company driving innovation and efficiency through scalable AI solutions for enterprises.",
 };
 
 export default function AboutPage() {

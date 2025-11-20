@@ -7,7 +7,7 @@ import { TertiaryButton } from "@/components/ui/buttons";
 const faqData = [
 	{
 		id: 1,
-		question: "What makes the Clickbuy approach different?",
+		question: "What makes the Clickagent approach different?",
 		answer: "Our approach prioritises your security and ownership. Your data stays within your network and is never exposed to public AI models. We build open, transparent solutions with no hidden fees so you fully own and control your AI agents—unlike providers that run on rented, third‑party platforms.",
 	},
 	{
