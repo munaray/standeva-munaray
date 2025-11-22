@@ -1,6 +1,10 @@
+'use client';
+
 import type { FC } from "react";
 import Image from "next/image";
 import { Star } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const featuredLogoIcons = [
 	{
@@ -70,55 +74,146 @@ const featuredLogoIcons = [
 	},
 ];
 
+const headingContainerVariants: Variants = {
+	hidden: {
+		opacity: 0,
+		y: 24,
+	},
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.6,
+			ease: "easeOut",
+			staggerChildren: 0.1,
+		},
+	},
+};
+
+const lineRevealVariants: Variants = {
+	hidden: {
+		y: "100%",
+	},
+	visible: (index: number) => ({
+		y: "0%",
+		transition: {
+			duration: 0.9,
+			delay: index * 0.05,
+			ease: [0.33, 1, 0.68, 1],
+		},
+	}),
+};
+
+const imageRevealVariants: Variants = {
+	hidden: {
+		width: "100%",
+	},
+	visible: {
+		width: "0%",
+		transition: {
+			duration: 1.2,
+			ease: [0.6, 0.05, -0.01, 0.9],
+			delay: 0.25,
+		},
+	},
+};
+
 const Hero: FC = () => {
+	const { ref, isInView } = useScrollAnimation({
+		threshold: 0.35,
+		triggerOnce: true,
+		rootMargin: "0px 0px -10% 0px",
+	});
+
 	return (
 		<>
-			<section className="relative overflow-hidden bg-black text-slate-50">
+			<section
+				ref={ref}
+				className="relative overflow-hidden bg-black text-slate-50">
 				<div className="pointer-events-none absolute inset-0">
 					<div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-black" />
 					<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.35),transparent_60%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.32),transparent_55%)] opacity-70 mix-blend-screen" />
 				</div>
 
-				<div className="relative z-10 mt-12">
+				<motion.div
+					className="relative z-10 mt-12"
+					variants={headingContainerVariants}
+					initial="hidden"
+					animate={isInView ? "visible" : "hidden"}>
 					<div className="mx-auto flex max-w-6xl flex-col items-center px-4 pb-24 pt-32 text-center md:px-6 md:pb-28 md:pt-40">
 						<div className="flex flex-col items-center gap-2">
-							<div className="flex items-center gap-1 text-yellow-400">
+							<motion.div
+								className="flex items-center gap-1 text-yellow-400"
+								initial={{ opacity: 0, y: 10 }}
+								animate={isInView ? { opacity: 1, y: 0 } : {}}>
 								{[0, 1, 2, 3, 4].map((star) => (
 									<Star
 										key={star}
 										className="h-4 w-4 fill-yellow-400"
 									/>
 								))}
-							</div>
-							<p className="text-xs font-medium uppercase tracking-[0.25em] text-slate-400">
+							</motion.div>
+							<motion.p
+								className="text-xs font-medium uppercase tracking-[0.25em] text-slate-400"
+								initial={{ opacity: 0, y: 10 }}
+								animate={isInView ? { opacity: 1, y: 0 } : {}}
+								transition={{ duration: 0.4, delay: 0.1 }}>
 								Your trusted AI partner
-							</p>
+							</motion.p>
 						</div>
 
-						<div className="mt-7 space-y-4">
+						<motion.div className="mt-7 space-y-4">
 							<h1 className="text-balance text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl md:text-5xl">
-								<span className="block">
-									Free Your Team From Repetitive
+								<span className="block overflow-hidden">
+									<motion.span
+										className="block"
+										variants={lineRevealVariants}
+										custom={0}>
+										Free Your Team From Repetitive
+									</motion.span>
 								</span>
-								<span className="block text-sky-400">
-									Finance, HR &amp; eCommerce Work.
+								<span className="block overflow-hidden text-sky-400">
+									<motion.span
+										className="block"
+										variants={lineRevealVariants}
+										custom={1}>
+										Finance, HR &amp; eCommerce Work.
+									</motion.span>
 								</span>
 							</h1>
-							<p className="mx-auto max-w-2xl text-balance text-sm text-slate-300 sm:text-base md:text-lg">
+							<motion.p
+								className="mx-auto max-w-2xl text-balance text-sm text-slate-300 sm:text-base md:text-lg"
+								initial={{ opacity: 0, y: 12 }}
+								animate={isInView ? { opacity: 1, y: 0 } : {}}
+								transition={{ duration: 0.6, delay: 0.2 }}>
 								ClickAgent automates your finance, HR, and
 								eCommerce workflows so teams can focus on
 								high-impact work instead of manual tasks.
-							</p>
-						</div>
+							</motion.p>
+						</motion.div>
 
-						<div className="mt-7">
-							<button className="inline-flex items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold text-white shadow-md shadow-sky-500/40 transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black">
+						<motion.div
+							className="mt-7"
+							initial={{ opacity: 0, y: 12 }}
+							animate={isInView ? { opacity: 1, y: 0 } : {}}
+							transition={{ duration: 0.5, delay: 0.3 }}>
+							<motion.button
+								className="inline-flex items-center justify-center rounded-full bg-sky-500 px-7 py-3 text-sm font-semibold text-white shadow-md shadow-sky-500/40 transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+								whileHover={{ scale: 1.03 }}
+								whileTap={{ scale: 0.97 }}>
 								Book a Free AI Audit
-							</button>
-						</div>
+							</motion.button>
+						</motion.div>
 
 						<div className="mt-10 w-full">
 							<div className="relative mx-auto w-full overflow-hidden rounded-[2.5rem] border border-sky-500/40 bg-[#0203a3] shadow-[0_0_60px_rgba(59,130,246,0.45)]">
+								<motion.div
+									className="absolute left-0 top-0 z-10 h-full w-full bg-[#0203a3]"
+									style={{ transformOrigin: "left" }}
+									variants={imageRevealVariants}
+									initial="hidden"
+									animate={isInView ? "visible" : "hidden"}
+								/>
 								<Image
 									src="/hero-image.png"
 									alt="Automation bot with finance, HR, and eCommerce tasks"
@@ -130,7 +225,7 @@ const Hero: FC = () => {
 							</div>
 						</div>
 					</div>
-				</div>
+				</motion.div>
 			</section>
 
 			<section className="bg-black">
