@@ -7,21 +7,21 @@ const cards = [
 		title: "Finance Repetitive Tasks",
 		description:
 			"Automate purchase ledger, sales ledger, general ledger and everything in between.",
-		imageSrc: "/card-image.png",
+		imageSrc: "/card-image-new.png",
 	},
 	{
 		id: "hr",
 		title: "HR & Functions",
 		description:
 			"Handle activation, escalation, processing and scheduling tasks while AI manages the flow.",
-		imageSrc: "/card-2-image.png",
+		imageSrc: "/card-2-image-new.png",
 	},
 	{
 		id: "ecommerce",
 		title: "eCommerce Driven Tasks",
 		description:
 			"Streamline product sourcing and order workflows so your team can focus on strategy.",
-		imageSrc: "/card-3-image.png",
+		imageSrc: "/card-3-image-new.png",
 	},
 ];
 
