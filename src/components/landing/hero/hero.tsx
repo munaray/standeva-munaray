@@ -215,7 +215,7 @@ const Hero: FC = () => {
 									animate={isInView ? "visible" : "hidden"}
 								/>
 								<Image
-									src="/hero-image.png"
+									src="/hero-image-new.png"
 									alt="Automation bot with finance, HR, and eCommerce tasks"
 									width={1360}
 									height={700}
@@ -239,7 +239,7 @@ const Hero: FC = () => {
 								aria-label="Companies that integrate with ClickAgent">
 								{[0, 1, 2].map((rowIndex) => {
 									const rowLogos = featuredLogoIcons.filter(
-										(_, index) => index % 3 === rowIndex,
+										(_, index) => index % 3 === rowIndex
 									);
 
 									const baseLogos = [
