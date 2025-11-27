@@ -13,8 +13,8 @@ import { TertiaryButton } from "@/components/ui/buttons";
 
 const useCases = [
 	{
-		id: "ecommerce",
-		title: "E-commerce Platforms",
+		id: "sales-plus",
+		title: "Sales Plus Platforms",
 		description:
 			"Power your online store with automated product sourcing, AI recommendations, and smart inventory management.",
 		icon: ShoppingCart,
@@ -92,7 +92,7 @@ const UseCases: React.FC = () => {
 						Built for Your Industry
 					</h2>
 					<p className="text-lg text-[#CBD5E1] max-w-3xl mx-auto leading-relaxed">
-						From e-commerce to SaaS, our APIs power diverse
+						From sales plus to SaaS, our APIs power diverse
 						applications across industries.
 					</p>
 				</div>

@@ -1,7 +1,7 @@
 ---
 title: "The End of the VA Era: Pivoting from Human Virtual Assistants to Agentic AI"
 description: "Outsourcing to VAs was the smart play last decade. The next leap in efficiency is replacing entire VA workflows with autonomous AI agents."
-keywords: ["virtual assistants", "AI agents", "agentic AI", "outsourcing", "business process automation", "future of work", "marginal cost", "clickagent.ai"]
+keywords: ["virtual assistants", "AI agents", "agentic AI", "outsourcing", "business process automation", "future of work", "marginal cost", "ProcessZero.ai"]
 ---
 
 <image src="../public/blog-3-1.png" alt="Timeline showing shift from in-house teams to VAs to AI agents" />
@@ -16,7 +16,7 @@ Over the last decade, outsourcing repetitive work to offshore Virtual Assistants
 - **Second (current) wave:** Replace delegation with automation—agentic AI executes the workflow end-to-end.
 - **Cost gap:** AI agents are at least **80% cheaper** to operate than even the best offshore VA.
 - **Drivers:** Falling compute costs, soaring accuracy, and always-on consistency.
-- **Action:** Use platforms like clickagent.ai to encode VA SOPs into agents, so you manage systems, not people.
+- **Action:** Use platforms like ProcessZero.ai to encode VA SOPs into agents, so you manage systems, not people.
 
 ## The Inherent Friction of the VA Model
 
@@ -45,7 +45,7 @@ Agentic AI replaces the delegation paradigm with true automation. You don’t as
 
 1. **Inventory the work.** List every task currently done by VAs—order management, catalog updates, marketplace compliance, supplier follow-ups, executive inbox triage.
 2. **Prioritize high-frequency SOPs.** Focus on processes that run daily or weekly and have clear rules or decision trees.
-3. **Encode in an agent platform.** Use clickagent.ai to map the data inputs, decision logic, and actions an agent should perform.
+3. **Encode in an agent platform.** Use ProcessZero.ai to map the data inputs, decision logic, and actions an agent should perform.
 4. **Pilot, measure, scale.** Launch with one workflow, capture the hours saved and error rates eliminated, then roll the blueprint across departments.
 
 ## From Managing People to Managing Systems

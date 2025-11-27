@@ -24,7 +24,7 @@ const AboutHero: React.FC = () => {
 						<p className="text-xl text-slate-300 mb-8 leading-relaxed">
 							Whether you need strategic AI consulting to
 							revolutionise your business processes or a powerful
-							autonomous agent to automate e-commerce sourcing, we
+							autonomous agent to automate sales plus sourcing, we
 							provide enterprise-ready solutions built for impact.
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4">
@@ -32,7 +32,7 @@ const AboutHero: React.FC = () => {
 								AI Consultancy
 							</button>
 							<button className="px-8 py-3 border border-blue-500/50 text-white font-medium rounded-lg hover:bg-blue-500/10 transition">
-								E-commerce Sourcing
+								Sales Plus Sourcing
 							</button>
 						</div>
 					</motion.div>

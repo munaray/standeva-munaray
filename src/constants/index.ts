@@ -86,9 +86,9 @@ export const heroContent = {
 		},
 		{
 			title: "Integration",
-			code: `import { ClickagentAI } from '@clickagent/sdk'
+			code: `import { ProcessZeroAI } from '@ProcessZero/sdk'
 
-const ai = new ClickagentAI({
+const ai = new ProcessZeroAI({
   apiKey: process.env.API_KEY
 })
 
@@ -100,7 +100,7 @@ const result = await ai.generate({
 };
 
 export const headerContent = {
-	logoText: "Clickagent",
+	logoText: "ProcessZero",
 	navItems: [
 		{ name: "Platform", hasDropdown: true },
 		{ name: "Solutions", hasDropdown: true },

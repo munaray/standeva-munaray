@@ -7,7 +7,7 @@ import { TertiaryButton } from "@/components/ui/buttons";
 const faqData = [
 	{
 		id: 1,
-		question: "What makes the Clickagent approach different?",
+		question: "What makes the ProcessZero approach different?",
 		answer: "Our approach prioritises your security and ownership. Your data stays within your network and is never exposed to public AI models. We build open, transparent solutions with no hidden fees so you fully own and control your AI agents—unlike providers that run on rented, third‑party platforms.",
 	},
 	{
@@ -97,7 +97,7 @@ const faqData = [
 	{
 		id: 4,
 		question: "What kind of tasks can you automate?",
-		answer: "We specialise in automating Finance, HR and eCommerce workflows: invoice processing, approvals, reconciliations, exception handling, journal entries, onboarding tasks, and product or order operations. If it’s repetitive, rules‑based and high volume, it’s a strong candidate for automation.",
+		answer: "We specialise in automating Finance, HR and sales plus workflows: invoice processing, approvals, reconciliations, exception handling, journal entries, onboarding tasks, and product or order operations. If it’s repetitive, rules‑based and high volume, it’s a strong candidate for automation.",
 	},
 	{
 		id: 5,

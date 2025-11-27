@@ -17,8 +17,8 @@ const cards = [
 		imageSrc: "/card-2-image-new.png",
 	},
 	{
-		id: "ecommerce",
-		title: "eCommerce Driven Tasks",
+		id: "sales-plus",
+		title: "Sales Plus Driven Tasks",
 		description:
 			"Streamline product sourcing and order workflows so your team can focus on strategy.",
 		imageSrc: "/card-3-image-new.png",

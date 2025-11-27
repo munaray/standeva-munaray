@@ -6,7 +6,7 @@ const otherProvider = [
 	"Rely on closed‑source, licensed tools with opaque fees.",
 ];
 
-const clickagentApproach = [
+const ProcessZeroApproach = [
 	"Client data stays within their own network perimeter.",
 	"Clients own and control every AI agent and workflow.",
 	"Open, transparent stack with no hidden automation fees.",
@@ -15,7 +15,7 @@ const clickagentApproach = [
 const AffiliateWhyClickbuy: FC = () => {
 	return (
 		<section
-			id="affiliate-why-clickagent"
+			id="affiliate-why-ProcessZero"
 			className="relative overflow-hidden bg-black py-20 text-slate-50 sm:py-24 md:py-28">
 			<div className="pointer-events-none absolute inset-0">
 				<div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-black" />
@@ -24,7 +24,7 @@ const AffiliateWhyClickbuy: FC = () => {
 
 			<div className="relative mx-auto max-w-6xl px-4 text-center md:px-6">
 				<p className="text-xs font-medium uppercase tracking-[0.24em] text-emerald-200">
-					Why Clickagent for your clients
+					Why ProcessZero for your clients
 				</p>
 				<h2 className="mt-6 text-balance text-3xl font-semibold leading-tight sm:text-4xl md:text-[2.4rem]">
 					Not All Automation is Created Equal.
@@ -40,7 +40,7 @@ const AffiliateWhyClickbuy: FC = () => {
 						Other providers
 					</div>
 					<div className="border-b border-slate-800 bg-emerald-950/40 px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200 md:border-b-0">
-						The Clickagent approach
+						The ProcessZero approach
 					</div>
 
 					<div className="space-y-3 bg-rose-950/20 px-8 pb-8 pt-6">
@@ -51,7 +51,7 @@ const AffiliateWhyClickbuy: FC = () => {
 						))}
 					</div>
 					<div className="space-y-3 bg-emerald-950/20 px-8 pb-8 pt-6">
-						{clickagentApproach.map((item) => (
+						{ProcessZeroApproach.map((item) => (
 							<p key={item} className="text-xs leading-relaxed text-slate-100 sm:text-[0.8rem] md:text-[0.9rem]">
 								{item}
 							</p>

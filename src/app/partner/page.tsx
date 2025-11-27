@@ -9,16 +9,16 @@ import AffiliateCta from "@/components/affiliate/affiliate-cta";
 import SecondaryFooter from "@/components/layout/secondary-footer";
 
 export const metadata: Metadata = {
-	title: "Affiliate Programme - Clickagent AI",
+	title: "Affiliate Programme - ProcessZero AI",
 	description:
-		"Partner with Clickagent to offer AI automation your clients need while unlocking new, recurring revenue streams for your business.",
+		"Partner with ProcessZero to offer AI automation your clients need while unlocking new, recurring revenue streams for your business.",
 };
 
 const AffiliatePage = () => {
 	const navItems = [
 		{ label: "Overview", href: "#affiliate-overview" },
 		{ label: "Solutions", href: "#affiliate-solutions" },
-		{ label: "Why Clickagent", href: "#affiliate-why-clickagent" },
+		{ label: "Why ProcessZero", href: "#affiliate-why-ProcessZero" },
 		{ label: "Before vs After", href: "#affiliate-before-after" },
 		{ label: "Pricing", href: "#affiliate-pricing" },
 	];

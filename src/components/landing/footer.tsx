@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
 									C
 								</span>
 							</div>
-							<span className="text-2xl font-bold">Clickagent</span>
+							<span className="text-2xl font-bold">ProcessZero</span>
 						</div>
 
 						<p className="text-slate-400 leading-relaxed mb-6 max-w-sm">
@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
 						<div className="space-y-3 mb-6">
 							<div className="flex items-center gap-3 text-slate-400">
 								<Mail size={16} />
-								<span>hello@clickagent.com</span>
+								<span>hello@ProcessZero.com</span>
 							</div>
 							<div className="flex items-center gap-3 text-slate-400">
 								<Phone size={16} />
@@ -192,7 +192,7 @@ const Footer: React.FC = () => {
 				{/* Bottom Section */}
 				<div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
 					<p className="text-slate-400 text-sm">
-						© 2025 Clickagent. All rights reserved.
+						© 2025 ProcessZero. All rights reserved.
 					</p>
 
 					{/* Product Hunt Badge Placeholder */}

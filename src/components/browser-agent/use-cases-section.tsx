@@ -28,7 +28,7 @@ const useCases: UseCase[] = [
 	{
 		id: "commerce",
 		title: "Storefront & Catalog Updates",
-		department: "Ecommerce Ops",
+		department: "Sales Plus Ops",
 		description:
 			"Keep Shopify, Amazon, and marketplace portals perfectly in sync—including pricing, inventory, and merchandising copy.",
 		benefits: [
@@ -78,7 +78,7 @@ const UseCasesSection: React.FC = () => {
 						Automate the work you don&apos;t want to do—in the browser you already use.
 					</h2>
 					<p className="mt-4 text-lg text-slate-300">
-						Pick a workflow and Clickagent Browser Agent takes over tabs, clicks, and copy-paste with your guardrails.
+						Pick a workflow and ProcessZero Browser Agent takes over tabs, clicks, and copy-paste with your guardrails.
 					</p>
 				</div>
 
@@ -133,7 +133,7 @@ const UseCasesSection: React.FC = () => {
 							</div>
 							<div>
 								<p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">
-									Clickagent console
+									ProcessZero console
 								</p>
 								<p className="text-xl font-semibold text-white">{activeUseCase?.title}</p>
 							</div>

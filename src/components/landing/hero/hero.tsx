@@ -177,7 +177,7 @@ const Hero: FC = () => {
 										className="block"
 										variants={lineRevealVariants}
 										custom={1}>
-										Finance, HR &amp; eCommerce Work.
+										Finance, HR &amp; Sales Plus Work.
 									</motion.span>
 								</span>
 							</h1>
@@ -186,8 +186,8 @@ const Hero: FC = () => {
 								initial={{ opacity: 0, y: 12 }}
 								animate={isInView ? { opacity: 1, y: 0 } : {}}
 								transition={{ duration: 0.6, delay: 0.2 }}>
-								ClickAgent automates your finance, HR, and
-								eCommerce workflows so teams can focus on
+								ProcessZero automates your finance, HR, and
+								sales plus workflows so teams can focus on
 								high-impact work instead of manual tasks.
 							</motion.p>
 						</motion.div>
@@ -216,7 +216,7 @@ const Hero: FC = () => {
 								/>
 								<Image
 									src="/hero-image-new.png"
-									alt="Automation bot with finance, HR, and eCommerce tasks"
+									alt="Automation bot with finance, HR, and sales plus tasks"
 									width={1360}
 									height={700}
 									className="h-auto w-full object-cover"
@@ -236,7 +236,7 @@ const Hero: FC = () => {
 						<div className="mx-auto overflow-hidden px-2 py-4 md:px-4 md:py-5">
 							<div
 								className="flex flex-col gap-4 md:gap-5"
-								aria-label="Companies that integrate with ClickAgent">
+								aria-label="Companies that integrate with ProcessZero">
 								{[0, 1, 2].map((rowIndex) => {
 									const rowLogos = featuredLogoIcons.filter(
 										(_, index) => index % 3 === rowIndex

@@ -185,7 +185,7 @@ const SolutionSection: React.FC = () => {
 							</div>
 						</div>
 						<blockquote className="text-xl text-slate-100">
-							&ldquo;Clickagent Browser Agent is a game-changer. It
+							&ldquo;ProcessZero Browser Agent is a game-changer. It
 							speeds up prototyping and automation, cutting out
 							the endless back-and-forth. I&apos;d definitely miss
 							it if it were gone.&rdquo;

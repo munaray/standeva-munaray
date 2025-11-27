@@ -41,12 +41,12 @@ const Header: React.FC = () => {
 	}, []);
 
 	const navItems: NavItemConfig[] = [
-		{ name: "Platform", hasDropdown: true },
-		{ name: "Solutions", hasDropdown: true },
+		// { name: "Platform", hasDropdown: true },
+		// { name: "Solutions", hasDropdown: true },
 		{ name: "Pricing", href: "#pricing" },
-		{ name: "Developers", hasDropdown: true },
-		{ name: "Partner", href: "/partner" },
-		{ name: "Company", href: "/company/about" },
+		// { name: "Developers", hasDropdown: true },
+		// { name: "Partner", href: "/partner" },
+		// { name: "Company", href: "/company/about" },
 		{ name: "Blog", href: "/blog" },
 		// Note: Some dropdown items may point to unimplemented pages
 	];
@@ -111,7 +111,11 @@ const Header: React.FC = () => {
 	}, []);
 
 	const handleAnchorClick = useCallback(
-		(event: React.MouseEvent<HTMLAnchorElement>, href?: string, closeMenu = false) => {
+		(
+			event: React.MouseEvent<HTMLAnchorElement>,
+			href?: string,
+			closeMenu = false
+		) => {
 			if (!href || !href.startsWith("#")) {
 				if (closeMenu) {
 					setIsMobileMenuOpen(false);
@@ -178,7 +182,7 @@ const Header: React.FC = () => {
 								<span className="h-5 w-5 rounded-md bg-white" />
 							</motion.div>
 							<span className="text-xl font-bold tracking-tight text-white">
-								Clickagent
+								ProcessZero
 							</span>
 						</Link>
 
@@ -235,12 +239,12 @@ const Header: React.FC = () => {
 						</ul>
 
 						<div className="flex items-center gap-3">
-							<motion.button
+							{/* <motion.button
 								className="hidden rounded-lg px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-white/10 md:inline-flex"
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}>
 								Sign in
-							</motion.button>
+							</motion.button> */}
 							<motion.button
 								className="hidden rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition hover:opacity-90 md:inline-flex"
 								whileHover={{ scale: 1.05 }}
@@ -297,11 +301,11 @@ const Header: React.FC = () => {
 								</motion.a>
 							))}
 							<div className="flex flex-col gap-2 pt-2">
-								<button
+								{/* <button
 									type="button"
 									className="rounded-lg px-3 py-2 text-center text-sm font-semibold text-slate-200 hover:bg-white/10">
 									Sign in
-								</button>
+								</button> */}
 								<button
 									type="button"
 									className="rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-3 py-2 text-center text-sm font-semibold text-white">

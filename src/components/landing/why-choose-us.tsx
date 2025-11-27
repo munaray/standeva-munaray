@@ -9,7 +9,7 @@ const otherProviderItems = [
 	"Rely on closed‑source tools with opaque licensing.",
 ];
 
-const clickagentItems = [
+const ProcessZeroItems = [
 	"Keep sensitive data inside your own network perimeter.",
 	"Own and control every AI agent, prompt and workflow.",
 	"Build on an open, transparent stack with no hidden fees.",
@@ -25,7 +25,7 @@ const WhyChooseUs: React.FC = () => {
 
 			<div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 text-center md:px-6">
 				<div className="inline-flex items-center rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1 text-xs font-medium uppercase tracking-[0.22em] text-emerald-200">
-					Why Clickagent
+					Why ProcessZero
 				</div>
 
 				<div className="mt-6 space-y-4">
@@ -48,7 +48,7 @@ const WhyChooseUs: React.FC = () => {
 						</div>
 						<div className="border-b border-slate-800 bg-emerald-950/40 px-8 py-5 text-left md:border-b-0">
 							<div className="inline-flex rounded-full bg-emerald-900/70 px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200">
-								The Clickagent Approach
+								The ProcessZero Approach
 							</div>
 						</div>
 
@@ -64,7 +64,7 @@ const WhyChooseUs: React.FC = () => {
 						</div>
 
 						<div className="space-y-4 bg-emerald-950/30 px-8 pb-8 pt-6 text-left">
-							{clickagentItems.map((item) => (
+							{ProcessZeroItems.map((item) => (
 								<div key={item} className="flex gap-3">
 									<CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-emerald-400" />
 									<p className="text-sm leading-relaxed text-slate-100">
@@ -77,7 +77,7 @@ const WhyChooseUs: React.FC = () => {
 
 					<p className="mt-6 text-xs text-slate-400 sm:text-[0.8rem]">
 						This is why teams that care about security, control and transparency
-						standardise on Clickagent for automation.
+						standardise on ProcessZero for automation.
 					</p>
 				</div>
 			</div>

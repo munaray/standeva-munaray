@@ -15,9 +15,9 @@ const items = [
 		body: "Onboarding, staff changes, and routine requests consume an increasing number of manual hours, driving up your operational costs.",
 	},
 	{
-		id: "ecommerce",
+		id: "sales-plus",
 		icon: ShoppingBag,
-		title: "E-commerce",
+		title: "Sales Plus",
 		body: "Finding, sourcing, and processing orders is extremely manual and expensive, putting pressure on your profit margins.",
 	},
 ];
@@ -39,7 +39,7 @@ const ProblemSection: FC = () => {
 					</div>
 					<h2 className="text-balance text-2xl font-semibold leading-tight sm:text-3xl md:text-[2.1rem]">
 						Your team&apos;s processing costs are high in finance,
-						HR, or e-commerce.
+						HR, or sales plus.
 					</h2>
 					<p className="mx-auto max-w-3xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
 						Most of your processing tasks are not automated, which
@@ -75,4 +75,3 @@ const ProblemSection: FC = () => {
 };
 
 export default ProblemSection;
-

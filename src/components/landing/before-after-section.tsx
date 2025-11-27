@@ -36,7 +36,7 @@ const BeforeAfterSection: FC = () => {
 						Manual Processes Are Holding You Back.
 					</h2>
 					<p className="mx-auto max-w-2xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
-					Let Clickagent handle the repetitive work so your team can focus on
+					Let ProcessZero handle the repetitive work so your team can focus on
 						strategy, customers and growth.
 					</p>
 				</div>
@@ -84,7 +84,7 @@ const BeforeAfterSection: FC = () => {
 							<div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-2xl bg-slate-950">
 								<Image
 									src="/after.png"
-									alt="Automated Clickagent workspace managing documents"
+									alt="Automated ProcessZero workspace managing documents"
 									fill
 									className="object-contain object-center"
 									sizes="(min-width: 1024px) 40vw, 100vw"

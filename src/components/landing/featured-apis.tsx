@@ -29,7 +29,7 @@ const featuredAPIs = [
 			"Bulk import capabilities",
 		],
 		useCases: [
-			"E-commerce platforms",
+			"Sales Plus platforms",
 			"Dropshipping businesses",
 			"Inventory management",
 		],

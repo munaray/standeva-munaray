@@ -118,7 +118,7 @@ const dropdownContent: DropdownContentMap = {
 				title: "Services",
 				items: [
 					{ label: "AI Consulting", href: "/solutions/ai-consulting" },
-					// { label: "ClickAgent", href: "/solutions/clickagent" }, // Not implemented yet
+					// { label: "ProcessZero", href: "/solutions/ProcessZero" }, // Not implemented yet
 				],
 			},
 			{
@@ -127,7 +127,7 @@ const dropdownContent: DropdownContentMap = {
 					// Industry pages not implemented yet
 					// { label: "Healthcare", href: "/solutions/healthcare" },
 					// { label: "Finance", href: "/solutions/finance" },
-					// { label: "E-commerce", href: "/solutions/ecommerce" },
+					// { label: "Sales Plus", href: "/solutions/sales-plus" },
 					// { label: "Education", href: "/solutions/education" },
 				],
 			},

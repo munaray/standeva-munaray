@@ -42,14 +42,14 @@ const FounderMissionSection: FC = () => {
 							stays private while automations scale.
 						</p>
 						<p>
-							That&apos;s why I created Clickagent: to help
+							That&apos;s why I created ProcessZero: to help
 							organisations adopt AI‑first workflows safely,
 							freeing teams to focus on the work that actually
 							moves the business forward.
 						</p>
 						<p className="text-sm font-medium text-slate-100">
 							<span className="text-slate-50">
-								— Founder, Clickagent
+								— Founder, ProcessZero
 							</span>
 						</p>
 					</div>
@@ -60,7 +60,7 @@ const FounderMissionSection: FC = () => {
 							<div className="absolute inset-[10%] overflow-hidden rounded-[2.4rem] bg-slate-950">
 								<Image
 									src="/blog-1-1.png"
-									alt="Clickagent founder portrait"
+									alt="ProcessZero founder portrait"
 									fill
 									className="object-cover object-center"
 									sizes="256px"
