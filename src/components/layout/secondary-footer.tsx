@@ -21,43 +21,46 @@ const footerSections = [
 			// All AI development service pages not implemented yet
 			// { name: "AI Development Services", href: "/services/ai-development" },
 			// { name: "Enterprise AI Development", href: "/services/enterprise-ai" },
-			{ name: "AI Consulting Services", href: "/solutions/ai-consulting" }, // Implemented
+			{
+				name: "AI Consulting Services",
+				href: "/solutions/ai-consulting",
+			}, // Implemented
 			// { name: "Computer Vision Development", href: "/services/computer-vision" },
 			// { name: "ML Development", href: "/services/ml-development" },
 		],
 	},
-	{
-		title: "Agentic AI",
-		links: [
-			// All agentic AI pages not implemented yet
-			// { name: "AI Agent Development", href: "/solutions/ai-agents" },
-			// { name: "Enterprise AI Chatbot", href: "/solutions/enterprise-chatbot" },
-			// { name: "AI Chatbot Development", href: "/solutions/chatbot" },
-			// { name: "AI Copilot Development", href: "/solutions/copilot" },
-			// { name: "Conversational AI", href: "/solutions/conversational-ai" },
-		],
-	},
-	{
-		title: "Industries",
-		links: [
-			// All industry pages not implemented yet
-			// { name: "Manufacturing", href: "/industries/manufacturing" },
-			// { name: "Healthcare", href: "/industries/healthcare" },
-			// { name: "Insurance", href: "/industries/insurance" },
-			// { name: "Construction", href: "/industries/construction" },
-			// { name: "Real Estate", href: "/industries/real-estate" },
-		],
-	},
-	{
-		title: "Generative AI",
-		links: [
-			// All generative AI pages not implemented yet
-			// { name: "Generative AI Development", href: "/solutions/generative-ai" },
-			// { name: "Generative AI Consulting", href: "/services/generative-ai-consulting" },
-			// { name: "LLM Development", href: "/solutions/llm-development" },
-			// { name: "ChatGPT Developers", href: "/solutions/chatgpt-developers" },
-		],
-	},
+	// {
+	// 	title: "Agentic AI",
+	// 	links: [
+	// 		// All agentic AI pages not implemented yet
+	// 		// { name: "AI Agent Development", href: "/solutions/ai-agents" },
+	// 		// { name: "Enterprise AI Chatbot", href: "/solutions/enterprise-chatbot" },
+	// 		// { name: "AI Chatbot Development", href: "/solutions/chatbot" },
+	// 		// { name: "AI Copilot Development", href: "/solutions/copilot" },
+	// 		// { name: "Conversational AI", href: "/solutions/conversational-ai" },
+	// 	],
+	// },
+	// {
+	// 	title: "Industries",
+	// 	links: [
+	// 		// All industry pages not implemented yet
+	// 		// { name: "Manufacturing", href: "/industries/manufacturing" },
+	// 		// { name: "Healthcare", href: "/industries/healthcare" },
+	// 		// { name: "Insurance", href: "/industries/insurance" },
+	// 		// { name: "Construction", href: "/industries/construction" },
+	// 		// { name: "Real Estate", href: "/industries/real-estate" },
+	// 	],
+	// },
+	// {
+	// 	title: "Generative AI",
+	// 	links: [
+	// 		// All generative AI pages not implemented yet
+	// 		// { name: "Generative AI Development", href: "/solutions/generative-ai" },
+	// 		// { name: "Generative AI Consulting", href: "/services/generative-ai-consulting" },
+	// 		// { name: "LLM Development", href: "/solutions/llm-development" },
+	// 		// { name: "ChatGPT Developers", href: "/solutions/chatgpt-developers" },
+	// 	],
+	// },
 ];
 
 const SecondaryFooter: React.FC = () => {
@@ -68,15 +71,17 @@ const SecondaryFooter: React.FC = () => {
 					<div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-1">
 						<div className="flex items-center gap-2 mb-4">
 							<div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-								<span className="text-white font-bold text-lg">C</span>
+								<span className="text-white font-bold text-lg">
+									C
+								</span>
 							</div>
-							<span className="text-xl font-bold">ProcessZero</span>
+							<span className="text-xl font-bold">
+								ProcessZero
+							</span>
 						</div>
 						<p className="text-slate-400 text-sm leading-relaxed mb-4">
-							Building scalable AI solutions that empower enterprises to automate, adapt, and accelerate.
-						</p>
-						<p className="text-slate-400 text-sm">
-							hello@ProcessZero.com
+							Building scalable AI solutions that empower
+							enterprises to automate, adapt, and accelerate.
 						</p>
 					</div>
 
@@ -104,28 +109,6 @@ const SecondaryFooter: React.FC = () => {
 					<p className="text-slate-400 text-sm">
 						© 2025 ProcessZero. All rights reserved.
 					</p>
-
-					<div className="flex items-center gap-4">
-						{/* Privacy and Terms pages not implemented yet */}
-						{/* <Link href="/privacy" className="text-slate-400 hover:text-blue-400 text-sm transition-colors">
-							Privacy
-						</Link>
-						<Link href="/terms" className="text-slate-400 hover:text-blue-400 text-sm transition-colors">
-							Terms
-						</Link> */}
-						<a
-							href="#"
-							className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
-							aria-label="LinkedIn">
-							<Linkedin size={16} />
-						</a>
-						<a
-							href="#"
-							className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
-							aria-label="GitHub">
-							<Github size={16} />
-						</a>
-					</div>
 				</div>
 			</div>
 		</footer>
