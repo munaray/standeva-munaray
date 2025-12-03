@@ -38,11 +38,7 @@ const AboutUsHero: FC = () => {
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.1 }}
 					className="mt-6 text-balance text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
-					Your Trusted Partner for{" "}
-					<span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">
-						Secure, Real-World
-					</span>{" "}
-					AI Automation
+					Automating Repetitive Work. Helping Teams Focus on Growth.
 				</motion.h1>
 
 				{/* Description */}
@@ -51,9 +47,10 @@ const AboutUsHero: FC = () => {
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.2 }}
 					className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
-					ProcessZero is a next-generation AI automation agency built to
-					help organisations eliminate repetitive manual work, unlock
-					recurring savings, and transform the way they operate.
+					ProcessZero helps SMEs eliminate repetitive digital tasks so
+					teams can focus on customers, growth, and higher-value work
+					— not admin. Our automations reduce bottlenecks, speed up
+					workflows, and cut operating costs.
 				</motion.p>
 
 				<motion.p
@@ -61,10 +58,10 @@ const AboutUsHero: FC = () => {
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.3 }}
 					className="mt-4 max-w-3xl text-balance text-sm leading-relaxed text-slate-400 sm:text-base">
-					We specialise in designing secure, closed-loop AI systems that
-					run entirely inside your network — giving you the power of
-					intelligent automation without sacrificing control, privacy, or
-					compliance.
+					Using secure, open-source AI that runs inside your network,
+					we transform manual processes into fast, reliable workflows.
+					From back-office admin to customer operations, we automate
+					work the way your business already works.
 				</motion.p>
 
 				{/* Hero image */}
@@ -92,7 +89,9 @@ const AboutUsHero: FC = () => {
 					transition={{ duration: 0.6, delay: 0.6 }}
 					className="mt-12 grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
 					<div className="flex flex-col items-center rounded-2xl border border-slate-800 bg-slate-900/60 px-6 py-8 backdrop-blur-sm">
-						<div className="text-4xl font-bold text-sky-400">30+</div>
+						<div className="text-4xl font-bold text-sky-400">
+							30+
+						</div>
 						<div className="mt-2 text-center text-sm font-medium text-slate-300">
 							Years Combined Experience
 						</div>

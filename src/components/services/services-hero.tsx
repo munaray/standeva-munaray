@@ -86,19 +86,31 @@ const ServicesHero: FC = () => {
 				</motion.div>
 
 				{/* Service highlights */}
-				<motion.div
+				{/* <motion.div
 					initial={{ opacity: 0, y: 20 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.6 }}
-					className="mt-12 grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+					className="mt-12 grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-3 md:grid-cols-5">
 					<div className="flex flex-col items-center rounded-2xl border border-slate-800 bg-slate-900/60 px-6 py-6 backdrop-blur-sm">
-						<div className="text-3xl font-bold text-sky-400">01</div>
+						<div className="text-3xl font-bold text-sky-400">
+							01
+						</div>
 						<div className="mt-2 text-center text-sm font-medium text-slate-300">
 							AI Process Audit
 						</div>
 					</div>
 					<div className="flex flex-col items-center rounded-2xl border border-slate-800 bg-slate-900/60 px-6 py-6 backdrop-blur-sm">
-						<div className="text-3xl font-bold text-purple-400">02</div>
+						<div className="text-3xl font-bold text-sky-400">
+							01
+						</div>
+						<div className="mt-2 text-center text-sm font-medium text-slate-300">
+							AI Process Audit
+						</div>
+					</div>
+					<div className="flex flex-col items-center rounded-2xl border border-slate-800 bg-slate-900/60 px-6 py-6 backdrop-blur-sm">
+						<div className="text-3xl font-bold text-purple-400">
+							02
+						</div>
 						<div className="mt-2 text-center text-sm font-medium text-slate-300">
 							Transformation Partner
 						</div>
@@ -112,12 +124,14 @@ const ServicesHero: FC = () => {
 						</div>
 					</div>
 					<div className="flex flex-col items-center rounded-2xl border border-slate-800 bg-slate-900/60 px-6 py-6 backdrop-blur-sm">
-						<div className="text-3xl font-bold text-amber-400">04</div>
+						<div className="text-3xl font-bold text-amber-400">
+							04
+						</div>
 						<div className="mt-2 text-center text-sm font-medium text-slate-300">
 							Ongoing Maintenance
 						</div>
 					</div>
-				</motion.div>
+				</motion.div> */}
 			</div>
 		</section>
 	);

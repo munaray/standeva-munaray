@@ -13,7 +13,7 @@ export default function Home() {
 	];
 
 	const cta = {
-		label: "Book Free AI Audit",
+		label: "Book a demo",
 		href: "#pricing",
 	};
 

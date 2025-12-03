@@ -19,7 +19,7 @@ export default function ServicesPage() {
 	];
 
 	const cta = {
-		label: "Book Free AI Audit",
+		label: "Book a demo",
 		href: "#process-audit",
 	};
 

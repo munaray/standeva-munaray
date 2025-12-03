@@ -12,6 +12,7 @@ import OurProcess from "@/components/landing/our-process";
 import WhyChooseUs from "@/components/landing/why-choose-us";
 import Faq from "@/components/landing/faq";
 import CtaSection from "@/components/landing/cta-section";
+import SoftwareConnect from "../landing/software-connect";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,6 +69,7 @@ const TransitionOverlay: React.FC = () => {
 
 	return (
 		<>
+			<SoftwareConnect />
 			<ProblemSection />
 			<SolutionsSection />
 			<WhyChooseUs />

@@ -5,18 +5,18 @@ import type { FC } from "react";
 const steps = [
 	{
 		id: 1,
-		title: "Book Your Call",
-		body: "Schedule a brief discovery call so we can understand your goals, processes and where automation could help most.",
+		title: "Book Your Intro Call",
+		body: "Schedule a free 15-minute introductory call so we can understand your goals and highlight where AI automation could deliver the greatest impact.",
 	},
 	{
 		id: 2,
-		title: "Free AI Audit",
-		body: "We conduct a complimentary AI audit to identify automation opportunities and estimate potential savings.",
+		title: "£100 Discovery Day",
+		body: "Spend a focused day mapping your processes, identifying automation opportunities and shaping your AI strategy.",
 	},
 	{
 		id: 3,
-		title: "Receive Your Plan",
-		body: "We present a high-level implementation plan outlining potential savings, timelines and recommended next steps.",
+		title: "Receive Your AI Audit Report",
+		body: "Get a clear, actionable report outlining proposed automations, expected savings, timelines and recommended next steps.",
 	},
 ];
 
@@ -38,7 +38,7 @@ const OurProcess: FC = () => {
 						Getting Started is Easy
 					</h2>
 					<p className="mx-auto max-w-2xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
-						From first conversation to an actionable AI plan in just
+						From first conversation to a clear automation roadmap in
 						three simple steps.
 					</p>
 				</div>

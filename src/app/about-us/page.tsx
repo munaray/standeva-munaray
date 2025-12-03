@@ -20,7 +20,7 @@ export default function AboutUsPage() {
 	];
 
 	const cta = {
-		label: "Book Free AI Audit",
+		label: "Book a demo",
 		href: "#partnership",
 	};
 

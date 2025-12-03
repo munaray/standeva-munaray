@@ -3,15 +3,19 @@ import type { FC } from "react";
 const steps = [
 	{
 		id: 1,
-		text: "Start with a free, no-obligation AI audit to identify potential savings.",
+		text: "A no-obligation 15-minute call to understand your goals and identify where AI automation could reduce workload and improve performance.",
 	},
 	{
 		id: 2,
-		text: "For a deeper analysis, we offer a paid AI implementation audit. This one-time fee unlocks a detailed roadmap for automation.",
+		text: "A deep-dive into your processes to build an AI-first strategy, map repetitive tasks and uncover areas where automation can drive meaningful cost reductions.",
 	},
 	{
 		id: 3,
-		text: "The cost of the paid audit is fully credited back from the recurring savings we generate for you, ensuring you see the full value.",
+		text: "A clear, structured report outlining priority automations, solution designs, timelines, projected savings and your roadmap for implementation.",
+	},
+	{
+		id: 4,
+		text: "We build and deploy the automations identified in your audit report, delivering recurring savings, improved accuracy and long-term operational efficiency.",
 	},
 ];
 
@@ -31,14 +35,14 @@ const PricingSection: FC = () => {
 				</div>
 
 				<h2 className="mt-6 text-balance text-3xl font-semibold leading-tight sm:text-4xl md:text-[2.4rem]">
-					Simple, Transparent Pricing
+					Simple, Fair Pricing
 				</h2>
 
 				<p className="mt-4 max-w-2xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
-					We start with a free audit, then offer a deeper paid implementation audit whose cost is fully credited back from the savings we generate for you.
+					Free intro call → £100 Discovery Day → AI Audit Report → Automation Implementation
 				</p>
 
-				<div className="mt-10 grid w-full gap-6 text-left sm:grid-cols-3">
+				<div className="mt-10 grid w-full gap-6 text-left sm:grid-cols-2 lg:grid-cols-4">
 					{steps.map((step) => (
 						<div
 							key={step.id}

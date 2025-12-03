@@ -7,44 +7,44 @@ import { TrendingUp, Zap, Lock, Code, Layers } from "lucide-react";
 
 const differentiators = [
 	{
-		icon: TrendingUp,
-		title: "Results-First Commercial Model",
-		subtitle: "A True Win-Win",
+		icon: Lock,
+		title: "Your data stays in your network",
+		subtitle: "Total control",
 		description:
-			"Unlike traditional consultancies charging high upfront fees, we operate on a savings-linked pricing model. We only bill 33% of the first year's annual recurring saving achieved. No savings = no cost.",
-		highlight: "33% of Year 1 Savings Only",
+			"No external AI models or third-party platforms. Your data and workflows stay inside your environment with full oversight.",
+		highlight: "In-network only",
 	},
 	{
 		icon: Zap,
-		title: "Up to 90% Reduction in Costs",
-		subtitle: "Dramatic Impact",
+		title: "You fully own your AI agents",
+		subtitle: "Open-source by default",
 		description:
-			"Our AI automations are designed to drastically reduce manual workload, processing times, and operational overheads — often delivering up to 90% reduction in repetitive task costs.",
-		highlight: "Up to 90% Cost Reduction",
+			"Everything is built with open-source tooling — no vendor lock-in, no hidden licensing, and complete transparency.",
+		highlight: "Open-source & auditable",
 	},
 	{
-		icon: Lock,
-		title: "Secure, Closed-Loop Architecture",
-		subtitle: "Complete Privacy",
+		icon: TrendingUp,
+		title: "Simple, fair pricing",
+		subtitle: "No surprises",
 		description:
-			"All your automations are built inside your own network — ensuring full data privacy, GDPR compliance, and zero exposure to external AI platforms.",
-		highlight: "100% On-Premise",
+			"No ongoing platform fees or hidden costs. Solutions are priced for strong, recurring ROI with transparent payment options.",
+		highlight: "Transparent costs",
 	},
 	{
 		icon: Code,
-		title: "Open-Source, Fully Auditable",
-		subtitle: "Complete Transparency",
+		title: "Real impact for SMEs",
+		subtitle: "Outcomes that matter",
 		description:
-			"Everything we build is transparent, inspectable, and owned by your organisation. No proprietary black boxes. No vendor lock-in.",
-		highlight: "Open-Source & Auditable",
+			"Our automations often reduce repetitive workload costs by up to 90%, freeing teams to focus on growth and customers.",
+		highlight: "Up to 90% reduction",
 	},
 	{
 		icon: Layers,
-		title: "Enterprise Standards + SME Flexibility",
-		subtitle: "Best of Both Worlds",
+		title: "End-to-end delivery",
+		subtitle: "From strategy to optimisation",
 		description:
-			"You get the benefit of enterprise automation expertise without the complexity, cost, or lock-in. Built for mid-market organisations.",
-		highlight: "Enterprise Quality, SME Speed",
+			"We support you through the entire journey — from strategy and build to deployment and ongoing optimisation.",
+		highlight: "Strategy → build → optimise",
 	},
 ];
 
@@ -80,7 +80,7 @@ const WhatMakesUsDifferent: FC = () => {
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.1 }}
 					className="mt-6 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
-					WHAT MAKES US DIFFERENT
+					Why ProcessZero Is Different
 				</motion.h2>
 
 				<motion.p
@@ -88,8 +88,8 @@ const WhatMakesUsDifferent: FC = () => {
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.2 }}
 					className="mx-auto mt-4 max-w-2xl text-sm text-slate-300 sm:text-base">
-					Five key differentiators that set ProcessZero apart from
-					traditional automation agencies.
+					Five principles that keep your data safe, your AI transparent, and
+					your ROI clear.
 				</motion.p>
 
 				{/* Differentiators grid */}

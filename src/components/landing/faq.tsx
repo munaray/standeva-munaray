@@ -15,25 +15,18 @@ const faqData = [
 		question: "How does your pricing model work?",
 		answer: (
 			<>
-				Our pricing model is designed to be simple and transparent. It
-				works in three steps:
+				Our pricing model is designed to be simple and fair. We start
+				with a free 15-minute introductory call, followed by a £100
+				Discovery Day where we map your processes and identify
+				automation opportunities. You then receive a structured AI Audit
+				Report outlining proposed automations, delivery timelines and
+				expected savings.
 				<br />
 				<br />
-				Start with a free AI audit: We begin with a complimentary,
-				no-obligation AI audit to identify potential savings for your
-				business.
-				<br />
-				<br />
-				Unlock a detailed roadmap: For a more in-depth analysis, we
-				offer a paid AI implementation audit for a one-time fee. This
-				provides you with a comprehensive plan for automation.
-				<br />
-				<br />
-				Get the fee credited back: The cost of the paid audit is fully
-				credited back to you from the recurring savings we generate. Our
-				performance-based fee is equal to 33% of the first year&apos;s
-				validated savings, ensuring that the initial investment pays for
-				itself through the value we deliver.
+				Implementation is priced as a straightforward project cost, with
+				flexible payment options — including upfront pricing or monthly
+				plans. All solutions deliver strong recurring ROI, often
+				reducing repetitive workload costs by up to 90%.
 			</>
 		),
 	},
@@ -42,55 +35,32 @@ const faqData = [
 		question: "What is the process for getting started?",
 		answer: (
 			<>
-				Phase 1: Get Started with Our Free Audit
+				Our process is simple and collaborative:
 				<br />
 				<br />
-				Remote AI Audit: We begin with a remote discovery process.
-				You&apos;ll receive an onboarding pack to share your Standard
-				Operating Procedures (SOPs) and performance data. From this, we
-				create a high-level process map and a report detailing potential
-				savings.
+				1. Free Introductory Call — A short call to understand your
+				goals and identify where AI automation could have the most
+				impact.
 				<br />
 				<br />
-				Technical Deep Dive: We then schedule a technical session to
-				walk through your SOPs together, understand your key pain
-				points, and refine what you want to automate.
+				2. £100 Discovery Day — A full day spent mapping your processes,
+				speaking with stakeholders, reviewing SOPs and identifying
+				automation opportunities.
 				<br />
 				<br />
-				ROI Report & Proposal: You receive a tailored audit report
-				showing the specific automations we recommend and your projected
-				recurrent savings. This comes with a clear, performance-based
-				proposal.
+				3. AI Audit Report — You receive a clear automation roadmap
+				outlining recommended solutions, timelines, expected savings and
+				implementation costs.
 				<br />
 				<br />
-				Phase 2: The Complete Implementation Roadmap
+				4. Implementation — We build and deploy secure, open-source AI
+				agents inside your network, transforming repetitive processes
+				into automated workflows.
 				<br />
 				<br />
-				In-Person Workshops: If you decide to move forward, we begin
-				with detailed, in-person workshops with your users and
-				stakeholders to map out the complete solution design.
-				<br />
-				<br />
-				Remote Sandbox Simulation: We build a remote sandbox version of
-				the proposed system. Using your provided license keys and test
-				data, we simulate how the AI will operate to create an initial
-				working model for review.
-				<br />
-				<br />
-				Internal Pilot & Validation: Once you approve the simulation, we
-				build a second pilot version inside your own network. This
-				allows your team to conduct more detailed testing in a secure,
-				familiar environment.
-				<br />
-				<br />
-				Full Implementation & Launch: After successful testing and
-				sign-off, we build and deploy the full, live solution within
-				your network.
-				<br />
-				<br />
-				Final Sign-Off: After the system has been running successfully
-				for 30 days, we hold a final wrap-up call to ensure your
-				complete satisfaction before final invoicing.
+				5. Ongoing Support (optional) — We provide continued monitoring,
+				optimisation and extension of your automations as your business
+				grows.
 			</>
 		),
 	},
@@ -142,8 +112,8 @@ const FAQ: React.FC = () => {
 						All You Need to Know
 					</h2>
 					<p className="mt-4 text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
-						Got questions? We have answers. Find out everything you need to know
-						before getting started.
+						Got questions? We have answers. Find out everything you
+						need to know before getting started.
 					</p>
 				</div>
 
@@ -204,21 +174,20 @@ const FAQ: React.FC = () => {
 					})}
 				</div>
 
-				<div className="mt-16 text-center">
+				{/* <div className="mt-16 text-center">
 					<div className="mx-auto max-w-2xl rounded-2xl border border-slate-800 bg-slate-950/80 p-8 backdrop-blur-sm transition hover:border-sky-500/50">
 						<h3 className="mb-4 text-2xl font-bold text-slate-50">
 							Still have questions?
 						</h3>
 						<p className="mx-auto mb-6 max-w-2xl text-sm text-slate-300 sm:text-[0.95rem]">
-							Can&apos;t find the answer you&apos;re looking for? Our team is
-							ready to help you design and launch the right AI automation for
-							your organisation.
+							We&apos;re here to provide clarity and help you choose the right
+							automation solution for your organisation.
 						</p>
 						<TertiaryButton className="rounded-xl bg-sky-500 px-8 py-4 text-base text-slate-950 transition hover:bg-sky-400">
 							Contact Support
 						</TertiaryButton>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</section>
 	);

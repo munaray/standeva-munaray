@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Target } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 const MissionSection: FC = () => {
 	const { ref, isInView } = useScrollAnimation({
@@ -39,7 +40,7 @@ const MissionSection: FC = () => {
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.1 }}
 					className="mt-6 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
-					OUR MISSION
+					Our Mission
 				</motion.h2>
 
 				{/* Content grid */}
@@ -74,63 +75,48 @@ const MissionSection: FC = () => {
 							</div>
 							<div>
 								<h3 className="text-xl font-semibold text-slate-100 sm:text-2xl">
-									Transition to AI-First Operations
+									After 25+ years in change and ops
 								</h3>
 								<p className="mt-2 text-base leading-relaxed text-slate-300">
-									Our mission is to help organisations
-									transition into AI-first businesses, freeing
-									human teams from repetitive manual work and
-									allowing them to focus on strategy,
-									problem-solving, and value creation.
+									we&apos;ve seen SMEs drowning in repetitive work — costing time,
+									money and morale. ProcessZero was created to change that.
 								</p>
 							</div>
 						</div>
 
 						<div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-6">
-							<div className="flex items-baseline gap-2">
-								<span className="text-5xl font-bold text-sky-400">
-									90%
-								</span>
-								<span className="text-lg font-semibold text-slate-200">
-									Cost Reduction Goal
-								</span>
+							<h4 className="text-lg font-semibold text-slate-100">
+								Our mission is to help organisations become AI-first:
+							</h4>
+							<div className="mt-4 space-y-2">
+								<div className="flex items-start gap-2">
+									<CheckCircle2 className="mt-0.5 h-4 w-4 text-emerald-400" />
+									<span className="text-sm text-slate-200">
+										reducing operational overhead
+									</span>
+								</div>
+								<div className="flex items-start gap-2">
+									<CheckCircle2 className="mt-0.5 h-4 w-4 text-emerald-400" />
+									<span className="text-sm text-slate-200">
+										eliminating manual workload
+									</span>
+								</div>
+								<div className="flex items-start gap-2">
+									<CheckCircle2 className="mt-0.5 h-4 w-4 text-emerald-400" />
+									<span className="text-sm text-slate-200">
+										unlocking capacity for higher-value work
+									</span>
+								</div>
+								<div className="flex items-start gap-2">
+									<CheckCircle2 className="mt-0.5 h-4 w-4 text-emerald-400" />
+									<span className="text-sm text-slate-200">
+										enabling faster, more scalable growth
+									</span>
+								</div>
 							</div>
-							<p className="mt-3 text-sm leading-relaxed text-slate-300">
-								We aim to reduce repetitive task costs by up to
-								90% for most clients, enabling them to grow
-								faster, operate leaner, and scale without the
-								burden of rising overheads.
+							<p className="mt-4 text-sm leading-relaxed text-slate-300">
+								We build automation that&apos;s safe, secure and fully owned by you.
 							</p>
-						</div>
-
-						<div className="space-y-3">
-							<div className="flex items-start gap-3">
-								<div className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-400" />
-								<p className="text-sm text-slate-300">
-									<span className="font-semibold text-slate-200">
-										Free human teams
-									</span>{" "}
-									from soul-crushing repetitive work
-								</p>
-							</div>
-							<div className="flex items-start gap-3">
-								<div className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-sky-400" />
-								<p className="text-sm text-slate-300">
-									<span className="font-semibold text-slate-200">
-										Enable focus
-									</span>{" "}
-									on strategy and value creation
-								</p>
-							</div>
-							<div className="flex items-start gap-3">
-								<div className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400" />
-								<p className="text-sm text-slate-300">
-									<span className="font-semibold text-slate-200">
-										Scale operations
-									</span>{" "}
-									without increasing headcount
-								</p>
-							</div>
 						</div>
 					</motion.div>
 				</div>

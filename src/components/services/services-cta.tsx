@@ -6,11 +6,15 @@ import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Sparkles, ArrowRight, CheckCircle2 } from "lucide-react";
 
-const benefits = [
-	"Free initial consultation",
-	"No obligation process audit",
-	"Clear ROI estimation",
-	"Transparent pricing model",
+const startSteps = [
+	"Free 15-Min Introductory Call",
+	"£100 Discovery Day & AI Audit",
+];
+
+const trustPoints = [
+	"Transparent pricing with open-source stack",
+	"Up to 90% reduction in repetitive workload costs",
+	"Data privacy & control",
 ];
 
 const ServicesCTA: FC = () => {
@@ -57,23 +61,42 @@ const ServicesCTA: FC = () => {
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.2 }}
 					className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-					Start with a free AI Process Audit to discover where automation
-					can deliver the greatest impact for your organisation.
+					Start with a free 15-minute introductory call, followed by a
+					£100 Discovery Day & AI Audit to pinpoint where automation
+					will deliver the greatest impact for your organisation.
 				</motion.p>
 
-				{/* Benefits grid */}
+				{/* Start steps */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.3 }}
 					className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
-					{benefits.map((benefit, index) => (
+					{startSteps.map((step, index) => (
+						<div
+							key={index}
+							className="flex items-center gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/5 px-6 py-4 backdrop-blur-sm">
+							<CheckCircle2 className="h-5 w-5 flex-shrink-0 text-emerald-400" />
+							<span className="text-sm font-semibold text-slate-100">
+								{step}
+							</span>
+						</div>
+					))}
+				</motion.div>
+
+				{/* Trust elements */}
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					animate={isInView ? { opacity: 1, y: 0 } : {}}
+					transition={{ duration: 0.6, delay: 0.35 }}
+					className="mx-auto mt-6 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
+					{trustPoints.map((point, index) => (
 						<div
 							key={index}
 							className="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-900/60 px-6 py-4 backdrop-blur-sm">
-							<CheckCircle2 className="h-5 w-5 flex-shrink-0 text-emerald-400" />
+							<CheckCircle2 className="h-5 w-5 flex-shrink-0 text-sky-400" />
 							<span className="text-sm font-medium text-slate-200">
-								{benefit}
+								{point}
 							</span>
 						</div>
 					))}
@@ -89,60 +112,9 @@ const ServicesCTA: FC = () => {
 						href="#"
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}
-						className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 via-emerald-500 to-purple-600 px-8 py-4 text-base font-semibold text-white shadow-[0_0_40px_rgba(56,189,248,0.4)] transition hover:shadow-[0_0_60px_rgba(56,189,248,0.6)]">
-						Book Your Free AI Audit
-						<Sparkles className="h-5 w-5" />
+						className="inline-flex items-center justify-center gap-2 rounded-md bg-sky-500 px-8 py-4 text-base font-semibold text-white shadow-[0_0_40px_rgba(56,189,248,0.4)] transition hover:shadow-[0_0_60px_rgba(56,189,248,0.6)]">
+						Start With a Free Intro Call
 					</motion.a>
-
-					<div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-8">
-						<Link
-							href="/about-us"
-							className="group inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition hover:text-slate-100">
-							Learn about our company
-							<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-						</Link>
-						<Link
-							href="/#pricing"
-							className="group inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition hover:text-slate-100">
-							View full pricing details
-							<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-						</Link>
-					</div>
-
-					<p className="text-xs text-slate-400">
-						Free consultation • No credit card required • UK
-						businesses only
-					</p>
-				</motion.div>
-
-				{/* Stats highlight */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={isInView ? { opacity: 1, y: 0 } : {}}
-					transition={{ duration: 0.6, delay: 0.6 }}
-					className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
-					<div className="flex flex-col items-center rounded-2xl border border-slate-800 bg-slate-900/60 px-6 py-8 backdrop-blur-sm">
-						<div className="text-4xl font-bold text-sky-400">90%</div>
-						<div className="mt-2 text-center text-sm font-medium text-slate-300">
-							Reduction in repetitive costs
-						</div>
-					</div>
-					<div className="flex flex-col items-center rounded-2xl border border-slate-800 bg-slate-900/60 px-6 py-8 backdrop-blur-sm">
-						<div className="text-4xl font-bold text-emerald-400">
-							33%
-						</div>
-						<div className="mt-2 text-center text-sm font-medium text-slate-300">
-							Of savings pricing model
-						</div>
-					</div>
-					<div className="flex flex-col items-center rounded-2xl border border-slate-800 bg-slate-900/60 px-6 py-8 backdrop-blur-sm">
-						<div className="text-4xl font-bold text-purple-400">
-							100%
-						</div>
-						<div className="mt-2 text-center text-sm font-medium text-slate-300">
-							Data privacy & control
-						</div>
-					</div>
 				</motion.div>
 			</div>
 		</section>

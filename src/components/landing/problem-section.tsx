@@ -38,8 +38,7 @@ const ProblemSection: FC = () => {
 						The Problem
 					</div>
 					<h2 className="text-balance text-2xl font-semibold leading-tight sm:text-3xl md:text-[2.1rem]">
-						Your team&apos;s processing costs are high in finance,
-						HR, or sales plus.
+						Your team&apos;s processing costs are too high
 					</h2>
 					<p className="mx-auto max-w-3xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
 						Most of your processing tasks are not automated, which

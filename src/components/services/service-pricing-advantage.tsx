@@ -22,149 +22,138 @@ const ServicePricingAdvantage: FC = () => {
 			</div>
 
 			<div className="relative mx-auto max-w-6xl px-4 md:px-6">
-				{/* Badge */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={isInView ? { opacity: 1, y: 0 } : {}}
-					transition={{ duration: 0.5 }}
-					className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-emerald-200">
-					<DollarSign className="h-3.5 w-3.5" />
-					Pricing Advantage
-				</motion.div>
+				<div className="text-center">
+					{/* Badge */}
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+						transition={{ duration: 0.5 }}
+						className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-emerald-200">
+						<DollarSign className="h-3.5 w-3.5" />
+						Pricing Advantage
+					</motion.div>
 
-				{/* Title */}
-				<motion.h2
-					initial={{ opacity: 0, y: 20 }}
-					animate={isInView ? { opacity: 1, y: 0 } : {}}
-					transition={{ duration: 0.6, delay: 0.1 }}
-					className="mt-6 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
-					Implementation Pricing Advantage
-				</motion.h2>
+					{/* Title */}
+					<motion.h2
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+						transition={{ duration: 0.6, delay: 0.1 }}
+						className="mt-6 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
+						Implementation Pricing Advantage
+					</motion.h2>
 
-				<motion.p
-					initial={{ opacity: 0, y: 20 }}
-					animate={isInView ? { opacity: 1, y: 0 } : {}}
-					transition={{ duration: 0.6, delay: 0.2 }}
-					className="mt-4 max-w-2xl text-sm text-slate-300 sm:text-base">
-					Unlike traditional agencies who charge large upfront build fees,
-					we operate on a results-based pricing model.
-				</motion.p>
+					<motion.p
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+						transition={{ duration: 0.6, delay: 0.2 }}
+						className="mt-4 mx-auto max-w-2xl text-center text-sm text-slate-300 sm:text-base">
+						Outcome-focused, transparent pricing built for automation success.
+					</motion.p>
+				</div>
 
-				{/* Main pricing card */}
-				<motion.div
-					initial={{ opacity: 0, scale: 0.95 }}
-					animate={isInView ? { opacity: 1, scale: 1 } : {}}
-					transition={{ duration: 0.7, delay: 0.3 }}
-					className="mt-12 overflow-hidden rounded-3xl border border-emerald-500/40 bg-gradient-to-br from-emerald-500/10 via-sky-500/10 to-purple-500/10 shadow-[0_0_60px_rgba(16,185,129,0.2)] backdrop-blur-sm">
-					<div className="p-8 md:p-12">
-						{/* Pricing headline */}
-						<div className="flex flex-col items-center text-center">
-							<div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-200">
-								<Shield className="h-3.5 w-3.5" />
-								Zero Risk Model
+				<div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+						transition={{ duration: 0.6, delay: 0.25 }}
+						className="lg:col-span-2 overflow-hidden rounded-3xl border border-emerald-500/40 bg-gradient-to-br from-emerald-500/15 via-sky-500/10 to-purple-500/10 p-8 shadow-[0_0_60px_rgba(16,185,129,0.2)] backdrop-blur-sm">
+						<div className="flex items-center gap-3">
+							<div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-200 ring-1 ring-emerald-400/40">
+								<TrendingUp className="h-5 w-5" />
 							</div>
-
-							<div className="mt-8 flex items-baseline justify-center gap-3">
-								<span className="text-6xl font-bold text-emerald-400 sm:text-7xl md:text-8xl">
-									33%
-								</span>
-								<div className="text-left">
-									<div className="text-lg font-semibold text-slate-200 sm:text-xl">
-										of first year savings
-									</div>
-									<div className="text-sm text-slate-400">
-										only when delivered
-									</div>
-								</div>
-							</div>
-
-							<p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-								You only pay 33% of the first year&apos;s recurring
-								savings created by the automation we implement.
-								<span className="block mt-2 font-semibold text-emerald-200">
-									A true win-win — you don&apos;t pay for development
-									unless it delivers measurable value.
-								</span>
-							</p>
-						</div>
-
-						{/* Comparison grid */}
-						<div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-							{/* Traditional model */}
-							<div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-								<div className="flex items-center gap-3">
-									<div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-slate-400">
-										✕
-									</div>
-									<h3 className="text-lg font-semibold text-slate-200">
-										Traditional Agencies
-									</h3>
-								</div>
-								<ul className="mt-6 space-y-3">
-									<li className="flex items-start gap-2 text-sm text-slate-400">
-										<span className="mt-1">•</span>
-										<span>Large upfront project fees</span>
-									</li>
-									<li className="flex items-start gap-2 text-sm text-slate-400">
-										<span className="mt-1">•</span>
-										<span>Pay regardless of outcome</span>
-									</li>
-									<li className="flex items-start gap-2 text-sm text-slate-400">
-										<span className="mt-1">•</span>
-										<span>High financial risk</span>
-									</li>
-									<li className="flex items-start gap-2 text-sm text-slate-400">
-										<span className="mt-1">•</span>
-										<span>Misaligned incentives</span>
-									</li>
-								</ul>
-							</div>
-
-							{/* ProcessZero model */}
-							<div className="rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-6">
-								<div className="flex items-center gap-3">
-									<div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/30">
-										<TrendingUp className="h-5 w-5" />
-									</div>
-									<h3 className="text-lg font-semibold text-emerald-200">
-										ProcessZero Model
-									</h3>
-								</div>
-								<ul className="mt-6 space-y-3">
-									<li className="flex items-start gap-2 text-sm text-slate-300">
-										<CheckCircle2 className="h-4 w-4 flex-shrink-0 text-emerald-400 mt-0.5" />
-										<span>No upfront build costs</span>
-									</li>
-									<li className="flex items-start gap-2 text-sm text-slate-300">
-										<CheckCircle2 className="h-4 w-4 flex-shrink-0 text-emerald-400 mt-0.5" />
-										<span>
-											Pay only from achieved savings
-										</span>
-									</li>
-									<li className="flex items-start gap-2 text-sm text-slate-300">
-										<CheckCircle2 className="h-4 w-4 flex-shrink-0 text-emerald-400 mt-0.5" />
-										<span>Zero financial risk</span>
-									</li>
-									<li className="flex items-start gap-2 text-sm text-slate-300">
-										<CheckCircle2 className="h-4 w-4 flex-shrink-0 text-emerald-400 mt-0.5" />
-										<span>Perfectly aligned incentives</span>
-									</li>
-								</ul>
+							<div className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-100">
+								Outcome-Driven
 							</div>
 						</div>
-
-						{/* Important note */}
-						<div className="mt-8 rounded-2xl border border-sky-500/30 bg-sky-500/5 p-6">
-							<p className="text-sm font-medium leading-relaxed text-sky-200">
-								<span className="font-bold">Important:</span>{" "}
-								Strategy, support, audits, and advisory are billed
-								separately — only the build phase uses this
-								savings-based model. This ensures transparency and
-								lets you scale your AI capability sustainably.
-							</p>
+						<div className="mt-6 text-4xl font-bold text-slate-50 sm:text-5xl">
+							100%+ ROI
 						</div>
-					</div>
-				</motion.div>
+						<p className="mt-4 text-base leading-relaxed text-slate-100 sm:text-lg">
+							Every automation we deliver is designed to provide a minimum
+							100% return on investment, with long-term reductions of up to
+							90% in repetitive workload costs.
+						</p>
+						<p className="mt-3 text-sm text-slate-200">
+							Built for measurable outcomes, not billable hours.
+						</p>
+					</motion.div>
+
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+						transition={{ duration: 0.6, delay: 0.3 }}
+						className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 shadow-[0_15px_60px_rgba(0,0,0,0.35)]">
+						<div className="flex items-center gap-3">
+							<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-200">
+								<DollarSign className="h-5 w-5" />
+							</div>
+							<h3 className="text-lg font-semibold text-slate-100">
+								Pricing
+							</h3>
+						</div>
+						<p className="mt-4 text-sm leading-relaxed text-slate-300">
+							We offer competitive, transparent pricing that provides strong
+							recurring savings through automation. Every solution is built
+							using open-source tooling, eliminating hidden licence fees and
+							minimising long-term costs.
+						</p>
+					</motion.div>
+
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+						transition={{ duration: 0.6, delay: 0.35 }}
+						className="rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-6 shadow-[0_15px_60px_rgba(16,185,129,0.15)]">
+						<div className="flex items-center gap-3">
+							<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/30">
+								<Shield className="h-5 w-5" />
+							</div>
+							<h3 className="text-lg font-semibold text-slate-100">
+								Flexible Payment Options
+							</h3>
+						</div>
+						<ul className="mt-4 space-y-3">
+							<li className="flex items-start gap-2 text-sm text-slate-200">
+								<CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" />
+								<span>Upfront project pricing</span>
+							</li>
+							<li className="flex items-start gap-2 text-sm text-slate-200">
+								<CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" />
+								<span>Monthly plans</span>
+							</li>
+							<li className="flex items-start gap-2 text-sm text-slate-200">
+								<CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" />
+								<span>Hybrid approaches for phased delivery</span>
+							</li>
+							<li className="flex items-start gap-2 text-sm text-slate-200">
+								<CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" />
+								<span>Optional support subscriptions</span>
+							</li>
+						</ul>
+					</motion.div>
+
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+						transition={{ duration: 0.6, delay: 0.4 }}
+						className="md:col-span-2 lg:col-span-3 rounded-2xl border border-slate-800 bg-slate-900/60 p-6 shadow-[0_10px_40px_rgba(0,0,0,0.3)]">
+						<div className="flex flex-col gap-3 text-left sm:flex-row sm:items-start sm:gap-4">
+							<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-sky-200">
+								<Shield className="h-5 w-5" />
+							</div>
+							<div>
+								<div className="text-base font-semibold text-slate-100">
+									Transparent & Tailored
+								</div>
+								<p className="mt-2 text-sm leading-relaxed text-slate-300">
+									Strategy, support, audits, and advisory are scoped separately.
+									Payment structures are tailored to each project while keeping
+									costs transparent through our open-source approach.
+								</p>
+							</div>
+						</div>
+					</motion.div>
+				</div>
 			</div>
 		</section>
 	);

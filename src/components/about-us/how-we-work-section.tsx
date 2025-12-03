@@ -3,47 +3,47 @@
 import type { FC } from "react";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { Search, Map, LineChart, Rocket, RefreshCw } from "lucide-react";
+import { PhoneCall, Search, FileText, Rocket, RefreshCw, Map } from "lucide-react";
 
 const steps = [
 	{
 		number: "01",
-		icon: Search,
-		title: "Discovery & Understanding",
+		icon: PhoneCall,
+		title: "Intro Call (Free, 15 minutes)",
 		description:
-			"We learn your processes, identify inefficiencies, and understand your operational goals.",
-		color: "from-sky-500 to-blue-600",
+			"A short conversation to understand your goals and highlight where automation can quickly reduce workload or improve efficiency.",
+		color: "from-sky-500 to-emerald-500",
 	},
 	{
 		number: "02",
 		icon: Map,
-		title: "Process Mapping & Opportunity Analysis",
+		title: "Discovery Day & AI Audit (£100)",
 		description:
-			"We map your workflows and highlight where automation will deliver the fastest ROI.",
+			"A one-day deep dive into your business processes. We speak with key staff, review your workflows and identify high-value automation opportunities.",
 		color: "from-emerald-500 to-teal-600",
 	},
 	{
 		number: "03",
-		icon: LineChart,
-		title: "ROI Forecast & Savings Model",
+		icon: FileText,
+		title: "AI Audit Report",
 		description:
-			"We quantify expected savings — often dramatic reductions in repetitive task costs — so you know exactly what impact automation will have.",
+			"You receive a clear, structured plan outlining recommended automations, expected savings, implementation timelines, and project cost options.",
 		color: "from-purple-500 to-indigo-600",
 	},
 	{
 		number: "04",
 		icon: Rocket,
-		title: "Build, Deploy & Test",
+		title: "Implementation",
 		description:
-			"We build secure, closed-loop automations directly inside your environment.",
+			"We build and deploy your automations using secure, open-source AI agents operating within your network.",
 		color: "from-amber-500 to-orange-600",
 	},
 	{
 		number: "05",
 		icon: RefreshCw,
-		title: "Monitor, Optimise & Scale",
+		title: "Ongoing Support & AI Transformation",
 		description:
-			"As your operations evolve, your automations evolve with you. Continuous improvement is built-in.",
+			"As your organisation grows, we help refine, extend and scale your automations — guiding you on the journey to becoming an AI-first business.",
 		color: "from-rose-500 to-pink-600",
 	},
 ];
@@ -81,7 +81,7 @@ const HowWeWorkSection: FC = () => {
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.1 }}
 					className="mt-6 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
-					HOW WE WORK
+					Our 5-Step AI Automation Framework
 				</motion.h2>
 
 				<motion.p

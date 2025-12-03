@@ -9,49 +9,55 @@ import {
 	Lightbulb,
 	Rocket,
 	RefreshCw,
+	PhoneCall,
 	CheckCircle2,
 	ArrowRight,
 } from "lucide-react";
 
 const services = [
 	{
-		id: "process-audit",
+		id: "intro-call",
 		number: "01",
-		icon: Search,
-		title: "AI Process Audit",
-		subtitle: "Identify bottlenecks, automation opportunities, and demonstrable savings",
-		description:
-			"We assess your repetitive, manual and process-driven tasks to determine where automation can create meaningful efficiencies and financial value. The output is a full automation roadmap and estimated recurring savings.",
+		icon: PhoneCall,
+		title: "15-Minute Introductory Call",
+		subtitle:
+			"A short, focused call to understand your goals and whether AI automation is the right fit.",
+		description: "We cover:",
 		features: [
-			"Comprehensive process mapping",
-			"Automation opportunity identification",
-			"ROI and savings estimation",
-			"Detailed implementation roadmap",
+			"Your current pain points",
+			"How our automation process works",
+			"Pricing, ROI and commercial clarity",
+			"Why ProcessZero's secure, in-network AI agents are different",
 		],
 		color: "from-sky-500 to-blue-600",
 		borderColor: "border-sky-500/40",
 		bgColor: "bg-sky-500/10",
-		image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&q=80",
+		image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&q=80",
+		cta: "Book Intro Call",
 	},
 	{
-		id: "transformation",
+		id: "process-audit",
 		number: "02",
-		icon: Lightbulb,
-		title: "AI Transformation Partner",
-		subtitle:
-			"Executive-level guidance to help you adopt and scale AI with confidence",
-		description:
-			"We work with your leadership team to shape your AI strategy, prioritise opportunities, govern the roadmap, and ensure your organisation is prepared — operationally and culturally — for automation.",
+		icon: Search,
+		title: "Discovery Day & AI Audit (£100)",
+		subtitle: "A collaborative deep-dive into your automation opportunities.",
+		description: "Includes:",
 		features: [
-			"AI strategy development",
-			"Executive stakeholder alignment",
-			"Change management planning",
-			"Cultural readiness assessment",
+			"Understanding your goals",
+			"AI-first strategy session",
+			"Process mapping with stakeholders (SOPs, frequency, cycle time, labour cost)",
+			"Compliance & security overview",
+			"End-of-day review of priorities",
+			"AI Audit Report with recommendations",
+			"Timelines and implementation costs",
+			"ROI and savings estimates",
+			"1-hour Teams/in-person presentation",
 		],
-		color: "from-purple-500 to-indigo-600",
-		borderColor: "border-purple-500/40",
-		bgColor: "bg-purple-500/10",
-		image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80",
+		color: "from-indigo-500 to-violet-600",
+		borderColor: "border-indigo-500/40",
+		bgColor: "bg-indigo-500/10",
+		image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&q=80",
+		cta: "Book Your Discovery Day",
 	},
 	{
 		id: "implementation",
@@ -59,40 +65,62 @@ const services = [
 		icon: Rocket,
 		title: "AI Implementation Partner",
 		subtitle:
-			"We build, deploy, and embed the automations — with a fair, outcomes-driven pricing model",
-		description:
-			"Once priorities are agreed, we take responsibility for delivering the end-to-end automation build.",
+			"We design, build and deploy your automations inside your network using secure open-source AI agents.",
+		description: "Includes:",
 		features: [
-			"Workflow development",
-			"AI agent creation",
-			"Systems integration",
-			"Testing & deployment",
-			"Staff training",
-			"Change management execution",
+			"Workflow engineering",
+			"AI agent development",
+			"Integration and orchestration",
+			"Testing & validation",
+			"Documentation of all processes",
+			"Staff onboarding and change support",
 		],
 		color: "from-emerald-500 to-teal-600",
 		borderColor: "border-emerald-500/40",
 		bgColor: "bg-emerald-500/10",
 		image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop&q=80",
+		cta: "Discuss implementation",
 	},
 	{
 		id: "maintenance",
 		number: "04",
 		icon: RefreshCw,
-		title: "Ongoing Maintenance & Continuous Improvement",
-		subtitle: "Keeping your automated workflows stable, efficient, and continually improving",
-		description:
-			"We monitor performance, fix issues when systems change, enhance workflows as your operations evolve, and ensure your automations stay accurate and effective.",
+		title: "Ongoing AI Support & Maintenance",
+		subtitle:
+			"Optional support to optimise, extend and maintain your automations.",
+		description: "Including:",
 		features: [
-			"Performance monitoring",
-			"Issue resolution",
-			"Workflow enhancements",
-			"System accuracy maintenance",
+			"Monitoring performance",
+			"Enhancements and feature improvements",
+			"Adding new workflows",
+			"Technical support as needed",
 		],
 		color: "from-amber-500 to-orange-600",
 		borderColor: "border-amber-500/40",
 		bgColor: "bg-amber-500/10",
 		image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80",
+		cta: "Keep my automations optimised",
+	},
+	{
+		id: "transformation",
+		number: "05",
+		icon: Lightbulb,
+		title: "AI Transformation Partner",
+		subtitle:
+			"Strategic long-term guidance for organisations adopting AI at scale.",
+		description: "We support you with:",
+		features: [
+			"AI strategy & governance",
+			"Roadmap development",
+			"Workforce transformation",
+			"Organisational AI readiness",
+			"Change management",
+		],
+		color: "from-purple-500 to-indigo-600",
+		borderColor: "border-purple-500/40",
+		bgColor: "bg-purple-500/10",
+		image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80",
+		cta: "Shape your AI strategy",
 	},
 ];
 
@@ -120,7 +148,7 @@ const ServiceFrameworkSection: FC = () => {
 						animate={isInView ? { opacity: 1, y: 0 } : {}}
 						transition={{ duration: 0.5 }}
 						className="inline-flex items-center rounded-full border border-sky-400/40 bg-sky-500/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-sky-200">
-						Four-Part Framework
+						Five-Part Framework
 					</motion.div>
 
 					<motion.h2
@@ -215,7 +243,8 @@ const ServiceFrameworkSection: FC = () => {
 											<a
 												href="#"
 												className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 transition hover:text-sky-300 group">
-												Learn more about this service
+												{service.cta ??
+													"Learn more about this service"}
 												<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
 											</a>
 										</div>
