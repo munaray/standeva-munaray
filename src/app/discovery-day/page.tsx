@@ -107,10 +107,8 @@ const afterItems = [
 export default function DiscoveryDayPage() {
 	const navItems = [
 		{ label: "Overview", href: "#overview" },
-		{ label: "What’s included", href: "#included" },
 		{ label: "Agenda", href: "#agenda" },
 		{ label: "Afterwards", href: "#after" },
-		{ label: "Book", href: "#book" },
 	];
 
 	const cta = {

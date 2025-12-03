@@ -137,7 +137,8 @@ const Hero: FC = () => {
 								15 min intro call
 							</motion.a>
 
-							<motion.button
+							<motion.a
+								href="/discovery-day"
 								className="inline-flex flex-col items-center justify-center rounded-md border border-sky-500 px-7 py-3 text-sm font-semibold text-sky-300 transition hover:bg-sky-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
 								whileHover={{ scale: 1.03 }}
 								whileTap={{ scale: 0.97 }}>
@@ -145,7 +146,7 @@ const Hero: FC = () => {
 								<span className="text-[0.72rem] leading-tight font-normal text-slate-400">
 									1-Day AI Audit + Strategy Session (£100)
 								</span>
-							</motion.button>
+							</motion.a>
 						</motion.div>
 
 						<div className="mt-10 w-full">
