@@ -3,7 +3,7 @@
 import type { FC } from "react";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { PhoneCall, Search, FileText, Rocket, RefreshCw, Map } from "lucide-react";
+import { PhoneCall, FileText, Rocket, RefreshCw, Map } from "lucide-react";
 
 const steps = [
 	{

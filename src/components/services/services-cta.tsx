@@ -1,10 +1,9 @@
 "use client";
 
 import type { FC } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { Sparkles, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Sparkles, CheckCircle2 } from "lucide-react";
 
 const startSteps = [
 	"Free 15-Min Introductory Call",
