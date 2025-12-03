@@ -22,9 +22,9 @@ interface SecondaryHeaderProps {
 }
 
 const defaultNavItems: NavItemConfig[] = [
-	{ label: "Home", href: "/" },
-	{ label: "Solutions", href: "/solutions/ai-consulting" },
-	{ label: "Company", href: "/company/about" },
+	// { label: "Home", href: "/" },
+	// { label: "Solutions", href: "/solutions/ai-consulting" },
+	// { label: "Company", href: "/company/about" },
 	// { label: "Contact", href: "/contact" }, // Not implemented yet
 ];
 

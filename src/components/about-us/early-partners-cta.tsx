@@ -116,12 +116,13 @@ const EarlyPartnersCTA: FC = () => {
 					initial={{ opacity: 0, y: 12 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.5, delay: 0.35 }}>
-					<motion.button
+					<motion.a
+						href="/intro-call"
 						className="inline-flex items-center justify-center rounded-md bg-sky-500 px-7 py-3 text-sm font-semibold text-white shadow-md shadow-sky-500/40 transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
 						whileHover={{ scale: 1.03 }}
 						whileTap={{ scale: 0.97 }}>
 						15 min intro call
-					</motion.button>
+					</motion.a>
 
 					<motion.button
 						className="inline-flex items-center justify-center rounded-md border border-sky-500 px-7 py-3 text-sm font-semibold text-sky-300 transition hover:bg-sky-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
