@@ -20,8 +20,8 @@ export default function AboutUsPage() {
 	];
 
 	const cta = {
-		label: "Book a demo",
-		href: "#partnership",
+		label: "15 min intro call",
+		href: "/intro-call",
 	};
 
 	return (

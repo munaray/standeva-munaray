@@ -13,8 +13,8 @@ export default function Home() {
 	];
 
 	const cta = {
-		label: "Book a demo",
-		href: "#pricing",
+		label: "15 min intro call",
+		href: "/intro-call",
 	};
 
 	return (

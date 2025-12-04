@@ -111,7 +111,7 @@ const ServicesCTA: FC = () => {
 						href="/intro-call"
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}
-						className="inline-flex items-center justify-center gap-2 rounded-md bg-sky-500 px-8 py-4 text-base font-semibold text-white shadow-[0_0_40px_rgba(56,189,248,0.4)] transition hover:shadow-[0_0_60px_rgba(56,189,248,0.6)]">
+						className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 text-base font-semibold text-white shadow-[0_0_40px_rgba(56,189,248,0.4)] transition-colors duration-300 ease-out hover:from-slate-800 hover:to-slate-800 hover:shadow-[0_0_60px_rgba(56,189,248,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black">
 						Start With a Free Intro Call
 					</motion.a>
 				</motion.div>

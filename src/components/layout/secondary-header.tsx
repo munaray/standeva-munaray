@@ -165,7 +165,7 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
 						<Link
 							href={ctaConfig.href}
 							onClick={(event) => handleAnchorClick(event, ctaConfig.href)}
-							className="hidden rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition hover:opacity-90 md:inline-flex">
+							className="hidden rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-colors duration-300 ease-out hover:from-slate-800 hover:to-slate-800 md:inline-flex">
 							{ctaConfig.label}
 						</Link>
 					)}
@@ -213,7 +213,7 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
 									onClick={(event) =>
 										handleAnchorClick(event, ctaConfig.href, true)
 									}
-									className="rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-blue-500/40">
+									className="rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-blue-500/40 transition-colors duration-300 ease-out hover:from-slate-800 hover:to-slate-800">
 									{ctaConfig.label}
 								</Link>
 							)}

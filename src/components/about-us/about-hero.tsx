@@ -101,7 +101,7 @@ const AboutUsHero: FC = () => {
 							90%
 						</div>
 						<div className="mt-2 text-center text-sm font-medium text-slate-300">
-							Reduction in Task Costs
+							Up to Reduction in Task Costs
 						</div>
 					</div>
 					<div className="flex flex-col items-center rounded-2xl border border-slate-800 bg-slate-900/60 px-6 py-8 backdrop-blur-sm">

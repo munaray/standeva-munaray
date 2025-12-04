@@ -19,8 +19,8 @@ export default function ServicesPage() {
 	];
 
 	const cta = {
-		label: "Book a demo",
-		href: "#process-audit",
+		label: "15 min intro call",
+		href: "/intro-call",
 	};
 
 	return (

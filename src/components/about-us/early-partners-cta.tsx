@@ -118,18 +118,19 @@ const EarlyPartnersCTA: FC = () => {
 					transition={{ duration: 0.5, delay: 0.35 }}>
 					<motion.a
 						href="/intro-call"
-						className="inline-flex items-center justify-center rounded-md bg-sky-500 px-7 py-3 text-sm font-semibold text-white shadow-md shadow-sky-500/40 transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+						className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-blue-500 to-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/40 transition-colors duration-300 ease-out hover:from-slate-800 hover:to-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
 						whileHover={{ scale: 1.03 }}
 						whileTap={{ scale: 0.97 }}>
 						15 min intro call
 					</motion.a>
 
-					<motion.button
-						className="inline-flex items-center justify-center rounded-md border border-sky-500 px-7 py-3 text-sm font-semibold text-sky-300 transition hover:bg-sky-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+					<motion.a
+						href="/discovery-day"
+						className="inline-flex items-center justify-center rounded-md bg-slate-800/90 px-7 py-3 text-sm font-semibold text-slate-100 shadow-md shadow-slate-900/30 transition-colors duration-300 ease-out hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-600/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
 						whileHover={{ scale: 1.03 }}
 						whileTap={{ scale: 0.97 }}>
-						Book a demo
-					</motion.button>
+						Discovery Day
+					</motion.a>
 				</motion.div>
 			</div>
 		</section>

@@ -3,7 +3,7 @@
 import type { FC } from "react";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { DollarSign, TrendingUp, Shield, CheckCircle2 } from "lucide-react";
+import { PoundSterling, TrendingUp, Shield, CheckCircle2 } from "lucide-react";
 
 const ServicePricingAdvantage: FC = () => {
 	const { ref, isInView } = useScrollAnimation({
@@ -29,9 +29,9 @@ const ServicePricingAdvantage: FC = () => {
 						animate={isInView ? { opacity: 1, y: 0 } : {}}
 						transition={{ duration: 0.5 }}
 						className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-emerald-200">
-						<DollarSign className="h-3.5 w-3.5" />
-						Pricing Advantage
-					</motion.div>
+					<PoundSterling className="h-3.5 w-3.5" />
+					Pricing Advantage
+				</motion.div>
 
 					{/* Title */}
 					<motion.h2
@@ -85,7 +85,7 @@ const ServicePricingAdvantage: FC = () => {
 						className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 shadow-[0_15px_60px_rgba(0,0,0,0.35)]">
 						<div className="flex items-center gap-3">
 							<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-200">
-								<DollarSign className="h-5 w-5" />
+								<PoundSterling className="h-5 w-5" />
 							</div>
 							<h3 className="text-lg font-semibold text-slate-100">
 								Pricing

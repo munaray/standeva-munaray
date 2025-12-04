@@ -40,7 +40,8 @@ const services = [
 		number: "02",
 		icon: Search,
 		title: "Discovery Day & AI Audit (£100)",
-		subtitle: "A collaborative deep-dive into your automation opportunities.",
+		subtitle:
+			"A collaborative deep-dive into your automation opportunities.",
 		description: "Includes:",
 		features: [
 			"Understanding your goals",
@@ -79,7 +80,7 @@ const services = [
 		borderColor: "border-emerald-500/40",
 		bgColor: "bg-emerald-500/10",
 		image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop&q=80",
-		cta: "Discuss implementation",
+		// cta: "Discuss implementation",
 	},
 	{
 		id: "maintenance",
@@ -99,7 +100,7 @@ const services = [
 		borderColor: "border-amber-500/40",
 		bgColor: "bg-amber-500/10",
 		image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80",
-		cta: "Keep my automations optimised",
+		// cta: "Keep my automations optimised",
 	},
 	{
 		id: "transformation",
@@ -120,7 +121,7 @@ const services = [
 		borderColor: "border-purple-500/40",
 		bgColor: "bg-purple-500/10",
 		image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80",
-		cta: "Shape your AI strategy",
+		// cta: "Shape your AI strategy",
 	},
 ];
 
@@ -218,7 +219,7 @@ const ServiceFrameworkSection: FC = () => {
 										</p>
 
 										{/* Description */}
-										<p className="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">
+										<p className="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">
 											{service.description}
 										</p>
 
@@ -230,7 +231,7 @@ const ServiceFrameworkSection: FC = () => {
 														key={idx}
 														className="flex items-start gap-3">
 														<CheckCircle2 className="h-5 w-5 flex-shrink-0 text-emerald-400 mt-0.5" />
-														<span className="text-sm text-slate-300">
+														<span className="text-sm text-slate-300 sm:text-base">
 															{feature}
 														</span>
 													</div>
@@ -239,21 +240,31 @@ const ServiceFrameworkSection: FC = () => {
 										</div>
 
 										{/* CTA */}
-										<div className="mt-8">
-											<a
-												href="#"
-												className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 transition hover:text-sky-300 group">
-												{service.cta ??
-													"Learn more about this service"}
-												<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-											</a>
-										</div>
+										{service.cta &&
+											(service.id === "intro-call" ||
+												service.id === "process-audit") && (
+												<div className="mt-8">
+													<a
+														href={
+															service.id ===
+															"intro-call"
+																? "/intro-call"
+																: "/discovery-day"
+														}
+														className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 transition hover:text-sky-300 group">
+														{service.cta}
+														<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+													</a>
+												</div>
+											)}
 									</div>
 
 									{/* Image */}
 									<div
 										className={`relative ${
-											isEven ? "" : "lg:col-start-1 lg:row-start-1"
+											isEven
+												? ""
+												: "lg:col-start-1 lg:row-start-1"
 										}`}>
 										<div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/50 shadow-[0_0_40px_rgba(56,189,248,0.1)]">
 											<Image
