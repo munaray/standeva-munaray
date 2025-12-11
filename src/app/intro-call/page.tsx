@@ -1,10 +1,5 @@
-"use client";
-
-import { useState } from "react";
-import Image from "next/image";
 import SecondaryHeader from "@/components/layout/secondary-header";
 import SecondaryFooter from "@/components/layout/secondary-footer";
-import CalendarModal from "@/components/ui/calendar-modal";
 import { CheckCircle2, PhoneCall, Rocket, FileText } from "lucide-react";
 
 const whatWeCover = [
@@ -22,8 +17,6 @@ const discoveryDayItems = [
 ];
 
 export default function IntroCallPage() {
-	const [isModalOpen, setIsModalOpen] = useState(false);
-
 	const cta = {
 		label: "Book discovery series",
 		href: "/discovery-day",
@@ -32,12 +25,6 @@ export default function IntroCallPage() {
 	return (
 		<main className="min-h-screen w-full overflow-x-hidden bg-black">
 			<SecondaryHeader cta={cta} />
-
-			{/* Calendar Modal */}
-			<CalendarModal
-				isOpen={isModalOpen}
-				onClose={() => setIsModalOpen(false)}
-			/>
 
 			<div className="w-full pt-16 sm:pt-20">
 				<section
@@ -65,21 +52,17 @@ export default function IntroCallPage() {
 									needs — and whether AI automation is the
 									right fit.
 								</p>
-								<button
-									onClick={() => setIsModalOpen(true)}
-									className="rounded-lg bg-linear-to-r from-blue-500 to-purple-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/40 transition-all duration-300 ease-out hover:scale-105 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl hover:shadow-blue-500/50">
-									Book Your 15-Minute Call
-								</button>
 							</div>
 
-							{/* Right Column - Calendar Image */}
-							<div className="relative h-[400px] overflow-hidden rounded-2xl lg:h-[500px]">
-								<Image
-									src="/calender.jpg"
-									alt="Calendar scheduling"
-									fill
-									className="object-cover"
-									priority
+							{/* Right Column - Embedded Zcal Calendar */}
+							<div className="overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 shadow-2xl shadow-blue-500/20">
+								<iframe
+									src="https://zcal.co/standeva/30min"
+									className="h-[500px] w-full lg:h-[600px]"
+									frameBorder="0"
+									title="Book your 15-minute intro call"
+									allow="camera; microphone; payment"
+									loading="eager"
 								/>
 							</div>
 						</div>
