@@ -1,12 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import SecondaryHeader from "@/components/layout/secondary-header";
 import SecondaryFooter from "@/components/layout/secondary-footer";
-import { CheckCircle2, PhoneCall, Rocket, FileText } from "lucide-react";
-
-export const metadata = {
-	title: "Book a 15-Minute Intro Call | ProcessZero",
-	description:
-		"Schedule a free 15-minute intro call to see if AI automation is the right fit. Get clarity on pain points, process, pricing, and next steps toward a £100 Discovery Day.",
-};
+import CalendarModal from "@/components/ui/calendar-modal";
+import FloatingCalendarButton from "@/components/ui/floating-calendar-button";
+import { CheckCircle2, PhoneCall, Rocket, FileText, Calendar } from "lucide-react";
 
 const whatWeCover = [
 	"Your current pain points",
@@ -23,6 +22,8 @@ const discoveryDayItems = [
 ];
 
 export default function IntroCallPage() {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
 	const cta = {
 		label: "Book discovery series",
 		href: "/discovery-day",
@@ -31,6 +32,16 @@ export default function IntroCallPage() {
 	return (
 		<main className="min-h-screen w-full overflow-x-hidden bg-black">
 			<SecondaryHeader cta={cta} />
+
+			{/* Calendar Modal */}
+			<CalendarModal
+				isOpen={isModalOpen}
+				onClose={() => setIsModalOpen(false)}
+			/>
+
+			{/* Floating Calendar Button */}
+			<FloatingCalendarButton onClick={() => setIsModalOpen(true)} />
+
 			<div className="w-full pt-16 sm:pt-20">
 				<section
 					id="overview"
@@ -48,7 +59,7 @@ export default function IntroCallPage() {
 
 						<div className="mt-6 space-y-4 text-left">
 							<h1 className="text-balance text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
-								Busy? Let’s keep it quick and useful.
+								Busy? Let&apos;s keep it quick and useful.
 							</h1>
 							<p className="max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
 								This short call helps us understand your needs —
@@ -65,7 +76,7 @@ export default function IntroCallPage() {
 						<div className="grid gap-6 lg:grid-cols-2 lg:items-start">
 							<div className="h-full rounded-2xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur-sm">
 								<h2 className="text-xl font-semibold text-slate-100 sm:text-2xl">
-									What We’ll Cover
+									What We&apos;ll Cover
 								</h2>
 								<ul className="mt-4 space-y-3">
 									{whatWeCover.map((item) => (
@@ -140,13 +151,30 @@ export default function IntroCallPage() {
 								Looking forward to speaking with you.
 							</h3>
 							<p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
-								Use the scheduler below to book your free
-								15-minute intro call. We’ll add a calendar
-								integration here soon.
+								Pick a time that works for you and we&apos;ll send you a calendar invite.
 							</p>
-							<div className="mt-6 rounded-2xl border border-dashed border-slate-700 bg-slate-900/80 p-8 text-sm text-slate-400">
-								Calendar integration placeholder
-							</div>
+
+							{/* Book Call Button */}
+							<button
+								onClick={() => setIsModalOpen(true)}
+								className="mt-6 inline-flex items-center gap-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/40 transition-all duration-300 ease-out hover:scale-105 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl hover:shadow-blue-500/50"
+							>
+								<Calendar size={20} />
+								Book Your 15-Minute Call
+							</button>
+
+							{/* Fallback Direct Link */}
+							<p className="mt-4 text-xs text-slate-500">
+								Or{" "}
+								<a
+									href="https://zcal.co/standeva/30min"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-sky-400 underline hover:text-sky-300"
+								>
+									open calendar in new tab
+								</a>
+							</p>
 						</div>
 					</div>
 				</section>
