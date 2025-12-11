@@ -132,7 +132,7 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
 
 				const author = {
 					name: "Process Zero Team",
-					avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop",
+					avatar: "",
 					bio: "AI Strategy Consultants and Technology Experts"
 				};
 
