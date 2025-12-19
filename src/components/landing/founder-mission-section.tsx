@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import Image from "next/image";
-import { Github, MetaAI } from "@lobehub/icons";
+import { MetaAI, Microsoft } from "@lobehub/icons";
 
 const FounderMissionSection: FC = () => {
 	return (
@@ -95,10 +95,17 @@ const FounderMissionSection: FC = () => {
 										<span>Meta AI</span>
 									</span>
 									<span className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-4 py-2 text-[0.7rem] font-medium text-slate-100">
-										<Github size={16} />
-										<span>GitHub</span>
+										<Microsoft size={16} />
+										<span>Microsoft for Startups Founders Hub</span>
 									</span>
 									<span className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-4 py-2 text-[0.7rem] font-medium text-slate-100">
+										<Image
+											src="/browse-ai.png"
+											alt="Browse AI"
+											width={16}
+											height={16}
+											className="h-4 w-4"
+										/>
 										<span>Browse AI</span>
 									</span>
 								</div>
