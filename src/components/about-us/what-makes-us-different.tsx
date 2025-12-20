@@ -80,7 +80,7 @@ const WhatMakesUsDifferent: FC = () => {
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.1 }}
 					className="mt-6 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
-					why processzero is different
+					why process zero is different
 				</motion.h2>
 
 				<motion.p
@@ -88,8 +88,8 @@ const WhatMakesUsDifferent: FC = () => {
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6, delay: 0.2 }}
 					className="mx-auto mt-4 max-w-2xl text-sm text-slate-300 sm:text-base">
-					Five principles that keep your data safe, your AI transparent, and
-					your ROI clear.
+					Five principles that keep your data safe, your AI
+					transparent, and your ROI clear.
 				</motion.p>
 
 				{/* Differentiators grid */}
