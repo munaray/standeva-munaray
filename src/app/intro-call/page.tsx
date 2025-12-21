@@ -79,7 +79,7 @@ export default function IntroCallPage() {
 								id="booking"
 								className="overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 shadow-2xl shadow-blue-500/20">
 								<iframe
-									src="https://zcal.co/consulting-team/60min-discovery"
+									src="https://zcal.co/aiautomationteam/60min"
 									className="h-[500px] w-full lg:h-[600px]"
 									frameBorder="0"
 									title="Book your 60-minute discovery call"
