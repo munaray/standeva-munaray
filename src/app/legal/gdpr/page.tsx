@@ -67,7 +67,7 @@ function AnchorTitle({
 export default function GDPRPage() {
 	const navItems = [
 		{ label: "home", href: "/" },
-		{ label: "about us", href: "/about-us" },
+		// { label: "about us", href: "/about-us" },
 		{ label: "services", href: "/services" },
 	];
 
