@@ -193,11 +193,11 @@ const ContactFormSection = () => {
 									<p className="mt-1">
 										Trading as Process Zero
 									</p>
-									<a
+									{/* <a
 										href="https://find-and-update.company-information.service.gov.uk/company/14108972"
 										className="mt-2 inline-flex text-xs text-blue-200 underline decoration-blue-300/60 underline-offset-4 transition-colors hover:text-blue-100">
 										https://find-and-update.company-information.service.gov.uk/company/14108972
-									</a>
+									</a> */}
 								</div>
 							</div>
 
