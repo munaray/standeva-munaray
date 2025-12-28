@@ -94,7 +94,7 @@ const ActSection: FC = () => {
 
 				<p className="mt-4 max-w-2xl text-sm text-slate-300 sm:text-[0.95rem] md:text-base">
 					Our structured process to understand your business and help
-					make it “future ready
+					make it &quot;future ready&quot;
 				</p>
 
 				<div className="mt-10 grid w-full gap-6 text-left">

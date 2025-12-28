@@ -80,7 +80,7 @@ const TransitionOverlay: React.FC = () => {
 			<OurProcess />
 			<PricingSection />
 			<Faq />
-			<CtaSection />
+			{/* <CtaSection /> */}
 		</>
 	);
 };
