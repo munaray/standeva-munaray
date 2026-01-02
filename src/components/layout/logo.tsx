@@ -1,46 +1,50 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
-type LogoSize = "md" | "lg";
+type LogoSize = "sm" | "md" | "lg";
 
 interface LogoProps {
 	showWordmark?: boolean;
 	size?: LogoSize;
 	className?: string;
 	wordmarkClassName?: string;
+	priority?: boolean;
 }
 
 const iconSizes: Record<LogoSize, string> = {
+	sm: "h-2 w-2",
 	md: "h-9 w-9",
 	lg: "h-10 w-10",
 };
 
 const wordmarkSizes: Record<LogoSize, string> = {
+	sm: "text-sm",
 	md: "text-lg",
 	lg: "text-xl",
 };
 
 const Logo: React.FC<LogoProps> = ({
 	showWordmark = true,
-	size = "md",
+	size = "sm",
 	className = "",
 	wordmarkClassName = "",
+	priority = false,
 }) => {
 	return (
 		<div className={`flex items-center gap-2 ${className}`}>
-			<div
-				className={`grid place-items-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 ${iconSizes[size]}`}>
-				<div className="grid grid-cols-2 gap-[3px]">
-					<span className="h-3 w-3 rounded-sm bg-white/90" />
-					<span className="h-3 w-3 rounded-sm bg-white/70" />
-					<span className="h-3 w-3 rounded-sm bg-white/70" />
-					<span className="h-3 w-3 rounded-sm bg-white/90" />
-				</div>
-			</div>
+			<Image
+				src="/brand-assets/svg/pz-icon.svg"
+				alt="Process Zero logo"
+				width={512}
+				height={512}
+				priority={priority}
+				className={iconSizes[size]}
+			/>
 			{showWordmark && (
 				<span
-					className={`${wordmarkSizes[size]} font-bold leading-none text-white ${wordmarkClassName}`}>
+					className={`${wordmarkSizes[size]} font-bold leading-none text-lg text-white ${wordmarkClassName}`}>
 					Process Zero
 				</span>
 			)}
