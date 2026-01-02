@@ -25,55 +25,28 @@ const FounderMissionSection: FC = () => {
 				<div className="grid gap-12 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:items-center">
 					<div className="space-y-6 text-left text-sm text-slate-200 sm:text-[0.95rem] md:text-base">
 						<p className="text-xs font-semibold tracking-[0.22em] text-slate-400">
-							a founder&apos;s mission
+							mission statement
 						</p>
 						<p>
-							We work with companies that know AI can help them
-							grow but don’t yet have a clear path forward. By
-							automating low value, repetitive work, we free your
-							team to focus on the higher-value, revenue-driving
-							tasks that move the business forward all without
-							adding risk.
+							ProcessZero exists to drive operating inefficiency
+							and unnecessary cost towards zero.
 						</p>
 						<p>
-							After 25 years in change management, I understand
-							what it feels like to be asked to achieve more with
-							the same or fewer resources. That pressure is real,
-							and AI can finally start to relieve it.
+							We help businesses eliminate waste, simplify
+							everyday processes, and reduce operating costs using
+							safe, practical AI that fits seamlessly into how
+							they already work. Your data never leaves your
+							network.
 						</p>
 						<p>
-							Our team is here to help your business grow faster
-							through safe, practical AI automation. If you know
-							you need to take the first step but aren’t sure
-							where to begin, book a free 60 minute call and we’ll
-							guide you through your options.
-						</p>
-						<p>
-							I often say: “Once you see it, you can’t unsee it.”
-							And that’s exactly what I want for you to clearly
-							see the growth potential AI can unlock in your
-							business, as well as the cost reductions that can
-							make it more profitable, leaner and easier to run.
+							Our aim is simple: to help organisations run leaner,
+							operate more cost effectively, and grow faster,
+							enabling teams to focus on high-value work without
+							adding risk or complexity.
 						</p>
 					</div>
 
 					<div className="flex flex-col items-center gap-8 md:items-end">
-						<div className="relative h-64 w-64 max-w-full">
-							<div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-sky-500 to-indigo-600" />
-							<div className="absolute inset-[10%] overflow-hidden rounded-[2.4rem] bg-slate-950">
-								<Image
-									src="/blog-1-1.png"
-									alt="Process Zero founder portrait"
-									fill
-									className="object-cover object-center"
-									sizes="256px"
-								/>
-							</div>
-							<div className="absolute -right-3 bottom-6 flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-900 shadow-lg shadow-sky-500/40">
-								<span className="text-xl leading-none">“</span>
-							</div>
-						</div>
-
 						<div className="w-full max-w-sm space-y-6 text-right text-xs text-slate-300 sm:text-[0.8rem]">
 							<div>
 								<p className="font-semibold tracking-[0.2em] text-slate-400">
@@ -87,7 +60,7 @@ const FounderMissionSection: FC = () => {
 									<div className="relative ml-auto w-full max-w-[12rem] h-32 overflow-hidden rounded-2xl border border-violet-400/40 bg-gradient-to-br from-violet-700 via-purple-600 to-indigo-700 p-3 text-left shadow-[0_24px_60px_rgba(88,28,135,0.45)]">
 										<div className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-white/10 blur-3xl" />
 										<div className="pointer-events-none absolute -left-8 bottom-0 h-24 w-24 rounded-full bg-white/10 blur-2xl" />
-											<div className="relative space-y-4">
+										<div className="relative space-y-4">
 											<div className="flex items-center gap-2 text-[0.7rem] font-semibold text-white/90">
 												<Microsoft.Color size={18} />
 												<span>Microsoft</span>
