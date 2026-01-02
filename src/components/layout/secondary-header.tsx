@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useRef, useState, useCallback } from "react"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import Logo from "./logo";
+import Image from "next/image";
 
 interface NavItemConfig {
 	label: string;
@@ -125,7 +125,17 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
 			className={`fixed top-0 left-0 right-0 z-40 h-16 sm:h-20 border-b border-white/5 ${isScrolled ? "bg-slate-950/95" : "bg-slate-950/80"} backdrop-blur-xl transition-all ${className}`}>
 			<nav className="mx-auto flex h-full w-full max-w-6xl items-center justify-between px-4 sm:px-6">
 				<Link href="/" className="flex items-center gap-2 sm:gap-3 no-underline">
-					<Logo wordmarkClassName="sm:text-xl" />
+					<Image
+						src="/brand-assets/svg/pz-logo-dark.svg"
+						alt="Process Zero logo"
+						width={556}
+						height={367}
+						priority
+						className="h-9 w-auto sm:h-10"
+					/>
+					<span className="hidden text-base font-semibold text-white lg:inline-block">
+						Process Zero
+					</span>
 				</Link>
 
 				<ul className="hidden items-center gap-4 lg:gap-8 md:flex">
